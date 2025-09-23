@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
     "outDir": "./dist/",
+    // Указываем директорию, для абсолютного импорта
+    "baseUrl": ".",
     "noImplicitAny": true,
     // Указываем, на какую версию JS будет компилироваться
     "target": "es5",
