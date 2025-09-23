@@ -1,3 +1,3 @@
-export function testFunc() {
+export default function testFunc() {
   console.log("Works correctly!");
 }
