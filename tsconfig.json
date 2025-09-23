@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    // Указываем, на какую версию JS будет компилироваться
+    "target": "es5",
+    // Разрешаем JS-файлы (если вдруг нужно использовать js/jsx)
+    "jsx": "react",
+    // Пропускаем проверку типовых деклараций в node_modules
+    "skipLibCheck": true,
+    "allowJs": true,
+    // Модуль и способ резолва
+    // Если вы столкнетесь с проблемами при компиляции, попробуйте "moduleResolution": "Node".
+    "module": "es6",
+    "moduleResolution": "node",
+    // Для удобства при использовании commonjs и es-модулей
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
+}
