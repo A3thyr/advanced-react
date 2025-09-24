@@ -13,7 +13,7 @@
     "allowJs": true,
     // Модуль и способ резолва
     // Если вы столкнетесь с проблемами при компиляции, попробуйте "moduleResolution": "Node".
-    "module": "es6",
+    "module": "esnext",
     "moduleResolution": "node",
     // Для удобства при использовании commonjs и es-модулей
     "esModuleInterop": true,
