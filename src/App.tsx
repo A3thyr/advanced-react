@@ -4,11 +4,12 @@ import { AboutPageLazy } from "./pages/AboutPage/about.lazy";
 import { MainPageLazy } from "./pages/MainPage/main.lazy";
 import "./styles/index.scss";
 import { useTheme } from "./theme/useTheme";
+import { classNames } from "./helpers/classNames";
 
 const App = () => {
   const { theme, toggleTheme } = useTheme();
   return (
-    <div className={`app ${theme}`}>
+    <div className={classNames("app", {}, [theme])}>
       <Link to={`/`} style={{ backgroundColor: "violet" }}>
         Main Page
       </Link>
