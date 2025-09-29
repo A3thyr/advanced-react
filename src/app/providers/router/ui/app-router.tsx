@@ -1,4 +1,4 @@
-import { FC, Suspense, useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { routeConfig } from "shared/config/router/router.config";
 
