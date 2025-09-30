@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
-import { Button, ThemeButton } from "shared/ui/Button/Button";
+import { Button, ThemeButton } from "shared/ui";
 import { LangSwitcher } from "widgets/LangSwitcher";
 import { ThemeSwitcher } from "widgets/theme-switcher";
 import cls from "./Sidebar.module.scss";

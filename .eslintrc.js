@@ -40,6 +40,8 @@ module.exports = {
     "no-underscore-dangle": "off",
     "react/button-has-type": "off",
     "operator-linebreak": "off",
+    "linebreak-style": "off",
+    "arrow-body-style": "off",
     // "i18next/no-literal-string": ["error", { markupOnly: true }],
     quotes: ["error", "double"],
     "max-len": [

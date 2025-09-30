@@ -1,15 +1,11 @@
-import { Suspense, useEffect } from "react";
+import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { routeConfig } from "shared/config/router/router.config";
+import { PageLoader } from "widgets/PageLoader";
 
 export const AppRouter = () => {
-  useEffect(() => {
-    console.log("mount:", routeConfig);
-    return () => console.log("unmount:", routeConfig);
-  }, [routeConfig]);
-
   return (
-    <Suspense fallback={<>Loading...</>}>
+    <Suspense fallback={<PageLoader />}>
       <Routes>
         {Object.values(routeConfig).map(({ element, path }) => (
           <Route
