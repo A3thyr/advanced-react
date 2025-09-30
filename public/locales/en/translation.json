@@ -1,5 +1,8 @@
 {
   "test": "Sample text",
   "language": "English",
-  "not-found": "Page not found"
+  "not-found": "Page not found",
+  "error": "An error occured. Please, check development console.",
+  "refresh-btn": "Refresh the page",
+  "throw-err": "Call an error"
 }
