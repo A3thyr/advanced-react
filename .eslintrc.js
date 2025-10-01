@@ -42,7 +42,13 @@ module.exports = {
     "operator-linebreak": "off",
     "linebreak-style": "off",
     "arrow-body-style": "off",
-    // "i18next/no-literal-string": ["error", { markupOnly: true }],
+    "i18next/no-literal-string": [
+      "error",
+      {
+        markupOnly: true,
+        ignoreAttribute: ["data-testid", "type", "to", "fallback"],
+      },
+    ],
     quotes: ["error", "double"],
     "max-len": [
       "error",
@@ -56,4 +62,12 @@ module.exports = {
   globals: {
     __IS_DEV__: true,
   },
+  overrides: [
+    {
+      files: ["**/src/**/*.test.{ts,tsx}"],
+      rules: {
+        "i18next/no-literal-string": "off",
+      },
+    },
+  ],
 };
