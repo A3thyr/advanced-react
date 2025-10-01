@@ -54,7 +54,7 @@ module.exports = {
       "error",
       {
         ignoreComments: true,
-        code: 90,
+        code: 100,
       },
     ],
     "comma-dangle": "off",
