@@ -7,6 +7,8 @@
 # production
 .vscode/
 /build
+/storybook-static
+
 
 # debug
 .vscode/*
