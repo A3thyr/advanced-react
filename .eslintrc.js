@@ -32,7 +32,7 @@ module.exports = {
     "no-unused-vars": "warn",
     "react/require-default-props": "off",
     "react/react-in-jsx-scope": "off",
-    "react/jsx-props-no-spreading": "warn",
+    "react/jsx-props-no-spreading": "off",
     "react/function-component-definition": "off",
     "no-shadow": "off",
     "import/extensions": "off",
@@ -49,7 +49,8 @@ module.exports = {
         ignoreAttribute: ["data-testid", "type", "to", "fallback"],
       },
     ],
-    quotes: ["error", "double"],
+    quotes: ["error", "double", { allowTemplateLiterals: true }],
+    "react/jsx-curly-brace-presence": "off",
     "max-len": [
       "error",
       {
