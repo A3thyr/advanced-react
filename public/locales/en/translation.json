@@ -4,5 +4,6 @@
   "not-found": "Page not found",
   "error": "An error occured. Please, check development console.",
   "refresh-btn": "Refresh the page",
-  "throw-err": "Call an error"
+  "throw-err": "Call an error",
+  "short-lang-key": "En"
 }

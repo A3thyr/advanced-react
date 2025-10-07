@@ -42,6 +42,7 @@ module.exports = {
     "operator-linebreak": "off",
     "linebreak-style": "off",
     "arrow-body-style": "off",
+    "object-curly-newline": "off",
     "i18next/no-literal-string": [
       "error",
       {
