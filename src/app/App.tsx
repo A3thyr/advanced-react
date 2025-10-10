@@ -15,7 +15,12 @@ const App = () => {
     <div className={classNames("app", {}, [theme])}>
       <Suspense fallback="">
         <Navbar />
-        <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} />
+        <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui,
+          voluptatem suscipit dicta quos vel, doloribus eveniet quaerat sequi at
+          eius numquam labore! Modi laborum animi cum cupiditate officiis
+          maiores repellat?
+        </Modal>
         <button onClick={() => setIsOpen(true)}>toggle modal</button>
         <div className="content-page">
           <Sidebar />
