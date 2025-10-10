@@ -1,7 +1,8 @@
+import { ErrorBoundary } from "app/providers/error";
 import { ThemeProvider } from "app/providers/theme-provider";
 import { render } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import { ErrorBoundary } from "app/providers/error";
+import "./app/styles/index.scss";
 
 import App from "./app/App";
 
