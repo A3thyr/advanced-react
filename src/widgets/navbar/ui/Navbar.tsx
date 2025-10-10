@@ -1,3 +1,4 @@
+/* eslint-disable i18next/no-literal-string */
 import { FC, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
