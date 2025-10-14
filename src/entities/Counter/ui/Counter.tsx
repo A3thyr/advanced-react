@@ -9,7 +9,7 @@ interface CounterProps {
 }
 
 export const Counter: FC<CounterProps> = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("translation");
   const dispatch = useDispatch();
   const counterValue = useSelector(getCounterValue);
   const increment = () => {
@@ -22,9 +22,13 @@ export const Counter: FC<CounterProps> = () => {
 
   return (
     <div>
-      <h1>{counterValue}</h1>
-      <Button onClick={increment}>{t("increment")}</Button>
-      <Button onClick={decrement}>{t("decrement")}</Button>
+      <h1 data-testid="value-title">{counterValue}</h1>
+      <Button onClick={increment} data-testid="increment-btn">
+        {t("increment")}
+      </Button>
+      <Button onClick={decrement} data-testid="decrement-btn">
+        {t("decrement")}
+      </Button>
     </div>
   );
 };

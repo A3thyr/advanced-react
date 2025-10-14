@@ -6,5 +6,7 @@
   "refresh-btn": "Обновить страницу",
   "throw-err": "Вызвать ошибку",
   "short-lang-key": "Ru",
-  "login": "Войти"
+  "login": "Войти",
+  "increment": "инкремент",
+  "decrement": "декремент"
 }

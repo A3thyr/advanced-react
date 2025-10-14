@@ -6,5 +6,7 @@
   "refresh-btn": "Refresh the page",
   "throw-err": "Call an error",
   "short-lang-key": "En",
-  "login": "Login"
+  "login": "Login",
+  "increment": "increment",
+  "decrement": "decrement"
 }
