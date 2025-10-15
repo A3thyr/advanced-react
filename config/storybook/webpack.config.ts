@@ -1,5 +1,5 @@
 import path from "path";
-import { RuleSetRule } from "webpack";
+import { DefinePlugin, RuleSetRule } from "webpack";
 import { WebpackConfiguration } from "webpack-dev-server";
 import { buildCssLoaders } from "../../config/build/loaders/buildCssLoaders";
 import { buildSvgLoader } from "../../config/build/loaders/buildSvgLoader";
@@ -15,6 +15,12 @@ export default ({ config }: { config: WebpackConfiguration }) => {
 
   config.resolve.modules.push(paths.src);
   config.resolve.extensions.push(".ts", ".tsx");
+
+  config.plugins.push(
+    new DefinePlugin({
+      __IS_DEV__: JSON.stringify(true), // or false depending on your needs
+    })
+  );
 
   // eslint-disable-next-line no-param-reassign
   config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
