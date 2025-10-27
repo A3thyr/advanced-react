@@ -20,6 +20,7 @@ export const LoginModal: FC<LoginModalProps> = ({
       isOpen={isOpen}
       onClose={onClose}
       className={classNames(cls.LoginModal, {}, [className])}
+      lazy
     >
       <LoginForm />
     </Modal>

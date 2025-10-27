@@ -8,5 +8,6 @@
   "short-lang-key": "Ru",
   "login": "Войти",
   "increment": "инкремент",
-  "decrement": "декремент"
+  "decrement": "декремент",
+  "password": ""
 }
