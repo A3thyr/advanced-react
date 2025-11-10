@@ -18,7 +18,7 @@ export default ({ config }: { config: WebpackConfiguration }) => {
 
   config.plugins.push(
     new DefinePlugin({
-      __IS_DEV__: JSON.stringify(true), // or false depending on your needs
+      __IS_DEV__: true,
     })
   );
 

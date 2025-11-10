@@ -2,7 +2,6 @@ import { addDecorator } from "@storybook/react";
 import { Theme } from "../../src/app/providers/theme-provider";
 import {
   RouterDecorator,
-  StoreDecorator,
   StyleDecorator,
   ThemeDecorator,
 } from "../../src/shared/config/storybook";
@@ -20,4 +19,4 @@ export const parameters = {
 addDecorator(StyleDecorator);
 addDecorator(ThemeDecorator(Theme.LIGHT));
 addDecorator(RouterDecorator);
-addDecorator(StoreDecorator({ initialState: { counter: { value: 10 } } }));
+// addDecorator(StoreDecorator());
