@@ -9,5 +9,8 @@
   "login": "Войти",
   "increment": "инкремент",
   "decrement": "декремент",
-  "password": ""
+  "password": "пароль",
+  "username": "логин",
+  "login-title": "Вход",
+  "Incorrect username or password": "Неправильный логин или пароль"
 }

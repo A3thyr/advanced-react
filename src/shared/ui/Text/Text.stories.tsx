@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { Theme } from "app/providers/theme-provider";
 import { ThemeDecorator } from "shared/config/storybook";
-import { Text } from "./Text";
+import { Text, TextTheme } from "./Text";
 
 export default {
   title: "shared/Text",
@@ -17,6 +17,13 @@ export const Primary = Template.bind({});
 Primary.args = {
   title: "Title lorem ipsum",
   text: "Text lorem ipsum",
+};
+
+export const Error = Template.bind({});
+Error.args = {
+  title: "Title lorem ipsum",
+  text: "Text lorem ipsum",
+  theme: TextTheme.ERROR,
 };
 
 export const OnlyTitle = Template.bind({});

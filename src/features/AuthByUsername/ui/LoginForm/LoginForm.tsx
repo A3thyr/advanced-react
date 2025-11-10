@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import { Button, Input, ThemeButton } from "shared/ui";
+import { Text, TextTheme } from "shared/ui/Text/Text";
 import cls from "./LoginForm.module.scss";
 
 interface LoginFormProps {
@@ -13,7 +14,7 @@ interface LoginFormProps {
 }
 
 export const LoginForm = memo(({ className }: LoginFormProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("translation");
   const dispatch = useDispatch();
 
   const { isLoading, password, username, error } = useSelector(getLoginState);
@@ -38,7 +39,8 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
 
   return (
     <div className={classNames(cls.LoginForm, {}, [className])}>
-      {error && <div className="">{error}</div>}
+      <Text title={t("login-title")} />
+      {error && <Text text={error} theme={TextTheme.ERROR} />}
       <Input
         autoFocus
         type="text"

@@ -8,5 +8,9 @@
   "short-lang-key": "En",
   "login": "Login",
   "increment": "increment",
-  "decrement": "decrement"
+  "decrement": "decrement",
+  "password": "password",
+  "username": "username",
+  "login-title": "Login",
+  "Incorrect username or password": "Incorrect username or password"
 }
