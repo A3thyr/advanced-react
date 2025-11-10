@@ -12,5 +12,6 @@
   "password": "пароль",
   "username": "логин",
   "login-title": "Вход",
-  "Incorrect username or password": "Неправильный логин или пароль"
+  "Incorrect username or password": "Неправильный логин или пароль",
+  "logout": "Выйти"
 }

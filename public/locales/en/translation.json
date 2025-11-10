@@ -12,5 +12,6 @@
   "password": "password",
   "username": "username",
   "login-title": "Login",
-  "Incorrect username or password": "Incorrect username or password"
+  "Incorrect username or password": "Incorrect username or password",
+  "logout": "Logout"
 }
