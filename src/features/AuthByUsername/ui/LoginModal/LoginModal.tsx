@@ -1,7 +1,7 @@
-import { FC } from "react";
+import { FC, Suspense } from "react";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import { Modal } from "shared/ui";
-import { LoginForm } from "../LoginForm/LoginForm";
+import LoginForm from "../LoginForm/LoginForm";
 import cls from "./LoginModal.module.scss";
 
 interface LoginModalProps {
@@ -22,7 +22,9 @@ export const LoginModal: FC<LoginModalProps> = ({
       className={classNames(cls.LoginModal, {}, [className])}
       lazy
     >
-      <LoginForm />
+      <Suspense fallback={<>Loading...</>}>
+        <LoginForm />
+      </Suspense>
     </Modal>
   );
 };
