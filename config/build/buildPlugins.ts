@@ -23,14 +23,14 @@ export function buildPlugins({
     }),
   ];
 
-  if (isDev) {
-    plugins.push(
-      new BundleAnalyzerPlugin({
-        openAnalyzer: false,
-        analyzerPort: 8001,
-      })
-    );
+  plugins.push(
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+      analyzerPort: 8001,
+    })
+  );
 
+  if (isDev) {
     plugins.push(new ReactRefreshPlugin());
     plugins.push(new webpack.HotModuleReplacementPlugin());
   }
