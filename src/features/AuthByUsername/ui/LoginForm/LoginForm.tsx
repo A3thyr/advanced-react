@@ -1,11 +1,14 @@
-import { ReduxStoreWithManager } from "app/providers/StoreProvider";
 import {
   loginActions,
   loginReducer,
 } from "features/AuthByUsername/model/slice/loginSlice";
-import { memo, useCallback, useEffect } from "react";
+import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector, useStore } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import { Button, Input, ThemeButton } from "shared/ui";
 import { Text, TextTheme } from "shared/ui/Text/Text";
@@ -20,25 +23,18 @@ export interface LoginFormProps {
   className?: string;
 }
 
+const initialReducers: ReducersList = {
+  loginForm: loginReducer,
+};
+
 const LoginForm = memo(({ className }: LoginFormProps) => {
   const { t } = useTranslation("translation");
   const dispatch = useDispatch();
-  const store = useStore() as ReduxStoreWithManager;
 
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
   const isLoading = useSelector(getLoginIsLoading);
   const error = useSelector(getLoginError);
-
-  useEffect(() => {
-    store.reducerManager.add("loginForm", loginReducer);
-    dispatch({ type: "@INIT loginform reducer" });
-    return () => {
-      store.reducerManager.remove("loginForm");
-      dispatch({ type: "@DESTROY loginform reducer" });
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const onChangeUsername = useCallback(
     (value: string) => {
@@ -59,38 +55,40 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
   }, [dispatch, password, username]);
 
   return (
-    <div className={classNames(cls.LoginForm, {}, [className])}>
-      <Text title={t("login-title")} />
-      {error && (
-        <Text
-          text={t("Incorrect username or password")}
-          theme={TextTheme.ERROR}
+    <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
+      <div className={classNames(cls.LoginForm, {}, [className])}>
+        <Text title={t("login-title")} />
+        {error && (
+          <Text
+            text={t("Incorrect username or password")}
+            theme={TextTheme.ERROR}
+          />
+        )}
+        <Input
+          autoFocus
+          type="text"
+          placeholder={t("username")}
+          className={cls.input}
+          onChange={onChangeUsername}
+          value={username}
         />
-      )}
-      <Input
-        autoFocus
-        type="text"
-        placeholder={t("username")}
-        className={cls.input}
-        onChange={onChangeUsername}
-        value={username}
-      />
-      <Input
-        type="text"
-        onChange={onChangePassword}
-        placeholder={t("password")}
-        className={cls.input}
-        value={password}
-      />
-      <Button
-        theme={ThemeButton.OUTLINE}
-        className={cls.loginBtn}
-        onClick={onLoginClick}
-        disabled={isLoading}
-      >
-        {t("login")}
-      </Button>
-    </div>
+        <Input
+          type="text"
+          onChange={onChangePassword}
+          placeholder={t("password")}
+          className={cls.input}
+          value={password}
+        />
+        <Button
+          theme={ThemeButton.OUTLINE}
+          className={cls.loginBtn}
+          onClick={onLoginClick}
+          disabled={isLoading}
+        >
+          {t("login")}
+        </Button>
+      </div>
+    </DynamicModuleLoader>
   );
 });
 
