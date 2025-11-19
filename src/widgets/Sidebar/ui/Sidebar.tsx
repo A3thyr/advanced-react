@@ -1,14 +1,13 @@
 import { FC, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { RoutePath } from "shared/config/router/router.config";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
-import { AppLink, AppLinkTheme, Button, ThemeButton } from "shared/ui";
+import { Button, ThemeButton } from "shared/ui";
 import { ButtonSize } from "shared/ui/Button/Button";
 import { LangSwitcher } from "widgets/LangSwitcher";
 import { ThemeSwitcher } from "widgets/theme-switcher";
-import AboutIcon from "shared/assets/icons/about-20-20.svg";
-import MainIcon from "shared/assets/icons/main-20-20.svg";
+
+import { SidebarItemsList } from "../model/items";
 import cls from "./Sidebar.module.scss";
+import { SidebarItem } from "./SidebarItem/SidebarItem";
 
 interface SidebarProps {
   className?: string;
@@ -16,7 +15,6 @@ interface SidebarProps {
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
   const [collapsed, setCollapsed] = useState(false);
-  const { t } = useTranslation();
 
   const onToggle = () => {
     setCollapsed((prev) => !prev);
@@ -40,22 +38,9 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
         {collapsed ? ">" : "<"}
       </Button>
       <div className={cls.items}>
-        <AppLink
-          to={RoutePath.main}
-          theme={AppLinkTheme.SECONDARY}
-          className={cls.item}
-        >
-          <MainIcon className={cls.icon} />
-          <span className={cls.link}>{t("title", { ns: "main" })}</span>
-        </AppLink>
-        <AppLink
-          to={RoutePath.about}
-          theme={AppLinkTheme.SECONDARY}
-          className={cls.item}
-        >
-          <AboutIcon className={cls.icon} />
-          <span className={cls.link}>{t("about", { ns: "about" })}</span>
-        </AppLink>
+        {SidebarItemsList.map((item) => (
+          <SidebarItem key={item.path} item={item} collapsed={collapsed} />
+        ))}
       </div>
       <div className={cls.switchers}>
         <ThemeSwitcher />
