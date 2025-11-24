@@ -11,7 +11,7 @@ export default {
   },
 } as ComponentMeta<typeof AboutPage>;
 
-const Template: ComponentStory<typeof AboutPage> = (args) => (
+const Template: ComponentStory<typeof AboutPage> = () => (
   <AboutPage />
   //    {...args}
 );

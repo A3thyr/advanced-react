@@ -8,7 +8,10 @@ import {
   useRef,
   useState,
 } from "react";
-import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
+import {
+  classNames,
+  Mods,
+} from "shared/lib/helpers/classNames/classNames.helper";
 import { Portal } from "../Portal/Portal";
 import cls from "./Modal.module.scss";
 
@@ -31,7 +34,7 @@ export const Modal: FC<ModalProps> = ({
 }) => {
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { theme } = useTheme();
 
   useEffect(() => {
@@ -61,7 +64,7 @@ export const Modal: FC<ModalProps> = ({
     e.stopPropagation();
   };
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [cls.opened]: isOpen,
     [cls.isClosing]: isClosing,
   };
@@ -71,7 +74,7 @@ export const Modal: FC<ModalProps> = ({
       window.addEventListener("keydown", onKeyDown);
     }
     return () => {
-      clearTimeout(timerRef.current);
+      if (timerRef.current !== null) clearTimeout(timerRef.current);
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [isOpen, onKeyDown]);

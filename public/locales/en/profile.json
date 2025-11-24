@@ -1,3 +1,9 @@
 {
-  "title": "Profile Page"
+  "profile": {},
+  "profilecard": {
+    "title": "Profile",
+    "edit": "Edit",
+    "firstName": "Your first name",
+    "secondName": "Your second name"
+  }
 }

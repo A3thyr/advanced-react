@@ -1,3 +1,9 @@
 {
-  "title": "Страница профиля"
+  "profile": {},
+  "profilecard": {
+    "title": "Профиль",
+    "edit": "Редактировать",
+    "firstName": "Ваше имя",
+    "secondName": "Ваша фамилия"
+  }
 }

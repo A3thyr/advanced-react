@@ -1,4 +1,4 @@
-import { FC, memo } from "react";
+import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import { AppLink, AppLinkTheme } from "shared/ui";
@@ -6,7 +6,7 @@ import { SidebarItemType } from "widgets/Sidebar/model/items";
 import cls from "./SidebarItem.module.scss";
 
 interface SidebarItemProps {
-  item?: SidebarItemType;
+  item: SidebarItemType;
   collapsed: boolean;
 }
 
@@ -19,7 +19,7 @@ export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
       className={classNames(cls.item, { [cls.collapsed]: collapsed })}
     >
       <item.Icon className={cls.icon} />
-      <span className={cls.link}>{t(item.text, { ns: item.ns })}</span>
+      <span className={cls.link}>{t(item.text)}</span>
     </AppLink>
   );
 });
