@@ -1,9 +1,11 @@
 {
-  "profile": {},
+  "title": "Profile",
   "profilecard": {
     "title": "Profile",
     "edit": "Edit",
     "firstName": "Your first name",
-    "secondName": "Your second name"
+    "secondName": "Your second name",
+    "reload-page": "Please, reload the page",
+    "loading-error": "An error occured during the profile loading"
   }
 }
