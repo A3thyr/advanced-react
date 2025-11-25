@@ -21,6 +21,11 @@
   animation: blink 0.7s forwards infinite;
 }
 
+.readonly {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
 .Input {
   background: transparent;
   border: none;

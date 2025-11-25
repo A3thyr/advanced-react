@@ -1,8 +1,9 @@
 import { Profile } from "entities/Profile/model/types/profile";
+import { ProfilePageHeader } from "pages/ProfilePage";
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
-import { Button, Input, Text, TextTheme, ThemeButton } from "shared/ui";
+import { Input, Text, TextTheme } from "shared/ui";
 import { TextAlign } from "shared/ui/Text/Text";
 import { PageLoader } from "widgets/PageLoader";
 import cls from "./ProfileCard.module.scss";
@@ -12,6 +13,11 @@ interface ProfileCardProps {
   data?: Profile;
   error?: string;
   isLoading?: boolean;
+  isReadonly?: boolean;
+  onChangeFirstname?: (value?: string) => void;
+  onChangeLastname?: (value?: string) => void;
+  onChangeAge?: (value?: string) => void;
+  onChangeCity?: (value?: string) => void;
 }
 
 export const ProfileCard: FC<ProfileCardProps> = ({
@@ -19,6 +25,11 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   data,
   error,
   isLoading,
+  onChangeFirstname,
+  onChangeLastname,
+  onChangeAge,
+  onChangeCity,
+  isReadonly,
 }) => {
   const { t } = useTranslation("profile");
 
@@ -49,22 +60,38 @@ export const ProfileCard: FC<ProfileCardProps> = ({
 
   return (
     <div className={classNames(cls.ProfileCard, {}, [className])}>
-      <div className={cls.header}>
-        <Text title={t("profilecard.title")} />
-        <Button theme={ThemeButton.OUTLINE} className={cls.editBtn}>
-          {t("profilecard.edit")}
-        </Button>
-      </div>
+      <ProfilePageHeader />
       <div className={cls.data}>
         <Input
           value={data?.first}
           placeholder={t("profilecard.firstName")}
           className={cls.input}
+          onChange={onChangeFirstname}
+          readonly={isReadonly}
         />
+
         <Input
           value={data?.lastname}
           placeholder={t("profilecard.secondName")}
           className={cls.input}
+          onChange={onChangeLastname}
+          readonly={isReadonly}
+        />
+
+        <Input
+          value={data?.age}
+          placeholder={t("profilecard.age")}
+          className={cls.input}
+          onChange={onChangeAge}
+          readonly={isReadonly}
+        />
+
+        <Input
+          value={data?.city}
+          placeholder={t("profilecard.city")}
+          className={cls.input}
+          onChange={onChangeCity}
+          readonly={isReadonly}
         />
       </div>
     </div>
