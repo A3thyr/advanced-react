@@ -10,6 +10,9 @@
     "cancel": "Cancel",
     "save": "Save",
     "city": "City",
-    "age": "Age"
+    "age": "Age",
+    "username": "Username",
+    "avatar": "Avatar",
+    "currency": "Currency"
   }
 }

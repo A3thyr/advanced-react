@@ -9,6 +9,7 @@ export interface SidebarItemType {
   text: string;
   Icon: FunctionComponent<SVGAttributes<SVGElement>>;
   ns?: string; // декларировать более подробный и точный тип
+  authOnly?: boolean;
 }
 
 export const SidebarItemsList: SidebarItemType[] = [
@@ -29,5 +30,6 @@ export const SidebarItemsList: SidebarItemType[] = [
     Icon: ProfileIcon,
     text: "title",
     ns: AppRoutes.PROFILE,
+    authOnly: true,
   },
 ];

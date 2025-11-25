@@ -1,3 +1,5 @@
+import { Country } from "entities/Country";
+import { Currency } from "entities/Currency";
 import {
   fetchProfileData,
   getProfileError,
@@ -64,9 +66,38 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
     },
     [dispatch]
   );
+
   const onChangeCity = useCallback(
     (value?: string) => {
       dispatch(profileActions.updateProfile({ city: value || "" }));
+    },
+    [dispatch]
+  );
+
+  const onChangeUsername = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ username: value || "" }));
+    },
+    [dispatch]
+  );
+
+  const onChangeAvatar = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ avatar: value || "" }));
+    },
+    [dispatch]
+  );
+
+  const onChangeCurrency = useCallback(
+    (currency?: Currency) => {
+      dispatch(profileActions.updateProfile({ currency }));
+    },
+    [dispatch]
+  );
+
+  const onChangeCountry = useCallback(
+    (country?: Country) => {
+      dispatch(profileActions.updateProfile({ country }));
     },
     [dispatch]
   );
@@ -82,6 +113,10 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
           onChangeLastname={onChangeLastname}
           onChangeAge={onChangeAge}
           onChangeCity={onChangeCity}
+          onChangeAvatar={onChangeAvatar}
+          onChangeUsername={onChangeUsername}
+          onChangeCountry={onChangeCountry}
+          onChangeCurrency={onChangeCurrency}
           isReadonly={readonly}
         />
       </div>
