@@ -3,6 +3,7 @@ export { profileActions, profileReducer } from "./model/slice/profileSlice";
 
 export { fetchProfileData } from "./model/services/fetchProfileData/fetchProfileData";
 export { updateProfileData } from "./model/services/updateProfileData/updateProfileData";
+export { validateProfileData } from "./model/services/validateProfileData/validateProfileData";
 
 export { ProfileCard } from "./ui/ProfileCard/ProfileCard";
 
@@ -11,3 +12,4 @@ export { getProfileError } from "./model/selectors/getProfileError/getProfileErr
 export { getProfileIsLoading } from "./model/selectors/getProfileIsLoading/getProfileIsLoading";
 export { getProfileReadOnly } from "./model/selectors/getProfileReadOnly/getProfileReadOnly";
 export { getProfileForm } from "./model/selectors/getProfileForm/getProfileForm";
+export { getProfileValidateError } from "./model/selectors/getProfileValidateError/getProfileValidateError";

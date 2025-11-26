@@ -14,5 +14,12 @@
     "username": "Username",
     "avatar": "Avatar",
     "currency": "Currency"
+  },
+  "error": {
+    "incorrect-user-data": "First and second names are required",
+    "incorrect-age": "Incorrect age",
+    "incorrect-country": "Incorrect country",
+    "no-data": "No data",
+    "server-error": "A server error occured"
   }
 }

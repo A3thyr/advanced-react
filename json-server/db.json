@@ -27,7 +27,7 @@
   "profile": {
     "first": "Nekit",
     "lastname": "Sosal?",
-    "age": "21",
+    "age": 21,
     "currency": "USD",
     "country": "Russia",
     "city": "Saint-P",

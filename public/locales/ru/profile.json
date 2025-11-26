@@ -14,5 +14,12 @@
     "username": "Имя пользователя",
     "avatar": "Аватар",
     "currency": "Валюта"
+  },
+  "error": {
+    "incorrect-user-data": "Имя и фамилия обязательны",
+    "incorrect-age": "Некорректный возраст",
+    "incorrect-country": "Некорректный регион",
+    "no-data": "Данные не указаны",
+    "server-error": "Серверная ошибка"
   }
 }

@@ -3,7 +3,7 @@ import { Country } from "entities/Country/model/types/country";
 import { CurrencySelect } from "entities/Currency";
 import { Currency } from "entities/Currency/model/types/currency";
 import { Profile } from "entities/Profile/model/types/profile";
-import { ProfilePageHeader } from "pages/ProfilePage";
+// import { ProfilePageHeader } from "pages/ProfilePage";
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import {
@@ -79,7 +79,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
 
   return (
     <div className={classNames(cls.ProfileCard, mods, [className])}>
-      <ProfilePageHeader />
+      {/* <ProfilePageHeader /> */}
       <div className={cls.data}>
         {data?.avatar && (
           <div className={cls.avatarWrapper}>
