@@ -28,6 +28,8 @@ export function buildPlugins({
   ];
 
   if (isDev) {
+    plugins.push(new ReactRefreshPlugin());
+    plugins.push(new webpack.HotModuleReplacementPlugin());
     // переместить в isDev перед билдом
     plugins.push(
       new BundleAnalyzerPlugin({
@@ -35,9 +37,6 @@ export function buildPlugins({
         analyzerPort: 8001,
       })
     );
-
-    plugins.push(new ReactRefreshPlugin());
-    plugins.push(new webpack.HotModuleReplacementPlugin());
   }
 
   return plugins;
