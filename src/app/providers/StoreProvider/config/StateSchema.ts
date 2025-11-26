@@ -15,7 +15,7 @@ import { CombinedState } from "redux";
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
-  profile: ProfileSchema;
+  profile?: ProfileSchema;
 
   // Асинхронные редюсеры
   loginForm?: LoginSchema;
