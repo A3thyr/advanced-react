@@ -1,20 +1,25 @@
 import { AppRouter } from "app/providers/router";
 import { useTheme } from "app/providers/theme-provider";
-import { userActions } from "entities/User";
+import { getUserInited, userActions } from "entities/User";
 import { Suspense, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { Navbar } from "widgets/navbar";
+import { PageLoader } from "widgets/PageLoader";
 import { Sidebar } from "widgets/Sidebar";
 
 const App = () => {
   const { theme } = useTheme();
 
   const dispatch = useAppDispatch();
+  const userInited = useSelector(getUserInited);
 
   useEffect(() => {
     dispatch(userActions.initAuthData());
   }, [dispatch]);
+
+  if (!userInited) return <PageLoader />;
 
   return (
     <div className={classNames("app", {}, [theme])}>
