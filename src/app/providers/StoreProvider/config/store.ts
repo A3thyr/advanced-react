@@ -5,7 +5,6 @@ import {
   ReducersMapObject,
 } from "@reduxjs/toolkit";
 import { counterReducer } from "entities/Counter";
-import { profileReducer } from "entities/Profile";
 import { userReducer } from "entities/User";
 import { NavigateOptions, To } from "react-router-dom";
 import { $api } from "shared/api/api";
@@ -21,7 +20,6 @@ export function createReduxStore(
     ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
-    profile: profileReducer,
   };
 
   const reducerManager = createReducerManager(rootReducers);
