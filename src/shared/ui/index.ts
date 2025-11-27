@@ -4,6 +4,7 @@ export { Spinner } from "./Spinner/Spinner";
 export { Modal } from "./Modal/Modal";
 export { Portal } from "./Portal/Portal";
 export { Input } from "./Input/Input";
-export { Text, TextTheme } from "./Text/Text";
+export { Text, TextTheme, TextAlign } from "./Text/Text";
 export { Avatar } from "./Avatar/Avatar";
 export { Select, SelectOption } from "./Select/Select";
+export { Skeleton } from "./Skeleton/Skeleton";
