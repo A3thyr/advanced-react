@@ -16,7 +16,14 @@ i18n
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
-    ns: ["translation", "main", "about", "profile"],
+    ns: [
+      "translation",
+      "main",
+      "about",
+      "profile",
+      "articles",
+      "article_details",
+    ],
     defaultNS: "translation",
     load: "currentOnly",
 
