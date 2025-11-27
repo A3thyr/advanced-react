@@ -2,6 +2,7 @@ import { FunctionComponent, SVGAttributes } from "react";
 import AboutIcon from "shared/assets/icons/about-20-20.svg";
 import MainIcon from "shared/assets/icons/main-20-20.svg";
 import ProfileIcon from "shared/assets/icons/profile-20-20.svg";
+import ArticleIcon from "shared/assets/icons/article-20-20.svg";
 import { AppRoutes, RoutePath } from "shared/config/router/router.config";
 
 export interface SidebarItemType {
@@ -32,4 +33,18 @@ export const SidebarItemsList: SidebarItemType[] = [
     ns: AppRoutes.PROFILE,
     authOnly: true,
   },
+  {
+    path: RoutePath.articles,
+    Icon: ArticleIcon,
+    text: "title",
+    ns: AppRoutes.ARTICLES,
+    authOnly: true,
+  },
+  // {
+  //   path: RoutePath.articles_details,
+  //   Icon: ProfileIcon,
+  //   text: "title",
+  //   ns: AppRoutes.ARTICLES_DETAILS,
+  //   authOnly: true,
+  // },
 ];

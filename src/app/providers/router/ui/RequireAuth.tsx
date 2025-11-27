@@ -7,7 +7,7 @@ export const RequireAuth = ({ children }: { children: JSX.Element }) => {
   const location = useLocation();
 
   if (!auth) {
-    return <Navigate to={`/`} state={{ from: location }} />;
+    return <Navigate to={`/`} state={{ from: location }} replace />;
   }
   return children;
 };
