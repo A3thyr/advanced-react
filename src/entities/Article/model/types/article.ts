@@ -32,7 +32,7 @@ export type ArticleBlock =
   | ArticleCodeBlock
   | ArticleImageBlock;
 
-export enum ArtcileType {
+export enum ArticleType {
   IT = "IT",
   SCIENCE = "SCIENCE",
   ECONOMICS = "ECONOMICS",
@@ -45,6 +45,6 @@ export interface Article {
   img: string;
   views: number;
   createdAt: string;
-  type: ArtcileType[];
+  type: ArticleType[];
   blocks: ArticleBlock[];
 }

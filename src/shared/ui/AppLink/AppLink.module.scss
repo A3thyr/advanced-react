@@ -1,5 +1,10 @@
 .AppLink {
   color: var(--inverted-primary-color);
+
+  &:hover {
+    transform: scale(1.05);
+    opacity: 0.75;
+  }
 }
 
 .primary {

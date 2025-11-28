@@ -47,18 +47,36 @@ export const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
       case ArticleBlockType.CODE:
-        return <ArticleCodeBlockComponent key={block.id} />;
+        return (
+          <ArticleCodeBlockComponent
+            block={block}
+            key={block.id}
+            className={cls.block}
+          />
+        );
       case ArticleBlockType.TEXT:
-        return <ArticleTextBlockComponent key={block.id} />;
+        return (
+          <ArticleTextBlockComponent
+            key={block.id}
+            block={block}
+            className={cls.block}
+          />
+        );
       case ArticleBlockType.IMAGE:
-        return <ArticleImageBlockComponent key={block.id} />;
+        return (
+          <ArticleImageBlockComponent
+            block={block}
+            key={block.id}
+            className={cls.block}
+          />
+        );
       default:
         return null;
     }
   }, []);
 
   useEffect(() => {
-    dispatch(fetchArticleById(id));
+    if (__PROJECT__ !== "storybook") dispatch(fetchArticleById(id));
   }, [dispatch, id]);
 
   let content;

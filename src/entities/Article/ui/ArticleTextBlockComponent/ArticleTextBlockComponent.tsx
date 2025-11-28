@@ -1,18 +1,24 @@
+import { ArticleTextBlock } from "entities/Article/model/types/article";
 import { memo } from "react";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
+import { Text } from "shared/ui";
 import cls from "./ArticleTextBlockComponent.module.scss";
 
 interface ArticleTextBlockComponentProps {
   className?: string;
+  block: ArticleTextBlock;
 }
 
 export const ArticleTextBlockComponent = memo(
-  ({ className }: ArticleTextBlockComponentProps) => {
+  ({ className, block }: ArticleTextBlockComponentProps) => {
     return (
       <div
         className={classNames(cls.ArticleTextBlockComponent, {}, [className])}
       >
-        {`ArticleTextBlockComponent`}
+        {block.title && <Text title={block.title} className={cls.title} />}
+        {block.paragraphs.map((paragraph) => (
+          <Text key={paragraph} text={paragraph} className={cls.paragraph} />
+        ))}
       </div>
     );
   }

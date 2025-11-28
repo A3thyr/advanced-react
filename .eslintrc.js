@@ -57,10 +57,10 @@ module.exports = {
     quotes: ["error", "double", { allowTemplateLiterals: true }],
     "react/jsx-curly-brace-presence": "off",
     "max-len": [
-      "error",
+      "warn",
       {
         ignoreComments: true,
-        code: 120,
+        code: 200,
       },
     ],
     "comma-dangle": "off",

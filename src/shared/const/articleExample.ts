@@ -1,28 +1,10 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Theme } from "app/providers/theme-provider";
+import { Article } from "entities/Article";
 import {
-  Article,
   ArticleBlockType,
   ArticleType,
 } from "entities/Article/model/types/article";
-import { StoreDecorator } from "shared/config/storybook";
-import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import ArticlesDetailsPage from "./ArticlesDetailsPage";
 
-export default {
-  title: "pages/ArticlesDetailsPage",
-  component: ArticlesDetailsPage,
-  argTypes: {
-    backgroundColor: { control: "color" },
-  },
-} as ComponentMeta<typeof ArticlesDetailsPage>;
-
-const Template: ComponentStory<typeof ArticlesDetailsPage> = () => (
-  <ArticlesDetailsPage />
-  //    {...args}
-);
-
-const ARTICLE_EXAMPLE: Article = {
+export const ARTICLE_EXAMPLE: Article = {
   id: "1",
   title: "Javascript news",
   subtitle: "TDZ и как это работает",
@@ -91,23 +73,3 @@ const ARTICLE_EXAMPLE: Article = {
     },
   ],
 };
-
-export const Light = Template.bind({});
-Light.args = {};
-Light.decorators = [
-  StoreDecorator({
-    articleDetails: {
-      data: ARTICLE_EXAMPLE,
-    },
-  }),
-];
-export const Dark = Template.bind({});
-Dark.args = {};
-Dark.decorators = [
-  ThemeDecorator(Theme.DARK),
-  StoreDecorator({
-    articleDetails: {
-      data: ARTICLE_EXAMPLE,
-    },
-  }),
-];
