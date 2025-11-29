@@ -3,5 +3,9 @@
   "not-found": "Article was not found",
   "error": "An error occured during article loading",
   "comment-title": "Comments",
-  "no-comment": "No comments"
+  "no-comment": "No comments",
+  "form": {
+    "placeholder": "Write a comment...",
+    "btn": "Send"
+  }
 }

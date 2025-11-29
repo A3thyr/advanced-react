@@ -1,5 +1,6 @@
 import { ArticleDetails } from "entities/Article";
 import { CommentList } from "entities/Comment";
+import { AddCommentForm } from "features/addCommentForm";
 import { fetchCommentsByArticleId } from "pages/ArticlesDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { FC, memo } from "react";
 import { useTranslation } from "react-i18next";
@@ -52,6 +53,7 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
       <div className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
         <ArticleDetails id={id} />
         <Text className={cls.commentTitle} title={t("comment-title")} />
+        <AddCommentForm />
         <CommentList isLoading={commentsIsLoading} comments={comments} />
       </div>
     </DynamicModuleLoader>
