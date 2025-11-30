@@ -1,8 +1,9 @@
 import { ArticleDetails } from "entities/Article";
 import { CommentList } from "entities/Comment";
 import { AddCommentForm } from "features/addCommentForm";
+import { addCommentForArticle } from "pages/ArticlesDetailsPage/model/services/addCommentForArticle/addCommentForArticle";
 import { fetchCommentsByArticleId } from "pages/ArticlesDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
-import { FC, memo } from "react";
+import { FC, memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -36,6 +37,14 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const dispatch = useAppDispatch();
 
+  const onSendComment = useCallback(() => {
+    if (id) {
+      dispatch(addCommentForArticle(id));
+    } else {
+      console.error("can't send data");
+    }
+  }, [dispatch, id]);
+
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
   });
@@ -53,7 +62,7 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
       <div className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
         <ArticleDetails id={id} />
         <Text className={cls.commentTitle} title={t("comment-title")} />
-        <AddCommentForm />
+        <AddCommentForm onSendComment={onSendComment} />
         <CommentList isLoading={commentsIsLoading} comments={comments} />
       </div>
     </DynamicModuleLoader>

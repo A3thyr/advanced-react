@@ -1,4 +1,3 @@
-import { sendComment } from "features/addCommentForm/model/services/sendComment/sendComment";
 import {
   addCommentFormActions,
   addCommentFormReducer,
@@ -19,15 +18,19 @@ import {
 } from "../../model/selectors/addCommentFormSelectors.ts/addCommentFormSelectors";
 import cls from "./AddCommentForm.module.scss";
 
-interface AddCommentFormProps {
+export interface AddCommentFormProps {
   className?: string;
+  onSendComment?: () => void;
 }
 
 const reducers: ReducersList = {
   addCommentForm: addCommentFormReducer,
 };
 
-const AddCommentForm: FC<AddCommentFormProps> = ({ className }) => {
+const AddCommentForm: FC<AddCommentFormProps> = ({
+  className,
+  onSendComment,
+}) => {
   const { t } = useTranslation("article_details");
   const text = useSelector(getAddCommentFormText);
   const error = useSelector(getAddCommentFormError);
@@ -40,9 +43,7 @@ const AddCommentForm: FC<AddCommentFormProps> = ({ className }) => {
     [dispatch]
   );
 
-  const onSendComment = useCallback(() => {
-    dispatch(sendComment());
-  }, [dispatch]);
+  const onSendHandler = useCallback(() => {}, []);
 
   return (
     <DynamicModuleLoader reducers={reducers}>
