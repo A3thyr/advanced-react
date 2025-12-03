@@ -1,8 +1,10 @@
 import {
+  getProfileData,
   getProfileReadOnly,
   profileActions,
   updateProfileData,
 } from "entities/Profile";
+import { getUserAuthData } from "entities/User";
 import { FC, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -23,6 +25,10 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({
   const readonly = useSelector(getProfileReadOnly);
   const dispatch = useAppDispatch();
 
+  const authData = useSelector(getUserAuthData);
+  const profileData = useSelector(getProfileData);
+  const canEdit = authData?.id === profileData?.id;
+
   const onEdit = useCallback(() => {
     dispatch(profileActions.setReadonly(false));
   }, [dispatch]);
@@ -38,31 +44,35 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({
   return (
     <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
       <Text title={t("profilecard.title")} />
-      {readonly ? (
-        <Button
-          theme={ThemeButton.OUTLINE}
-          className={cls.editBtn}
-          onClick={onEdit}
-        >
-          {t("profilecard.edit")}
-        </Button>
-      ) : (
-        <>
-          <Button
-            theme={ThemeButton.OUTLINE_RED}
-            className={cls.editBtn}
-            onClick={onCancelEdit}
-          >
-            {t("profilecard.cancel")}
-          </Button>
-          <Button
-            theme={ThemeButton.OUTLINE}
-            className={cls.saveBtn}
-            onClick={onSave}
-          >
-            {t("profilecard.save")}
-          </Button>
-        </>
+      {canEdit && (
+        <div className={cls.btnsWrapper}>
+          {readonly ? (
+            <Button
+              theme={ThemeButton.OUTLINE}
+              className={cls.editBtn}
+              onClick={onEdit}
+            >
+              {t("profilecard.edit")}
+            </Button>
+          ) : (
+            <>
+              <Button
+                className={cls.editBtn}
+                theme={ThemeButton.OUTLINE_RED}
+                onClick={onCancelEdit}
+              >
+                {t("profilecard.cancel")}
+              </Button>
+              <Button
+                theme={ThemeButton.OUTLINE}
+                className={cls.saveBtn}
+                onClick={onSave}
+              >
+                {t("profilecard.save")}
+              </Button>
+            </>
+          )}
+        </div>
       )}
     </div>
   );
