@@ -7,7 +7,7 @@ import cls from "./CommentCard.module.scss";
 
 interface CommentCardProps {
   className?: string;
-  comment: ArticleComment;
+  comment?: ArticleComment;
   isLoading?: boolean;
 }
 
@@ -28,8 +28,10 @@ export const CommentCard: FC<CommentCardProps> = ({
     );
   }
 
+  if (!comment) return null;
+
   return (
-    <div className={classNames(cls.CommentCard, {}, [className])}>
+    <div className={classNames(cls.CommentCard, {}, [className, cls.loading])}>
       <AppLink
         to={`${RoutePath.profile}${comment.user.id}`}
         className={cls.header}
