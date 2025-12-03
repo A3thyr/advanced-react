@@ -37,13 +37,12 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const dispatch = useAppDispatch();
 
-  const onSendComment = useCallback(() => {
-    if (id) {
-      dispatch(addCommentForArticle(id));
-    } else {
-      console.error("can't send data");
-    }
-  }, [dispatch, id]);
+  const onSendComment = useCallback(
+    (text: string) => {
+      dispatch(addCommentForArticle(text));
+    },
+    [dispatch]
+  );
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
