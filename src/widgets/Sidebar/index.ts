@@ -1,2 +1,2 @@
 export { Sidebar } from "./ui/Sidebar";
-export { SidebarItemType } from "./model/items";
+export type { SidebarItemType } from "./model/types/sidebar";
