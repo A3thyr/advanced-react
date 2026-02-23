@@ -13,6 +13,8 @@ interface SidebarProps {
   className?: string;
 }
 
+// где то здесь фиксы
+
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
   const [collapsed, setCollapsed] = useState(false);
 
