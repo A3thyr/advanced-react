@@ -1,0 +1,14 @@
+import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { ArticleListItem } from "./ArticleListItem";
+
+export default {
+  title: "entities/Article/ArticleListItem",
+  component: ArticleListItem,
+} as ComponentMeta<typeof ArticleListItem>;
+
+const Template: ComponentStory<typeof ArticleListItem> = (args) => (
+  <ArticleListItem {...args} />
+);
+
+export const Primary = Template.bind({});
+Primary.args = {};

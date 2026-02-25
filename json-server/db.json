@@ -132,6 +132,12 @@
       "userId": "2",
       "text": "who?",
       "id": "gtARtWH"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "sosal?",
+      "id": "Eu0xlr8"
     }
   ],
   "users": [
@@ -153,7 +159,7 @@
   "profile": [
     {
       "id": "1",
-      "first": "jgh",
+      "first": "Debik",
       "lastname": "asf",
       "age": 465,
       "currency": "RUB",
