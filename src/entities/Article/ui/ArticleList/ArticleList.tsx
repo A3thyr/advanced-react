@@ -1,6 +1,7 @@
 import { Article, ArticleView } from "entities/Article/model/types/article";
 import { FC } from "react";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
+import { Skeleton } from "shared/ui";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import cls from "./ArticleList.module.scss";
 
@@ -21,6 +22,15 @@ export const ArticleList: FC<ArticleListProps> = ({
     return <ArticleListItem key={article.id} article={article} view={view} />;
   };
 
+  if (isLoading) {
+    return (
+      <div className={classNames(cls.ArticleList, {}, [className])}>
+        <Skeleton width="100%" height={120} />
+        <Skeleton width="100%" height={120} />
+        <Skeleton width="100%" height={120} />
+      </div>
+    );
+  }
   return (
     <div className={classNames(cls.ArticleList, {}, [className])}>
       {articles.map(renderArticle)}
