@@ -10,3 +10,4 @@ export { Select, SelectOption } from "./Select/Select";
 export { Skeleton } from "./Skeleton/Skeleton";
 export { Icon } from "./Icon/Icon";
 export { Code } from "./Code/Code";
+export { Card } from "./Card/Card";
