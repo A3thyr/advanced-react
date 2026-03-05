@@ -4,27 +4,12 @@
   cursor: pointer;
 }
 
+// тут в тупую копипаста со SMALL, пофиксить по гайду позже
 .BIG {
-  .card {
-  }
-  .imageWrapper {
-  }
-  .date {
-  }
-  .infoWrapper {
-  }
-  .types {
-  }
-  .views {
-  }
-  .img {
-  }
-}
-
-.SMALL {
   width: 230px;
   transition: 0.25s;
   cursor: pointer;
+
   .date {
     position: absolute;
     right: 0;
@@ -35,6 +20,7 @@
   &:hover {
     opacity: 0.8;
     transform: scale(1.01);
+
     .date {
       display: block;
     }
@@ -45,6 +31,7 @@
     height: 200px;
     position: relative;
   }
+
   .img {
     width: 200px;
     height: 200px;
@@ -55,12 +42,76 @@
     align-items: center;
     margin-top: 8px;
   }
+
   .types p {
     width: 115px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
+  .views {
+    margin-left: auto;
+    margin-right: 8px;
+  }
+
+  .title {
+    margin-top: 8px;
+  }
+
+  .title p {
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.SMALL {
+  width: 230px;
+  transition: 0.25s;
+  cursor: pointer;
+
+  .date {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+  }
+
+  &:hover {
+    opacity: 0.8;
+    transform: scale(1.01);
+
+    .date {
+      display: block;
+    }
+  }
+
+  .imageWrapper {
+    width: 200px;
+    height: 200px;
+    position: relative;
+  }
+
+  .img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .infoWrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+  }
+
+  .types p {
+    width: 115px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   .views {
     margin-left: auto;
     margin-right: 8px;
