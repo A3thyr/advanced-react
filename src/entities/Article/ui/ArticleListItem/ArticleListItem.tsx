@@ -18,6 +18,8 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
   view = ArticleView.SMALL,
 }) => {
   const [isHover, bindHover] = useHover();
+
+  // delete THAT
   console.log(isHover);
 
   if (view === ArticleView.BIG) {
