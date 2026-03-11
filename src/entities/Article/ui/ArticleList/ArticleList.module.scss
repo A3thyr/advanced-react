@@ -1,5 +1,10 @@
 .ArticleList {
   display: flex;
-  flex-direction: column;
+  flex-flow: row;
   gap: 16px;
+}
+
+.card {
+  margin-right: 30px;
+  margin-bottom: 30px;
 }

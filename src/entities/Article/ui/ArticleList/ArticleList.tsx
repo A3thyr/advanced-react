@@ -19,7 +19,14 @@ export const ArticleList: FC<ArticleListProps> = ({
   view = ArticleView.SMALL,
 }) => {
   const renderArticle = (article: Article) => {
-    return <ArticleListItem key={article.id} article={article} view={view} />;
+    return (
+      <ArticleListItem
+        key={article.id}
+        article={article}
+        view={view}
+        className={cls.card}
+      />
+    );
   };
 
   if (isLoading) {

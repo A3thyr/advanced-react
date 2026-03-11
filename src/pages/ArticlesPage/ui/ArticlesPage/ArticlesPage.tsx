@@ -80,7 +80,12 @@ const Articles = {
 const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   return (
     <div className={classNames(cls.ArticlesPage, {}, [className])}>
-      <ArticleList articles={[Articles]} />
+      <ArticleList
+        articles={new Array(16).fill(0).map((item, index) => ({
+          ...Articles,
+          id: index.toString(),
+        }))}
+      />
     </div>
   );
 };
