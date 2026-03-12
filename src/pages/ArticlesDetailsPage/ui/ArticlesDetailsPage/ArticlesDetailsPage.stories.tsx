@@ -29,6 +29,12 @@ const ARTICLE_EXAMPLE: Article = {
   img: "https://teknotower.com/wp-content/uploads/2020/11/js.png",
   views: 1221,
   createdAt: "27.11.2025",
+  user: {
+    id: "1",
+    username: "someone",
+    // avatar:
+    //   "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg",
+  },
   type: [ArticleType.IT],
   blocks: [
     {

@@ -39,7 +39,7 @@ export const ArticleList: FC<ArticleListProps> = ({
     );
   }
   return (
-    <div className={classNames(cls.ArticleList, {}, [className])}>
+    <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
       {articles.map(renderArticle)}
     </div>
   );

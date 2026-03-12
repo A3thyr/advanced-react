@@ -1,10 +1,16 @@
-.ArticleList {
-  display: flex;
-  flex-flow: row;
-  gap: 16px;
+.BIG {
+  .card {
+    margin-bottom: 30px;
+  }
 }
 
-.card {
-  margin-right: 30px;
-  margin-bottom: 30px;
+.SMALL {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+
+  .card {
+    margin-right: 30px;
+    margin-bottom: 30px;
+  }
 }
