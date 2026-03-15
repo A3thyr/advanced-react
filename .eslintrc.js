@@ -72,6 +72,8 @@ module.exports = {
     "no-param-reassign": "off",
     "no-undef": "off",
     "no-console": "off",
+    // правило для фулл лоускиллов, срёт при ключах = индексу в СКЕЛЕТОНАХ :pepeClown:
+    "react/no-array-index-key": "off",
   },
   globals: {
     __IS_DEV__: true,

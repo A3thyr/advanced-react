@@ -87,7 +87,8 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   return (
     <div className={classNames(cls.ArticlesPage, {}, [className])}>
       <ArticleList
-        view={ArticleView.SMALL}
+        isLoading
+        view={ArticleView.BIG}
         articles={new Array(16).fill(0).map((item, index) => ({
           ...Articles,
           id: index.toString(),

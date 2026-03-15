@@ -86,16 +86,17 @@
   }
 
   .img {
-    width: 180px;
-    height: 180px;
-    margin: 16px 16px;
+    width: 200px;
+    height: 220px;
+    padding: 16px;
+    margin-top: 8px;
     object-fit: cover;
   }
 
   .infoWrapper {
     display: flex;
     align-items: center;
-    margin-top: 8px;
+    margin-top: 24px;
   }
 
   .types p {

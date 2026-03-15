@@ -1,4 +1,4 @@
-import { CSSProperties, FC, memo } from "react";
+import { CSSProperties, memo } from "react";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import cls from "./Skeleton.module.scss";
 
@@ -22,5 +22,5 @@ export const Skeleton = memo(
         className={classNames(cls.Skeleton, {}, [className])}
       />
     );
-  }
+  },
 );

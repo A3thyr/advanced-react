@@ -1,8 +1,8 @@
 import { Article, ArticleView } from "entities/Article/model/types/article";
 import { FC } from "react";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
-import { Skeleton } from "shared/ui";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
+import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
 import cls from "./ArticleList.module.scss";
 
 interface ArticleListProps {
@@ -11,6 +11,14 @@ interface ArticleListProps {
   isLoading?: boolean;
   view?: ArticleView;
 }
+
+const getSkeletons = (view: ArticleView) => {
+  return new Array(view === ArticleView.SMALL ? 9 : 3)
+    .fill(0)
+    .map((_, index) => (
+      <ArticleListItemSkeleton key={index} view={view} className={cls.card} />
+    ));
+};
 
 export const ArticleList: FC<ArticleListProps> = ({
   className,
@@ -31,10 +39,8 @@ export const ArticleList: FC<ArticleListProps> = ({
 
   if (isLoading) {
     return (
-      <div className={classNames(cls.ArticleList, {}, [className])}>
-        <Skeleton width="100%" height={120} />
-        <Skeleton width="100%" height={120} />
-        <Skeleton width="100%" height={120} />
+      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+        {getSkeletons(view)}
       </div>
     );
   }
