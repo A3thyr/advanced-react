@@ -13,7 +13,7 @@ import {
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
-import { Button, Text, ThemeButton } from "shared/ui";
+import { Button, PageLayout, Text, ThemeButton } from "shared/ui";
 import { addCommentForArticle } from "../../../ArticlesDetailsPage/model/services/addCommentForArticle/addCommentForArticle";
 import { fetchCommentsByArticleId } from "../../../ArticlesDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { getArticleCommentsIsLoading } from "../../model/selectors/comments";
@@ -56,15 +56,19 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
 
   if (!id) {
     return (
-      <div className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
+      <PageLayout
+        className={classNames(cls.ArticlesDetailsPage, {}, [className])}
+      >
         {t("not-found")}
-      </div>
+      </PageLayout>
     );
   }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
+      <PageLayout
+        className={classNames(cls.ArticlesDetailsPage, {}, [className])}
+      >
         <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>
           {t("back")}
         </Button>
@@ -72,7 +76,7 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
         <Text className={cls.commentTitle} title={t("comment-title")} />
         <AddCommentForm onSendComment={onSendComment} />
         <CommentList isLoading={commentsIsLoading} comments={comments} />
-      </div>
+      </PageLayout>
     </DynamicModuleLoader>
   );
 };

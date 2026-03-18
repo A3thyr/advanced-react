@@ -24,7 +24,7 @@ import {
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
-import { Text, TextTheme } from "shared/ui";
+import { PageLayout, Text, TextTheme } from "shared/ui";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 // import cls from "./ProfilePage.module.scss";
 
@@ -64,14 +64,14 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
     (value?: string) => {
       dispatch(profileActions.updateProfile({ first: value || "" }));
     },
-    [dispatch]
+    [dispatch],
   );
 
   const onChangeLastname = useCallback(
     (value?: string) => {
       dispatch(profileActions.updateProfile({ lastname: value || "" }));
     },
-    [dispatch]
+    [dispatch],
   );
 
   const onChangeAge = useCallback(
@@ -80,47 +80,47 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
         dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
       }
     },
-    [dispatch]
+    [dispatch],
   );
 
   const onChangeCity = useCallback(
     (value?: string) => {
       dispatch(profileActions.updateProfile({ city: value || "" }));
     },
-    [dispatch]
+    [dispatch],
   );
 
   const onChangeUsername = useCallback(
     (value?: string) => {
       dispatch(profileActions.updateProfile({ username: value || "" }));
     },
-    [dispatch]
+    [dispatch],
   );
 
   const onChangeAvatar = useCallback(
     (value?: string) => {
       dispatch(profileActions.updateProfile({ avatar: value || "" }));
     },
-    [dispatch]
+    [dispatch],
   );
 
   const onChangeCurrency = useCallback(
     (currency?: Currency) => {
       dispatch(profileActions.updateProfile({ currency }));
     },
-    [dispatch]
+    [dispatch],
   );
 
   const onChangeCountry = useCallback(
     (country?: Country) => {
       dispatch(profileActions.updateProfile({ country }));
     },
-    [dispatch]
+    [dispatch],
   );
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames("", {}, [className])}>
+      <PageLayout className={classNames("", {}, [className])}>
         <ProfilePageHeader />
         {validateErrors?.length &&
           validateErrors.map((err) => (
@@ -144,7 +144,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
           onChangeCurrency={onChangeCurrency}
           isReadonly={readonly}
         />
-      </div>
+      </PageLayout>
     </DynamicModuleLoader>
   );
 };
