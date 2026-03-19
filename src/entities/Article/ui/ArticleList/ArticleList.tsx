@@ -37,16 +37,16 @@ export const ArticleList: FC<ArticleListProps> = ({
     );
   };
 
-  if (isLoading) {
-    return (
-      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-        {getSkeletons(view)}
-      </div>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+  //     </div>
+  //   );
+  // }
   return (
     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-      {articles.map(renderArticle)}
+      {articles.length > 0 ? articles.map(renderArticle) : null}
+      {isLoading && getSkeletons(view)}
     </div>
   );
 };

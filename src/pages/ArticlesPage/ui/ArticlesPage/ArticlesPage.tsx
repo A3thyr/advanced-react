@@ -9,6 +9,7 @@ import {
   getArticlePageView,
 } from "pages/ArticlesPage/model/selectors/articlePageSelectors";
 import { fetchArticlesList } from "pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList";
+import { fetchNextArticlesPage } from "pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 import {
   articlePageActions,
   articlePageReducer,
@@ -40,6 +41,8 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   const isLoading = useSelector(getArticlePageIsLoading);
   // const error = useSelector(getArticlePageError);
   const view = useSelector(getArticlePageView);
+  // const page = useSelector(getArticlePageNum);
+  // const hasMore = useSelector(getArticlePageHasMore);
 
   const onChangeView = useCallback(
     (view: ArticleView) => {
@@ -47,6 +50,10 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     },
     [dispatch],
   );
+
+  const onLoadNextPart = useCallback(() => {
+    dispatch(fetchNextArticlesPage());
+  }, [dispatch]);
 
   useInitialEffect(() => {
     dispatch(articlePageActions.initState());
@@ -60,7 +67,10 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <PageLayout className={classNames(cls.ArticlesPage, {}, [className])}>
+      <PageLayout
+        onScrollEnd={onLoadNextPart}
+        className={classNames(cls.ArticlesPage, {}, [className])}
+      >
         <ArticleViewSelector view={view} onClickView={onChangeView} />
         <ArticleList isLoading={isLoading} view={view} articles={articles} />
       </PageLayout>

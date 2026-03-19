@@ -5,14 +5,19 @@ import cls from "./PageLayout.module.scss";
 
 interface PageLayoutProps {
   className?: string;
+  onScrollEnd?: () => void;
 }
 
-export const PageLayout: FC<PageLayoutProps> = ({ className, children }) => {
+export const PageLayout: FC<PageLayoutProps> = ({
+  className,
+  children,
+  onScrollEnd,
+}) => {
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
 
   useInfiniteScroll({
-    callback: () => console.log("mock callback"),
+    callback: onScrollEnd,
     triggerRef,
     wrapperRef,
   });
