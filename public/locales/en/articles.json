@@ -1,3 +1,13 @@
 {
-  "title": "Articles"
+  "title": "Articles",
+  "dropdown-title": "Sort by:",
+  "search": "Search",
+  "asc": "ascending",
+  "desc": "descending",
+  "by": "Order by",
+  "sort-field": {
+    "createdAt": "creation date",
+    "title": "title",
+    "views": "views"
+  }
 }

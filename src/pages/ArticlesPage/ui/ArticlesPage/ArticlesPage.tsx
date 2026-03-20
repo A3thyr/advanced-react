@@ -1,8 +1,4 @@
-import {
-  ArticleList,
-  ArticleView,
-  ArticleViewSelector,
-} from "entities/Article";
+import { ArticleList } from "entities/Article";
 import {
   // getArticlePageError,
   getArticlePageIsLoading,
@@ -11,7 +7,6 @@ import {
 import { fetchNextArticlesPage } from "pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 import { initArticlesPage } from "pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage";
 import {
-  articlePageActions,
   articlePageReducer,
   getArticles,
 } from "pages/ArticlesPage/model/slices/articlePageSlice";
@@ -26,6 +21,7 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { PageLayout } from "widgets";
 import cls from "./ArticlesPage.module.scss";
+import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
 
 interface ArticlesPageProps {
   className?: string;
@@ -41,13 +37,6 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   const isLoading = useSelector(getArticlePageIsLoading);
   const view = useSelector(getArticlePageView);
 
-  const onChangeView = useCallback(
-    (view: ArticleView) => {
-      dispatch(articlePageActions.setView(view));
-    },
-    [dispatch],
-  );
-
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());
   }, [dispatch]);
@@ -62,7 +51,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
         onScrollEnd={onLoadNextPart}
         className={classNames(cls.ArticlesPage, {}, [className])}
       >
-        <ArticleViewSelector view={view} onClickView={onChangeView} />
+        <ArticlesPageFilters />
         <ArticleList isLoading={isLoading} view={view} articles={articles} />
       </PageLayout>
     </DynamicModuleLoader>

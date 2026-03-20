@@ -55,7 +55,7 @@ export const PageLayout: FC<PageLayoutProps> = ({
       onScroll={onScroll}
     >
       {children}
-      <div ref={triggerRef} />
+      {onScrollEnd ? <div ref={triggerRef} className={cls.trigger} /> : null}
     </section>
   );
 };
