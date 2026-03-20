@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Input, PageLayout } from "shared/ui";
+import { Input } from "shared/ui";
+import { PageLayout } from "widgets";
 
 const MainPage = () => {
   const { t } = useTranslation("main");

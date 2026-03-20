@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { PageLayout } from "shared/ui";
+import { PageLayout } from "widgets";
 
 const AboutPage = () => {
   const { t } = useTranslation("about");

@@ -14,10 +14,12 @@ import { LoginSchema } from "features/AuthByUsername";
 import { ArticleDetailsCommentSchema } from "pages/ArticlesDetailsPage";
 import { ArticlePageSchema } from "pages/ArticlesPage";
 import { CombinedState } from "redux";
+import { ScrollSaveSchema } from "widgets/PageLayout/ScrollSave";
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  scrollSave: ScrollSaveSchema;
   // Асинхронные редюсеры
   loginForm?: LoginSchema;
   profile?: ProfileSchema;

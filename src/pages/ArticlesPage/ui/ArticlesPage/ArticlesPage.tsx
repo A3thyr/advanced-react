@@ -24,7 +24,7 @@ import {
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
-import { PageLayout } from "shared/ui";
+import { PageLayout } from "widgets";
 import cls from "./ArticlesPage.module.scss";
 
 interface ArticlesPageProps {
