@@ -9,5 +9,12 @@
     "createdAt": "creation date",
     "title": "title",
     "views": "views"
-  }
+  },
+  "article-type": {
+    "all": "All",
+    "IT": "IT",
+    "economics": "Economics",
+    "science": "Science"
+  },
+  "not-found": "Not found"
 }

@@ -23,7 +23,7 @@ export const ArticleSortSelector: FC<ArticleSortSelectorProps> = ({
 }) => {
   const { t } = useTranslation("articles");
 
-  const orderOptions = useMemo<SelectOption[]>(
+  const orderOptions = useMemo<SelectOption<SortOrder>[]>(
     () => [
       {
         value: "asc",
@@ -37,7 +37,7 @@ export const ArticleSortSelector: FC<ArticleSortSelectorProps> = ({
     [t],
   );
 
-  const sortFieldOptions = useMemo<SelectOption[]>(
+  const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(
     () => [
       {
         value: ArticleSortField.CREATED,
@@ -57,8 +57,18 @@ export const ArticleSortSelector: FC<ArticleSortSelectorProps> = ({
 
   return (
     <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
-      <Select options={sortFieldOptions} label={t("dropdown-title")} />
-      <Select options={orderOptions} label={t("by")} />
+      <Select
+        value={sort}
+        onChange={onChangeSort}
+        options={sortFieldOptions}
+        label={t("dropdown-title")}
+      />
+      <Select
+        value={order}
+        onChange={onChangeOrder}
+        options={orderOptions}
+        label={t("by")}
+      />
     </div>
   );
 };

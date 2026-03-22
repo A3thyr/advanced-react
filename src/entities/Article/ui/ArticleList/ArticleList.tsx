@@ -1,6 +1,8 @@
 import { Article, ArticleView } from "entities/Article/model/types/article";
 import { FC } from "react";
+import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
+import { Text } from "shared/ui";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
 import cls from "./ArticleList.module.scss";
@@ -26,6 +28,7 @@ export const ArticleList: FC<ArticleListProps> = ({
   isLoading,
   view = ArticleView.SMALL,
 }) => {
+  const { t } = useTranslation("articles");
   const renderArticle = (article: Article) => {
     return (
       <ArticleListItem
@@ -37,12 +40,13 @@ export const ArticleList: FC<ArticleListProps> = ({
     );
   };
 
-  // if (isLoading) {
-  //   return (
-  //     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-  //     </div>
-  //   );
-  // }
+  if (!isLoading && !articles.length) {
+    return (
+      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+        <Text title={t("not-found")} />
+      </div>
+    );
+  }
   return (
     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
       {articles.length > 0 ? articles.map(renderArticle) : null}
