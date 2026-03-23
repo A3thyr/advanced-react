@@ -8,5 +8,9 @@
     "placeholder": "Write a comment...",
     "btn": "Send"
   },
-  "recommended": "Recommended articles:"
+  "recommended": "Recommended articles:",
+  "header": {
+    "back": "Back",
+    "edit": "Edit"
+  }
 }

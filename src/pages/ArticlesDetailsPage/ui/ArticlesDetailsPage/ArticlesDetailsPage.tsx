@@ -8,8 +8,7 @@ import { getArticlePageRecommendations } from "pages/ArticlesDetailsPage/model/s
 import { FC, memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
-import { RoutePath } from "shared/config/router/router.config";
+import { useParams } from "react-router-dom";
 import {
   DynamicModuleLoader,
   ReducersList,
@@ -17,7 +16,7 @@ import {
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
-import { Button, Text, ThemeButton } from "shared/ui";
+import { Text } from "shared/ui";
 import { TextSize } from "shared/ui/Text/Text";
 import { PageLayout } from "widgets";
 import { addCommentForArticle } from "../../../ArticlesDetailsPage/model/services/addCommentForArticle/addCommentForArticle";
@@ -25,6 +24,7 @@ import { fetchCommentsByArticleId } from "../../../ArticlesDetailsPage/model/ser
 import { getArticleCommentsIsLoading } from "../../model/selectors/comments";
 import { getArticleComments } from "../../model/slices/articleDetailsCommentsSlice";
 import cls from "./ArticlesDetailsPage.module.scss";
+import { ArticlesDetailsPageHeader } from "../ArticlesDetailsPageHeader/ArticlesDetailsPageHeader";
 
 interface ArticlesDetailsPageProps {
   className?: string;
@@ -44,7 +44,6 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
     getArticleRecommendationsIsLoading,
   );
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
 
   const onSendComment = useCallback(
     (text: string) => {
@@ -52,10 +51,6 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
     },
     [dispatch],
   );
-
-  const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles_details);
-  }, [navigate]);
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
@@ -77,9 +72,7 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
       <PageLayout
         className={classNames(cls.ArticlesDetailsPage, {}, [className])}
       >
-        <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>
-          {t("back")}
-        </Button>
+        <ArticlesDetailsPageHeader />
         <ArticleDetails id={id} />
         <Text
           size={TextSize.L}
