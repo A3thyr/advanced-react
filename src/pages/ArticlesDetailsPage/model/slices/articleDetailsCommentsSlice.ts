@@ -5,15 +5,16 @@ import {
 } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
 import { ArticleComment } from "entities/Comment";
-import { ArticleDetailsCommentSchema } from "../types/articleDetailsCommentSchema";
 import { fetchCommentsByArticleId } from "../services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import { ArticleDetailsCommentSchema } from "../types/articleDetailsCommentSchema";
 
 const commentsAdapter = createEntityAdapter<ArticleComment>({
   selectId: (comment: ArticleComment) => comment.id,
 });
 
 export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
-  (state) => state.articleDetailsComments || commentsAdapter.getInitialState()
+  (state) =>
+    state.articleDetailsPage?.comments || commentsAdapter.getInitialState(),
 );
 
 const articleDetailsCommentsSlice = createSlice({
@@ -36,7 +37,7 @@ const articleDetailsCommentsSlice = createSlice({
         (state, action: PayloadAction<ArticleComment[]>) => {
           state.isLoading = false;
           commentsAdapter.setAll(state, action.payload);
-        }
+        },
       )
       .addCase(fetchCommentsByArticleId.rejected, (state, action) => {
         state.isLoading = false;

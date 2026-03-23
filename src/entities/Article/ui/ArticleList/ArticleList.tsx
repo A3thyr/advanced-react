@@ -1,5 +1,5 @@
 import { Article, ArticleView } from "entities/Article/model/types/article";
-import { FC } from "react";
+import { FC, HTMLAttributeAnchorTarget } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import { Text } from "shared/ui";
@@ -12,6 +12,7 @@ interface ArticleListProps {
   articles: Article[];
   isLoading?: boolean;
   view?: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 const getSkeletons = (view: ArticleView) => {
@@ -26,6 +27,7 @@ export const ArticleList: FC<ArticleListProps> = ({
   className,
   articles,
   isLoading,
+  target,
   view = ArticleView.SMALL,
 }) => {
   const { t } = useTranslation("articles");
@@ -35,6 +37,7 @@ export const ArticleList: FC<ArticleListProps> = ({
         key={article.id}
         article={article}
         view={view}
+        target={target}
         className={cls.card}
       />
     );

@@ -3,10 +3,8 @@ import { CommentList } from "entities/Comment";
 import { AddCommentForm } from "features/addCommentForm";
 import { getArticleRecommendationsIsLoading } from "pages/ArticlesDetailsPage/model/selectors/recommendations";
 import { fetchArticlesRecommendations } from "pages/ArticlesDetailsPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations";
-import {
-  articleDetailsPageRecommendationsReducer,
-  getArticlePageRecommendations,
-} from "pages/ArticlesDetailsPage/model/slices/articleDetailsPageRecommendationsSlice";
+import { articleDetailsPageReducer } from "pages/ArticlesDetailsPage/model/slices";
+import { getArticlePageRecommendations } from "pages/ArticlesDetailsPage/model/slices/articleDetailsPageRecommendationsSlice";
 import { FC, memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -25,10 +23,7 @@ import { PageLayout } from "widgets";
 import { addCommentForArticle } from "../../../ArticlesDetailsPage/model/services/addCommentForArticle/addCommentForArticle";
 import { fetchCommentsByArticleId } from "../../../ArticlesDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { getArticleCommentsIsLoading } from "../../model/selectors/comments";
-import {
-  articleDetailsCommentsReducer,
-  getArticleComments,
-} from "../../model/slices/articleDetailsCommentsSlice";
+import { getArticleComments } from "../../model/slices/articleDetailsCommentsSlice";
 import cls from "./ArticlesDetailsPage.module.scss";
 
 interface ArticlesDetailsPageProps {
@@ -36,8 +31,7 @@ interface ArticlesDetailsPageProps {
 }
 
 const reducers: ReducersList = {
-  articleDetailsComments: articleDetailsCommentsReducer,
-  articleRecommendations: articleDetailsPageRecommendationsReducer,
+  articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
@@ -96,6 +90,7 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
           articles={recommendations}
           isLoading={recommendationsIsLoading}
           className={cls.recommended}
+          target="_blank"
         />
 
         <Text

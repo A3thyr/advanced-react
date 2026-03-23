@@ -51,7 +51,7 @@ module.exports = {
       "error",
       {
         markupOnly: true,
-        ignoreAttribute: ["data-testid", "type", "to", "fallback"],
+        ignoreAttribute: ["data-testid", "type", "to", "fallback", "target"],
       },
     ],
     quotes: ["error", "double", { allowTemplateLiterals: true }],

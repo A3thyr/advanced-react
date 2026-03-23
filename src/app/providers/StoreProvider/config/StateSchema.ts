@@ -11,10 +11,7 @@ import { ProfileSchema } from "entities/Profile";
 import { UserSchema } from "entities/User";
 import { AddCommentFormSchema } from "features/addCommentForm";
 import { LoginSchema } from "features/AuthByUsername";
-import {
-  ArticleDetailsCommentSchema,
-  ArticleDetailsPageRecommendationsSchema,
-} from "pages/ArticlesDetailsPage";
+import { ArticleDetailsPageSchema } from "pages/ArticlesDetailsPage/model/types";
 import { ArticlePageSchema } from "pages/ArticlesPage";
 import { CombinedState } from "redux";
 import { ScrollSaveSchema } from "widgets/PageLayout/ScrollSave";
@@ -23,14 +20,14 @@ export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
   scrollSave: ScrollSaveSchema;
+
   // Асинхронные редюсеры
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
-  articleDetailsComments?: ArticleDetailsCommentSchema;
-  articleRecommendations?: ArticleDetailsPageRecommendationsSchema;
   addCommentForm?: AddCommentFormSchema;
   articlePage?: ArticlePageSchema;
+  articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
