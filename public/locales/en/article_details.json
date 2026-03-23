@@ -7,5 +7,6 @@
   "form": {
     "placeholder": "Write a comment...",
     "btn": "Send"
-  }
+  },
+  "recommended": "Recommended articles:"
 }

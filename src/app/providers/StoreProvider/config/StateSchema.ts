@@ -11,7 +11,10 @@ import { ProfileSchema } from "entities/Profile";
 import { UserSchema } from "entities/User";
 import { AddCommentFormSchema } from "features/addCommentForm";
 import { LoginSchema } from "features/AuthByUsername";
-import { ArticleDetailsCommentSchema } from "pages/ArticlesDetailsPage";
+import {
+  ArticleDetailsCommentSchema,
+  ArticleDetailsPageRecommendationsSchema,
+} from "pages/ArticlesDetailsPage";
 import { ArticlePageSchema } from "pages/ArticlesPage";
 import { CombinedState } from "redux";
 import { ScrollSaveSchema } from "widgets/PageLayout/ScrollSave";
@@ -25,6 +28,7 @@ export interface StateSchema {
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleDetailsCommentSchema;
+  articleRecommendations?: ArticleDetailsPageRecommendationsSchema;
   addCommentForm?: AddCommentFormSchema;
   articlePage?: ArticlePageSchema;
 }
