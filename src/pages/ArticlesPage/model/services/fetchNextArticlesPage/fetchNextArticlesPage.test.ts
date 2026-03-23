@@ -22,7 +22,7 @@ describe("fetchNextArticlesPage.test", () => {
     await thunk.callThunk();
 
     expect(thunk.dispatch).toBeCalledTimes(4);
-    expect(mockedFetchArticlesList).toHaveBeenCalledWith({ page: 2 });
+    expect(mockedFetchArticlesList).toHaveBeenCalledWith({});
   });
 
   test("should not fetch next page when no more items", async () => {

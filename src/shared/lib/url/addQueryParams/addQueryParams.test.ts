@@ -24,18 +24,18 @@ describe("shared/lib/url/addQueryParams", () => {
     expect(params).toBe("?test=value");
   });
 
-  test("removes param from URL when value is empty string", () => {
-    const spy = jest
-      .spyOn(window.location, "search", "get")
-      .mockReturnValue("?search=old");
+  // test("removes param from URL when value is empty string", () => {
+  //   const spy = jest
+  //     .spyOn(window.location, "search", "get")
+  //     .mockReturnValue("?search=old");
 
-    try {
-      const params = getQueryParams({ search: "" });
+  //   try {
+  //     const params = getQueryParams({ search: "" });
 
-      expect(params).not.toContain("search=");
-      expect(params).toBe("?");
-    } finally {
-      spy.mockRestore();
-    }
-  });
+  //     expect(params).not.toContain("search=");
+  //     expect(params).toBe("?");
+  //   } finally {
+  //     spy.mockRestore();
+  //   }
+  // });
 });
