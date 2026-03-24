@@ -15,6 +15,8 @@ interface PageLayoutProps {
   onScrollEnd?: () => void;
 }
 
+export const PAGE_ID = "PAGE_ID";
+
 export const PageLayout: FC<PageLayoutProps> = ({
   className,
   children,
@@ -53,6 +55,7 @@ export const PageLayout: FC<PageLayoutProps> = ({
       ref={wrapperRef}
       className={classNames(cls.PageLayout, {}, [className])}
       onScroll={onScroll}
+      id={PAGE_ID}
     >
       {children}
       {onScrollEnd ? <div ref={triggerRef} className={cls.trigger} /> : null}

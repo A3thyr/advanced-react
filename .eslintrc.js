@@ -72,6 +72,7 @@ module.exports = {
     "no-param-reassign": "off",
     "no-undef": "off",
     "no-console": "off",
+    "no-plusplus": "off",
     // ?
     "function-paren-newline": "off",
     // правило для фулл лоускиллов, срёт при ключах = индексу в СКЕЛЕТОНАХ :pepeClown:

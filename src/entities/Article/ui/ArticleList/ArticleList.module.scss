@@ -9,4 +9,13 @@
   flex-flow: row;
   flex-wrap: wrap;
   gap: 24px;
+
+  .card {
+    display: inline-flex;
+  }
+
+  .row {
+    display: flex;
+    gap: 30px;
+  }
 }
