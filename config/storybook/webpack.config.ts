@@ -11,6 +11,8 @@ export default ({ config }: { config: WebpackConfiguration }) => {
     entry: "",
     html: "",
     src: path.resolve(__dirname, "..", "..", "src"),
+    locales: path.resolve(__dirname, "..", "..", "public", "locales"),
+    buildLocales: path.resolve(__dirname, "..", "..", "build", "locales"),
   };
 
   config!.resolve!.modules!.push(paths.src);
@@ -21,7 +23,7 @@ export default ({ config }: { config: WebpackConfiguration }) => {
       __IS_DEV__: JSON.stringify(true),
       __API__: JSON.stringify(""),
       __PROJECT__: JSON.stringify("storybook"),
-    })
+    }),
   );
 
   // eslint-disable-next-line no-param-reassign
