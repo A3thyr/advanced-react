@@ -1,7 +1,3 @@
-import {
-  addCommentFormActions,
-  addCommentFormReducer,
-} from "features/addCommentForm/model/slice/addCommentFormSlice";
 import { FC, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -16,6 +12,10 @@ import {
   getAddCommentFormError,
   getAddCommentFormText,
 } from "../../model/selectors/addCommentFormSelectors.ts/addCommentFormSelectors";
+import {
+  addCommentFormActions,
+  addCommentFormReducer,
+} from "../../model/slice/addCommentFormSlice";
 import cls from "./AddCommentForm.module.scss";
 
 export interface AddCommentFormProps {
@@ -40,7 +40,7 @@ const AddCommentForm: FC<AddCommentFormProps> = ({
     (value: string) => {
       dispatch(addCommentFormActions.setText(value));
     },
-    [dispatch]
+    [dispatch],
   );
 
   const onSendHandler = useCallback(() => {

@@ -1,7 +1,7 @@
-import { ArticleImageBlock } from "entities/Article/model/types/article";
 import { memo } from "react";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import { Text, TextAlign } from "shared/ui";
+import { ArticleImageBlock } from "../../model/types/article";
 import cls from "./ArticleImageBlockComponent.module.scss";
 
 interface ArticleImageBlockComponentProps {
@@ -19,5 +19,5 @@ export const ArticleImageBlockComponent = memo(
         {block.title && <Text text={block.title} align={TextAlign.CENTER} />}
       </div>
     );
-  }
+  },
 );

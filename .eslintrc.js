@@ -18,7 +18,13 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint", "i18next", "react-hooks"],
+  plugins: [
+    "react",
+    "@typescript-eslint",
+    "i18next",
+    "react-hooks",
+    "aetherys-custom-plugin",
+  ],
   rules: {
     "react/jsx-indent": [2, 2],
     "react/jsx-indent-props": [2, 2],
@@ -73,6 +79,8 @@ module.exports = {
     "no-undef": "off",
     "no-console": "off",
     "no-plusplus": "off",
+    // custom plugin
+    "aetherys-custom-plugin/path-checker": "error",
     // ?
     "function-paren-newline": "off",
     // правило для фулл лоускиллов, срёт при ключах = индексу в СКЕЛЕТОНАХ :pepeClown:

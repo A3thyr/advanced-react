@@ -1,15 +1,4 @@
 import { ArticleList } from "entities/Article";
-import {
-  // getArticlePageError,
-  getArticlePageIsLoading,
-  getArticlePageView,
-} from "pages/ArticlesPage/model/selectors/articlePageSelectors";
-import { fetchNextArticlesPage } from "pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage";
-import { initArticlesPage } from "pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage";
-import {
-  articlePageReducer,
-  getArticles,
-} from "pages/ArticlesPage/model/slices/articlePageSlice";
 import { FC, memo, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
@@ -21,6 +10,17 @@ import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { PageLayout } from "widgets";
+import {
+  // getArticlePageError,
+  getArticlePageIsLoading,
+  getArticlePageView,
+} from "../../model/selectors/articlePageSelectors";
+import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
+import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
+import {
+  articlePageReducer,
+  getArticles,
+} from "../../model/slices/articlePageSlice";
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
 import cls from "./ArticlesPage.module.scss";
 

@@ -1,8 +1,8 @@
-import { ArticleComment } from "entities/Comment/model/types/comment";
 import { FC } from "react";
 import { RoutePath } from "shared/config/router/router.config";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import { AppLink, Avatar, Skeleton, Text } from "shared/ui";
+import { ArticleComment } from "../../model/types/comment";
 import cls from "./CommentCard.module.scss";
 
 interface CommentCardProps {

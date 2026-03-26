@@ -6,15 +6,6 @@ import {
   ArticleViewSelector,
 } from "entities/Article";
 import { ArticleSortSelector } from "entities/Article/ui/ArticleSortSelector/ArticleSortSelector";
-import {
-  getArticlePageOrder,
-  getArticlePageSearch,
-  getArticlePageSort,
-  getArticlePageType,
-  getArticlePageView,
-} from "pages/ArticlesPage/model/selectors/articlePageSelectors";
-import { fetchArticlesList } from "pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList";
-import { articlePageActions } from "pages/ArticlesPage/model/slices/articlePageSlice";
 import { FC, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -23,6 +14,15 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
 import { SortOrder } from "shared/types";
 import { Card, Input } from "shared/ui";
+import {
+  getArticlePageOrder,
+  getArticlePageSearch,
+  getArticlePageSort,
+  getArticlePageType,
+  getArticlePageView,
+} from "../../model/selectors/articlePageSelectors";
+import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
+import { articlePageActions } from "../../model/slices/articlePageSlice";
 import cls from "./ArticlesPageFilters.module.scss";
 
 interface ArticlesPageFiltersProps {

@@ -1,4 +1,3 @@
-import { Article, ArticleView } from "entities/Article/model/types/article";
 import { FC, HTMLAttributeAnchorTarget } from "react";
 import { useTranslation } from "react-i18next";
 import { List, WindowScroller } from "react-virtualized";
@@ -6,6 +5,7 @@ import { ListRowProps } from "react-virtualized/dist/es/List";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import { Text } from "shared/ui";
 import { PAGE_ID } from "widgets/PageLayout/ui/PageLayout";
+import { Article, ArticleView } from "../../model/types/article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
 import cls from "./ArticleList.module.scss";

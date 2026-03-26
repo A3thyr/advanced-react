@@ -1,6 +1,4 @@
 import { getArticleDetailsData } from "entities/Article";
-import { getUserAuthData } from "entities/User";
-import { getCanEditArticle } from "pages/ArticlesDetailsPage/model/selectors/articles";
 import { FC, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -8,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { RoutePath } from "shared/config/router/router.config";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import { Button, ThemeButton } from "shared/ui";
+import { getCanEditArticle } from "../../model/selectors/articles";
 import cls from "./ArticlesDetailsPageHeader.module.scss";
 
 interface ArticlesDetailsPageHeaderProps {

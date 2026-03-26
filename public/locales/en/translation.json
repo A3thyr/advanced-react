@@ -13,5 +13,7 @@
   "username": "username",
   "login-title": "Login",
   "Incorrect username or password": "Incorrect username or password",
-  "logout": "Logout"
+  "logout": "Logout",
+  "app-name": "Aetherys app",
+  "create-article": "Create an article"
 }

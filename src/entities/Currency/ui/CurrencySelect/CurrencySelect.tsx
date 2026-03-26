@@ -1,8 +1,8 @@
-import { Currency } from "entities/Currency";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import { Select } from "shared/ui";
+import { Currency } from "../../model/types/currency";
 
 interface CurrencySelectProps {
   className?: string;
@@ -25,7 +25,7 @@ export const CurrencySelect = memo(
       (value: string) => {
         onChange?.(value as Currency);
       },
-      [onChange]
+      [onChange],
     );
 
     return (
@@ -38,5 +38,5 @@ export const CurrencySelect = memo(
         readonly={readonly}
       />
     );
-  }
+  },
 );

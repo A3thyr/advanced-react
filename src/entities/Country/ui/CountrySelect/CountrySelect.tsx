@@ -1,9 +1,8 @@
-import { Country } from "entities/Country/model/types/country";
-import { Currency } from "entities/Currency";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import { Select } from "shared/ui";
+import { Country } from "../../model/types/country";
 
 interface CountrySelectProps {
   className?: string;
@@ -34,7 +33,7 @@ export const CountrySelect = memo(
       (value: string) => {
         onChange?.(value as Country);
       },
-      [onChange]
+      [onChange],
     );
 
     return (
@@ -47,5 +46,5 @@ export const CountrySelect = memo(
         readonly={readonly}
       />
     );
-  }
+  },
 );

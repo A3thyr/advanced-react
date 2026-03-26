@@ -1,9 +1,3 @@
-import {
-  Article,
-  ArticleBlockType,
-  ArticleTextBlock,
-  ArticleView,
-} from "entities/Article/model/types/article";
 import { FC, HTMLAttributeAnchorTarget } from "react";
 import { useTranslation } from "react-i18next";
 import EyeIcon from "shared/assets/icons/eye-20-20.svg";
@@ -19,6 +13,12 @@ import {
   Text,
   ThemeButton,
 } from "shared/ui";
+import {
+  Article,
+  ArticleBlockType,
+  ArticleTextBlock,
+  ArticleView,
+} from "../../model/types/article";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import cls from "./ArticleListItem.module.scss";
 

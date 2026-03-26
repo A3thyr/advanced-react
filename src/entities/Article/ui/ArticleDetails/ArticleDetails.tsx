@@ -1,14 +1,3 @@
-import {
-  getArticleDetailsData,
-  getArticleDetailsError,
-  getArticleDetailsIsLoading,
-} from "entities/Article/model/selectors/articleDetails";
-import { fetchArticleById } from "entities/Article/model/services/fetchArticleById/fetchArticleById";
-import { articleDetailsReducer } from "entities/Article/model/slice/articleDetailsSlice";
-import {
-  ArticleBlock,
-  ArticleBlockType,
-} from "entities/Article/model/types/article";
 import { FC, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -22,6 +11,14 @@ import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { Avatar, Icon, Skeleton, Text, TextAlign, TextTheme } from "shared/ui";
 import { TextSize } from "shared/ui/Text/Text";
+import {
+  getArticleDetailsData,
+  getArticleDetailsError,
+  getArticleDetailsIsLoading,
+} from "../../model/selectors/articleDetails";
+import { fetchArticleById } from "../../model/services/fetchArticleById/fetchArticleById";
+import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice";
+import { ArticleBlock, ArticleBlockType } from "../../model/types/article";
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";

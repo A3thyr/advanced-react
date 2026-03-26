@@ -1,7 +1,7 @@
-import { ArticleTextBlock } from "entities/Article/model/types/article";
 import { memo } from "react";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import { Text } from "shared/ui";
+import { ArticleTextBlock } from "../../model/types/article";
 import cls from "./ArticleTextBlockComponent.module.scss";
 
 interface ArticleTextBlockComponentProps {
@@ -21,5 +21,5 @@ export const ArticleTextBlockComponent = memo(
         ))}
       </div>
     );
-  }
+  },
 );

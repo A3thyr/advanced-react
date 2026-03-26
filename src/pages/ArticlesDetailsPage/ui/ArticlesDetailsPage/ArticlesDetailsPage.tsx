@@ -1,10 +1,6 @@
 import { ArticleDetails, ArticleList } from "entities/Article";
 import { CommentList } from "entities/Comment";
 import { AddCommentForm } from "features/addCommentForm";
-import { getArticleRecommendationsIsLoading } from "pages/ArticlesDetailsPage/model/selectors/recommendations";
-import { fetchArticlesRecommendations } from "pages/ArticlesDetailsPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations";
-import { articleDetailsPageReducer } from "pages/ArticlesDetailsPage/model/slices";
-import { getArticlePageRecommendations } from "pages/ArticlesDetailsPage/model/slices/articleDetailsPageRecommendationsSlice";
 import { FC, memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -22,9 +18,13 @@ import { PageLayout } from "widgets";
 import { addCommentForArticle } from "../../../ArticlesDetailsPage/model/services/addCommentForArticle/addCommentForArticle";
 import { fetchCommentsByArticleId } from "../../../ArticlesDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { getArticleCommentsIsLoading } from "../../model/selectors/comments";
+import { getArticleRecommendationsIsLoading } from "../../model/selectors/recommendations";
+import { fetchArticlesRecommendations } from "../../model/services/fetchArticleRecommendations/fetchArticleRecommendations";
+import { articleDetailsPageReducer } from "../../model/slices";
 import { getArticleComments } from "../../model/slices/articleDetailsCommentsSlice";
-import cls from "./ArticlesDetailsPage.module.scss";
+import { getArticlePageRecommendations } from "../../model/slices/articleDetailsPageRecommendationsSlice";
 import { ArticlesDetailsPageHeader } from "../ArticlesDetailsPageHeader/ArticlesDetailsPageHeader";
+import cls from "./ArticlesDetailsPage.module.scss";
 
 interface ArticlesDetailsPageProps {
   className?: string;
