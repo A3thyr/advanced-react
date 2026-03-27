@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import { Button, ThemeButton } from "shared/ui";
 import { ButtonSize } from "shared/ui/Button/Button";
+import { VStack } from "shared/ui/Stack";
 import { LangSwitcher } from "widgets/LangSwitcher";
 import { ThemeSwitcher } from "widgets/theme-switcher";
 import { getSideBarItems } from "../model/selectors/getSidebarItems";
@@ -49,7 +50,9 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
       >
         {collapsed ? ">" : "<"}
       </Button>
-      <div className={cls.items}>{itemsList}</div>
+      <VStack gap={8} className={cls.items}>
+        {itemsList}
+      </VStack>
       <div className={cls.switchers}>
         <ThemeSwitcher />
         <LangSwitcher short={collapsed} className={cls.lang} />

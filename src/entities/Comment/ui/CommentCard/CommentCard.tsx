@@ -2,6 +2,7 @@ import { FC } from "react";
 import { RoutePath } from "shared/config/router/router.config";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import { AppLink, Avatar, Skeleton, Text } from "shared/ui";
+import { VStack } from "shared/ui/Stack";
 import { ArticleComment } from "../../model/types/comment";
 import cls from "./CommentCard.module.scss";
 
@@ -18,20 +19,28 @@ export const CommentCard: FC<CommentCardProps> = ({
 }) => {
   if (isLoading) {
     return (
-      <div className={classNames(cls.CommentCard, {}, [className])}>
+      <VStack
+        gap={8}
+        max
+        className={classNames(cls.CommentCard, {}, [className])}
+      >
         <div className={cls.header}>
           <Skeleton border="50%" height={30} width={30} />
           <Skeleton height={16} width={100} className={cls.username} />
         </div>
         <Skeleton width="100%" height={50} className={cls.text} />
-      </div>
+      </VStack>
     );
   }
 
   if (!comment) return null;
 
   return (
-    <div className={classNames(cls.CommentCard, {}, [className, cls.loading])}>
+    <VStack
+      gap={8}
+      max
+      className={classNames(cls.CommentCard, {}, [className, cls.loading])}
+    >
       <AppLink
         to={`${RoutePath.profile}${comment.user.id}`}
         className={cls.header}
@@ -40,6 +49,6 @@ export const CommentCard: FC<CommentCardProps> = ({
         <Text className={cls.username} title={comment.user.username} />
       </AppLink>
       <Text className={cls.text} text={comment.text} />
-    </div>
+    </VStack>
   );
 };

@@ -8,6 +8,7 @@ import {
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { Button, Input, ThemeButton } from "shared/ui";
+import { HStack } from "shared/ui/Stack";
 import {
   getAddCommentFormError,
   getAddCommentFormText,
@@ -50,7 +51,12 @@ const AddCommentForm: FC<AddCommentFormProps> = ({
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(cls.AddCommentForm, {}, [className])}>
+      <HStack
+        max
+        align="center"
+        justfify="between"
+        className={classNames(cls.AddCommentForm, {}, [className])}
+      >
         <Input
           className={cls.input}
           placeholder={t("form.placeholder")}
@@ -60,7 +66,7 @@ const AddCommentForm: FC<AddCommentFormProps> = ({
         <Button onClick={onSendHandler} theme={ThemeButton.OUTLINE}>
           {t("form.btn")}
         </Button>
-      </div>
+      </HStack>
     </DynamicModuleLoader>
   );
 };
