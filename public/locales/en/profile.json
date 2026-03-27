@@ -13,7 +13,8 @@
     "age": "Age",
     "username": "Username",
     "avatar": "Avatar",
-    "currency": "Currency"
+    "currency": "Currency",
+    "country": "Country"
   },
   "error": {
     "incorrect-user-data": "First and second names are required",

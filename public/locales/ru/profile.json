@@ -13,7 +13,8 @@
     "age": "Возраст",
     "username": "Имя пользователя",
     "avatar": "Аватар",
-    "currency": "Валюта"
+    "currency": "Валюта",
+    "country": "Страна"
   },
   "error": {
     "incorrect-user-data": "Имя и фамилия обязательны",
