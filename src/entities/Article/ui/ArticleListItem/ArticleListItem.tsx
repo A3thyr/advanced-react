@@ -13,6 +13,7 @@ import {
   Text,
   ThemeButton,
 } from "shared/ui";
+import { TextSize } from "shared/ui/Text/Text";
 import {
   Article,
   ArticleBlockType,
@@ -52,7 +53,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
   );
 
   // delete THAT
-  console.log(isHover);
+  // console.log(isHover);
 
   if (view === ArticleView.BIG) {
     const textBlock = article.blocks.find(
@@ -114,7 +115,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
           {types}
           {views}
         </div>
-        <Text title={article.title} className={cls.title} />
+        <Text title={article.title} className={cls.title} size={TextSize.S} />
       </Card>
     </AppLink>
   );

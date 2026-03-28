@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import cls from "./Text.module.scss";
 
@@ -37,14 +36,14 @@ const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
   [TextSize.L]: "h1",
 };
 
-export const Text: FC<TextProps> = ({
+export const Text = ({
   className,
   text,
   title,
   theme = TextTheme.PRIMARY,
   align = TextAlign.LEFT,
   size = TextSize.M,
-}) => {
+}: TextProps) => {
   const HeaderTag = mapSizeToHeaderTag[size];
 
   return (

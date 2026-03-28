@@ -10,8 +10,7 @@ ${interfaceConst} ${componentName}Props {
     className?: string;
 }
 
-export const ${componentName} = (props: ${componentName}Props) => {
-    const { className } = props;
+export const ${componentName} = ({ className }: ${componentName}Props) => {
     const { t } = useTranslation();
     
     return (
