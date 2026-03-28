@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Currency } from "entities/Currency";
 import { ListBox } from "./ListBox";
 
 export default {
@@ -8,18 +7,59 @@ export default {
   argTypes: {
     backgroundColor: { control: "color" },
   },
+  decorators: [
+    (Story) => (
+      <div style={{ padding: 100 }}>
+        <Story />
+      </div>
+    ),
+  ],
 } as ComponentMeta<typeof ListBox>;
 
 const Template: ComponentStory<typeof ListBox> = (args) => (
   <ListBox {...args} />
 );
 
-export const Normal = Template.bind({});
-Normal.args = {
+export const TopRight = Template.bind({});
+TopRight.args = {
+  direction: "top right",
   items: [
-    { value: Currency.RUB, content: Currency.RUB },
-    { value: Currency.EUR, content: Currency.EUR },
-    { value: Currency.USD, content: Currency.USD },
+    { value: "asikfoajfioajfsd", content: "asikfoajfioajfsd" },
+    { value: "fjsdkgsdkgskdgjksd", content: "fjsdkgsdkgskdgjksd" },
+    { value: "asdljfgksdgkpsdgksdgksdg", content: "asdljfgksdgkpsdgksdgksdg" },
   ],
-  defaultValue: Currency.EUR,
+  defaultValue: "fjsdkgsdkgskdgjksd",
+};
+
+export const TopLeft = Template.bind({});
+TopLeft.args = {
+  direction: "top left",
+  items: [
+    { value: "asikfoajfioajfsd", content: "asikfoajfioajfsd" },
+    { value: "fjsdkgsdkgskdgjksd", content: "fjsdkgsdkgskdgjksd" },
+    { value: "asdljfgksdgkpsdgksdgksdg", content: "asdljfgksdgkpsdgksdgksdg" },
+  ],
+  defaultValue: "fjsdkgsdkgskdgjksd",
+};
+
+export const BottomLeft = Template.bind({});
+BottomLeft.args = {
+  direction: "bottom left",
+  items: [
+    { value: "asikfoajfioajfsd", content: "asikfoajfioajfsd" },
+    { value: "fjsdkgsdkgskdgjksd", content: "fjsdkgsdkgskdgjksd" },
+    { value: "asdljfgksdgkpsdgksdgksdg", content: "asdljfgksdgkpsdgksdgksdg" },
+  ],
+  defaultValue: "fjsdkgsdkgskdgjksd",
+};
+
+export const BottomRight = Template.bind({});
+BottomRight.args = {
+  direction: "bottom right",
+  items: [
+    { value: "asikfoajfioajfsd", content: "asikfoajfioajfsd" },
+    { value: "fjsdkgsdkgskdgjksd", content: "fjsdkgsdkgskdgjksd" },
+    { value: "asdljfgksdgkpsdgksdgksdg", content: "asdljfgksdgkpsdgksdgksdg" },
+  ],
+  defaultValue: "fjsdkgsdkgskdgjksd",
 };

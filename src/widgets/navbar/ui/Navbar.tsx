@@ -10,7 +10,9 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {
   AppLink,
   AppLinkTheme,
+  Avatar,
   Button,
+  Dropdown,
   Text,
   TextTheme,
   ThemeButton,
@@ -55,13 +57,21 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
         >
           {t("create-article")}
         </AppLink>
-        <Button
-          theme={ThemeButton.CLEAR_INVERTED}
-          className={cls.links}
-          onClick={onLogout}
-        >
-          {t("logout")}
-        </Button>
+        <Dropdown
+          className={cls.dropdown}
+          direction="bottom left"
+          trigger={<Avatar size={30} src={authData.avatar} />}
+          items={[
+            {
+              content: t("profile"),
+              href: RoutePath.profile + authData.id,
+            },
+            {
+              content: t("logout"),
+              onClick: onLogout,
+            },
+          ]}
+        />
       </header>
     );
   }

@@ -14,6 +14,7 @@
   "login-title": "Вход",
   "Incorrect username or password": "Неправильный логин или пароль",
   "logout": "Выйти",
+  "profile": "Профиль",
   "app-name": "Aetherys app",
   "create-article": "Создать статью"
 }

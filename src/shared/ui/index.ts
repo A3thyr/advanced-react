@@ -14,3 +14,4 @@ export { Card } from "./Card/Card";
 export { ListBox, ListBoxItem } from "./ListBox/ListBox";
 export { Tabs } from "./Tabs/Tabs";
 export type { TabItem } from "./Tabs/Tabs";
+export { Dropdown, DropdownItem } from "./Dropdown/Dropdown";
