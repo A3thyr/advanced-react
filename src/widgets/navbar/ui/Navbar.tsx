@@ -1,5 +1,10 @@
 /* eslint-disable i18next/no-literal-string */
-import { getUserAuthData, userActions } from "entities/User";
+import {
+  getUserAuthData,
+  isUserAdmin,
+  isUserManager,
+  userActions,
+} from "entities/User";
 import { LoginModal } from "features/AuthByUsername";
 import { FC, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -28,6 +33,8 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
   const [isAuthModal, setIsAuthModal] = useState(false);
   const authData = useSelector(getUserAuthData);
   const dispatch = useAppDispatch();
+  const isAdmin = useSelector(isUserAdmin);
+  const isManager = useSelector(isUserManager);
 
   const onCloseModal = useCallback(() => {
     setIsAuthModal(false);
@@ -40,6 +47,8 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
   const onLogout = useCallback(() => {
     dispatch(userActions.logout());
   }, [dispatch]);
+
+  const isAdminPanelAvailable = isAdmin || isManager;
 
   if (authData) {
     return (
@@ -62,6 +71,14 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
           direction="bottom left"
           trigger={<Avatar size={30} src={authData.avatar} />}
           items={[
+            ...(isAdminPanelAvailable
+              ? [
+                  {
+                    content: t("admin"),
+                    href: RoutePath.admin_panel,
+                  },
+                ]
+              : []),
             {
               content: t("profile"),
               href: RoutePath.profile + authData.id,

@@ -16,5 +16,7 @@
   "logout": "Logout",
   "profile": "Profile",
   "app-name": "Aetherys app",
-  "create-article": "Create an article"
+  "create-article": "Create an article",
+  "admin": "Admin panel",
+  "forbidden-page": "You have no access for this page"
 }

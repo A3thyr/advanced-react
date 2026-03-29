@@ -16,5 +16,7 @@
   "logout": "Выйти",
   "profile": "Профиль",
   "app-name": "Aetherys app",
-  "create-article": "Создать статью"
+  "create-article": "Создать статью",
+  "admin": "Админ панель",
+  "forbidden-page": "У вас нет доступа к этой странице"
 }
