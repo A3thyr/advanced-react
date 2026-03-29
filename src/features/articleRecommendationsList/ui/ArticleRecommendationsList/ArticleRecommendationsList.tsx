@@ -20,6 +20,10 @@ export const ArticleRecommendationsList = ({
     error,
   } = useArticleRecommendationsList(3);
 
+  if (!recommendations) {
+    return <Text text={t("no-data")} />;
+  }
+
   if (isLoading || error) {
     return (
       <VStack max gap={8} className={classNames("", {}, [className])}>
@@ -40,6 +44,7 @@ export const ArticleRecommendationsList = ({
         articles={recommendations}
         isLoading={isLoading}
         target="_blank"
+        virtualized={false}
       />
     </VStack>
   );

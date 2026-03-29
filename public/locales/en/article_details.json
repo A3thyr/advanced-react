@@ -1,6 +1,7 @@
 {
   "title": "Articles",
   "not-found": "Article was not found",
+  "no-data": "No articles available",
   "error": "An error occured during article loading",
   "comment-title": "Comments",
   "no-comment": "No comments",

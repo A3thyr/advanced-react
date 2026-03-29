@@ -62,22 +62,22 @@ export const EditableProfileCard = ({
 
   const onChangeFirstname = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfile({ first: value || "" }));
+      dispatch(profileActions.updateProfile({ first: value ?? "" }));
     },
     [dispatch],
   );
 
   const onChangeLastname = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfile({ lastname: value || "" }));
+      dispatch(profileActions.updateProfile({ lastname: value ?? "" }));
     },
     [dispatch],
   );
 
   const onChangeAge = useCallback(
     (value?: string) => {
-      if (numberValidateRegEx.test(value || "0")) {
-        dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
+      if (numberValidateRegEx.test(value ?? "0")) {
+        dispatch(profileActions.updateProfile({ age: Number(value ?? 0) }));
       }
     },
     [dispatch],
@@ -85,21 +85,21 @@ export const EditableProfileCard = ({
 
   const onChangeCity = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfile({ city: value || "" }));
+      dispatch(profileActions.updateProfile({ city: value ?? "" }));
     },
     [dispatch],
   );
 
   const onChangeUsername = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfile({ username: value || "" }));
+      dispatch(profileActions.updateProfile({ username: value ?? "" }));
     },
     [dispatch],
   );
 
   const onChangeAvatar = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfile({ avatar: value || "" }));
+      dispatch(profileActions.updateProfile({ avatar: value ?? "" }));
     },
     [dispatch],
   );
@@ -120,12 +120,18 @@ export const EditableProfileCard = ({
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <VStack gap={16} max className={classNames("", {}, [className])}>
+      <VStack
+        data-testid="EditableProfileCard"
+        gap={16}
+        max
+        className={classNames("", {}, [className])}
+      >
         <EditableProfileCardHeader />
         {validateErrors?.length &&
           validateErrors.map((err) => (
             <Text
               key={err}
+              data-testid="EditableProfileCard.Error"
               theme={TextTheme.ERROR}
               text={validateErrorTranslate[err]}
             />

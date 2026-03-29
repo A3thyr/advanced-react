@@ -96,6 +96,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
         </HStack>
       )}
       <Input
+        data-testid="ProfileCard.first"
         value={data?.first}
         placeholder={t("profilecard.firstName")}
         className={cls.input}
@@ -104,6 +105,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
       />
 
       <Input
+        data-testid="ProfileCard.lastname"
         value={data?.lastname}
         placeholder={t("profilecard.secondName")}
         className={cls.input}
@@ -112,6 +114,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
       />
 
       <Input
+        data-testid="ProfileCard.age"
         value={data?.age}
         placeholder={t("profilecard.age")}
         className={cls.input}
@@ -120,6 +123,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
       />
 
       <Input
+        data-testid="ProfileCard.city"
         value={data?.city}
         placeholder={t("profilecard.city")}
         className={cls.input}
@@ -128,6 +132,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
       />
 
       <Input
+        data-testid="ProfileCard.username"
         value={data?.username}
         placeholder={t("profilecard.username")}
         className={cls.input}
