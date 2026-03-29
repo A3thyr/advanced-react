@@ -133,6 +133,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <VStack
         gap={16}
+        max
         className={classNames(cls.ArticleDetails, {}, [className])}
       >
         {content}
