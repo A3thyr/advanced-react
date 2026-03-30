@@ -27,6 +27,10 @@ const getSkeletons = (view: ArticleView) => {
     ));
 };
 
+/**
+ * @todo all the issues with react-virtualized are currently ignored, got to migrate to react-window or the other solutions ASAP
+ */
+
 export const ArticleList: FC<ArticleListProps> = ({
   className,
   articles,
@@ -74,6 +78,7 @@ export const ArticleList: FC<ArticleListProps> = ({
     );
   }
   return (
+    // @ts-expect-error
     <WindowScroller scrollElement={document.getElementById(PAGE_ID) as Element}>
       {({
         width,
@@ -96,10 +101,12 @@ export const ArticleList: FC<ArticleListProps> = ({
 
         return (
           <div
+            // @ts-expect-error
             ref={registerChild}
             className={classNames(cls.ArticleList, {}, [className, cls[view]])}
           >
             {virtualized ? (
+              // @ts-expect-error
               <List
                 autoHeight
                 onScroll={onChildScroll}

@@ -1,5 +1,5 @@
 import { StateSchema } from "app/providers/StoreProvider";
-import { FC, MutableRefObject, UIEvent, useRef } from "react";
+import { FC, MutableRefObject, ReactNode, UIEvent, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
@@ -12,6 +12,7 @@ import cls from "./PageLayout.module.scss";
 
 interface PageLayoutProps {
   className?: string;
+  children: ReactNode;
   onScrollEnd?: () => void;
 }
 
