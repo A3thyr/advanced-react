@@ -21,7 +21,7 @@ export default ({ config }: { config: WebpackConfiguration }) => {
   config!.plugins!.push(
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(true),
-      __API__: JSON.stringify(""),
+      __API__: JSON.stringify("https://testapi.com"),
       __PROJECT__: JSON.stringify("storybook"),
     }),
   );

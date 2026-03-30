@@ -1,6 +1,6 @@
 import { CommentList } from "entities/Comment";
 import { AddCommentForm } from "features/addCommentForm";
-import { FC, useCallback } from "react";
+import { FC, Suspense, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
@@ -15,7 +15,7 @@ import { getArticleComments } from "../../model/slices/articleDetailsCommentsSli
 
 interface ArticleDetailsCommentsProps {
   className?: string;
-  id: string;
+  id?: string;
 }
 
 export const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = ({
@@ -45,7 +45,9 @@ export const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = ({
         // className={cls.commentTitle}
         title={t("comment-title")}
       />
-      <AddCommentForm onSendComment={onSendComment} />
+      <Suspense fallback={t("loading")}>
+        <AddCommentForm onSendComment={onSendComment} />
+      </Suspense>
       <CommentList isLoading={commentsIsLoading} comments={comments} />
     </VStack>
   );

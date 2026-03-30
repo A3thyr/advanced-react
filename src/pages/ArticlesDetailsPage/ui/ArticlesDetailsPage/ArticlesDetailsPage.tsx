@@ -1,7 +1,7 @@
 import { ArticleDetails } from "entities/Article";
 import { ArticleRecommendationsList } from "features/articleRecommendationsList";
 import { FC, memo } from "react";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import {
   DynamicModuleLoader,
@@ -24,18 +24,18 @@ const reducers: ReducersList = {
 };
 
 const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
-  const { t } = useTranslation("article_details");
+  // const { t } = useTranslation("article_details");
   const { id } = useParams<{ id: string }>();
 
-  if (!id) {
-    return (
-      <PageLayout
-        className={classNames(cls.ArticlesDetailsPage, {}, [className])}
-      >
-        {t("not-found")}
-      </PageLayout>
-    );
-  }
+  // if (!id) {
+  //   return (
+  //     <PageLayout
+  //       className={classNames(cls.ArticlesDetailsPage, {}, [className])}
+  //     >
+  //       {t("not-found")}
+  //     </PageLayout>
+  //   );
+  // }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
