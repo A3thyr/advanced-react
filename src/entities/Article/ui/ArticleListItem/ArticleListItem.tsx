@@ -15,10 +15,7 @@ import {
 } from "shared/ui";
 import { TextSize } from "shared/ui/Text/Text";
 import { Article, ArticleTextBlock } from "../../model/types/article";
-import {
-  ArticleBlockType,
-  ArticleView,
-} from "entities/Article/model/const/articleConst";
+import { ArticleBlockType, ArticleView } from "../../model/const/articleConst";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import cls from "./ArticleListItem.module.scss";
 
