@@ -8,7 +8,7 @@ import { Article, ArticleView } from "entities/Article";
 import {
   ArticleSortField,
   ArticleType,
-} from "entities/Article/model/types/article";
+} from "entities/Article/model/const/articleConst";
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from "shared/const/localStorage";
 import { SortOrder } from "shared/types";
 import { fetchArticlesList } from "../services/fetchArticlesList/fetchArticlesList";

@@ -14,12 +14,11 @@ import {
   ThemeButton,
 } from "shared/ui";
 import { TextSize } from "shared/ui/Text/Text";
+import { Article, ArticleTextBlock } from "../../model/types/article";
 import {
-  Article,
   ArticleBlockType,
-  ArticleTextBlock,
   ArticleView,
-} from "../../model/types/article";
+} from "entities/Article/model/const/articleConst";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import cls from "./ArticleListItem.module.scss";
 

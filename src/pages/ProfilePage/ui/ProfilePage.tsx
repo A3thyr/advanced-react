@@ -1,9 +1,7 @@
 import { EditableProfileCard } from "features/editableProfileCard";
 import { FC } from "react";
-import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
-import { Text } from "shared/ui";
 import { VStack } from "shared/ui/Stack";
 import { PageLayout } from "widgets";
 
@@ -12,12 +10,12 @@ interface ProfilePageProps {
 }
 
 const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
-  const { t } = useTranslation("profile");
+  // const { t } = useTranslation("profile");
   const { id } = useParams<{ id: string }>();
 
-  if (!id) {
-    return <Text text={t("no-data")} />;
-  }
+  // if (!id) {
+  //   return <Text text={t("no-data")} />;
+  // }
 
   return (
     <PageLayout className={classNames("", {}, [className])}>

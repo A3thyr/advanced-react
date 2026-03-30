@@ -2,7 +2,7 @@ import { Article } from "entities/Article";
 import {
   ArticleBlockType,
   ArticleType,
-} from "entities/Article/model/types/article";
+} from "entities/Article/model/const/articleConst";
 
 export const ARTICLE_EXAMPLE: Article = {
   id: "1",

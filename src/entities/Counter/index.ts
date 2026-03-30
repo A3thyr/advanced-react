@@ -5,7 +5,7 @@ export {
 } from "./model/slice/counterSlice";
 
 // types
-export { CounterSchema } from "./model/types/counterSchema";
+export type { CounterSchema } from "./model/types/counterSchema";
 
 // component
 export { Counter } from "./ui/Counter";

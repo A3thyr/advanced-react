@@ -21,7 +21,8 @@
     "moduleResolution": "node",
     // Для удобства при использовании commonjs и es-модулей
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true
   },
   "ts-node": {
     "compilerOptions": {
