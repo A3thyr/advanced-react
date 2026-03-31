@@ -9,6 +9,7 @@ import { LoginModal } from "features/AuthByUsername";
 import { FC, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
+import NotificationIcon from "shared/assets/icons/notification-20-20.svg";
 import { RoutePath } from "shared/config/router/router.config";
 import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
@@ -18,10 +19,12 @@ import {
   Avatar,
   Button,
   Dropdown,
+  Icon,
   Text,
   TextTheme,
   ThemeButton,
 } from "shared/ui";
+import { HStack } from "shared/ui/Stack";
 import cls from "./Navbar.module.scss";
 
 interface NavbarProps {
@@ -66,29 +69,34 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
         >
           {t("create-article")}
         </AppLink>
-        <Dropdown
-          className={cls.dropdown}
-          direction="bottom left"
-          trigger={<Avatar size={30} src={authData.avatar} />}
-          items={[
-            ...(isAdminPanelAvailable
-              ? [
-                  {
-                    content: t("admin"),
-                    href: RoutePath.admin_panel,
-                  },
-                ]
-              : []),
-            {
-              content: t("profile"),
-              href: RoutePath.profile + authData.id,
-            },
-            {
-              content: t("logout"),
-              onClick: onLogout,
-            },
-          ]}
-        />
+        <HStack align="center" gap={16} className={cls.actions}>
+          <Button theme={ThemeButton.CLEAR}>
+            <Icon Svg={NotificationIcon} inverted />
+          </Button>
+          <Dropdown
+            // className={cls.dropdown}
+            direction="bottom left"
+            trigger={<Avatar size={30} src={authData.avatar} />}
+            items={[
+              ...(isAdminPanelAvailable
+                ? [
+                    {
+                      content: t("admin"),
+                      href: RoutePath.admin_panel,
+                    },
+                  ]
+                : []),
+              {
+                content: t("profile"),
+                href: RoutePath.profile + authData.id,
+              },
+              {
+                content: t("logout"),
+                onClick: onLogout,
+              },
+            ]}
+          />
+        </HStack>
       </header>
     );
   }

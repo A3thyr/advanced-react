@@ -1,7 +1,3 @@
-.Dropdown {
-  position: relative;
-}
-
 .dropdownStack {
   margin-left: auto;
 }
@@ -33,28 +29,4 @@
   outline: none;
   color: var(--primary-color);
   cursor: pointer;
-}
-
-.active {
-  background: var(--inverted-primary-color);
-}
-
-.menuBottomLeft {
-  top: 100%;
-  right: 0;
-}
-
-.menuBottomRight {
-  top: 100%;
-  left: 0;
-}
-
-.menuTopLeft {
-  bottom: 100%;
-  right: 0;
-}
-
-.menuTopRight {
-  bottom: 100%;
-  left: 0;
 }
