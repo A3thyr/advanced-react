@@ -18,15 +18,16 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     use: ["@svgr/webpack"],
   };
 
-  const tsLoader = {
-    test: /\.tsx?$/,
-    use: "ts-loader",
-    exclude: /node_modules/,
-  };
+  // const tsLoader = {
+  //   test: /\.tsx?$/,
+  //   use: "ts-loader",
+  //   exclude: /node_modules/,
+  // };
 
-  const babelLoader = buildBabelLoader(options);
+  const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
+  const tsxBabelLoader = buildBabelLoader({ ...options, isTsx: true });
 
   const stylesLoader = buildCssLoaders(options.isDev);
 
-  return [babelLoader, tsLoader, stylesLoader, svgLoader, fileLoader];
+  return [codeBabelLoader, tsxBabelLoader, stylesLoader, svgLoader, fileLoader];
 }
