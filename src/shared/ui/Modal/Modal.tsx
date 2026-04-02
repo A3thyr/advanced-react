@@ -1,17 +1,10 @@
 import { useTheme } from "app/providers/theme-provider";
-import {
-  FC,
-  MouseEvent,
-  ReactNode,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { FC, ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import {
   classNames,
   Mods,
 } from "shared/lib/helpers/classNames/classNames.helper";
+import { Overlay } from "../Overlay/Overlay";
 import { Portal } from "../Portal/Portal";
 import cls from "./Modal.module.scss";
 
@@ -57,12 +50,12 @@ export const Modal: FC<ModalProps> = ({
         closeHandler();
       }
     },
-    [closeHandler]
+    [closeHandler],
   );
 
-  const onContentClick = (e: MouseEvent) => {
-    e.stopPropagation();
-  };
+  // const onContentClick = (e: MouseEvent) => {
+  //   e.stopPropagation();
+  // };
 
   const mods: Mods = {
     [cls.opened]: isOpen,
@@ -86,10 +79,12 @@ export const Modal: FC<ModalProps> = ({
       <div
         className={classNames(cls.Modal, mods, [className, theme, "app_modal"])}
       >
-        <div role="dialog" onClick={closeHandler} className={cls.overlay}>
-          <div className={cls.content} onClick={onContentClick}>
-            {children}
-          </div>
+        <Overlay onClick={closeHandler} />
+        <div
+          className={cls.content}
+          // onClick={onContentClick}
+        >
+          {children}
         </div>
       </div>
     </Portal>

@@ -15,3 +15,4 @@ export { ListBox, type ListBoxItem } from "./Popups/ui/ListBox/ListBox";
 export { Tabs } from "./Tabs/Tabs";
 export type { TabItem } from "./Tabs/Tabs";
 export { Dropdown, type DropdownItem } from "./Popups/ui/Dropdown/Dropdown";
+export { Drawer } from "./Drawer/Drawer";
