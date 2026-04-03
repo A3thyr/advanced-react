@@ -2,7 +2,10 @@
 // import { useDrag } from "@use-gesture/react";
 import { FC, ReactNode, useCallback, useEffect } from "react";
 import { useTheme } from "@/app/providers/theme-provider";
-import { useAnimationModules } from "@/shared/lib/components/AnimationProvider";
+import {
+  AnimationProvider,
+  useAnimationModules,
+} from "@/shared/lib/components/AnimationProvider";
 import {
   classNames,
   Mods,
@@ -120,10 +123,18 @@ export const DrawerContent: FC<DrawerProps> = ({
   );
 };
 
-export const Drawer: FC<DrawerProps> = (props) => {
+const DrawerAsync: FC<DrawerProps> = (props) => {
   const { isLoaded } = useAnimationModules();
 
   if (!isLoaded) return null;
 
   return <DrawerContent {...props} />;
+};
+
+export const Drawer: FC<DrawerProps> = (props) => {
+  return (
+    <AnimationProvider>
+      <DrawerAsync {...props} />
+    </AnimationProvider>
+  );
 };

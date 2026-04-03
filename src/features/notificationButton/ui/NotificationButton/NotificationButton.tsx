@@ -1,8 +1,7 @@
-import { FC, useCallback, useState } from "react";
 import { BrowserView, MobileView } from "react-device-detect";
+import { FC, useCallback, useState } from "react";
 import { NotificationList } from "@/entities/Notification";
 import NotificationIcon from "@/shared/assets/icons/notification-20-20.svg";
-import { AnimationProvider } from "@/shared/lib/components/AnimationProvider";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { Button, Drawer, Icon, ThemeButton } from "@/shared/ui";
 import { Popover } from "@/shared/ui/Popups";
@@ -44,11 +43,9 @@ export const NotificationButton: FC<NotificationButtonProps> = ({
       </BrowserView>
       <MobileView>
         {trigger}
-        <AnimationProvider>
-          <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-            <NotificationList />
-          </Drawer>
-        </AnimationProvider>
+        <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+          <NotificationList />
+        </Drawer>
       </MobileView>
     </div>
   );
