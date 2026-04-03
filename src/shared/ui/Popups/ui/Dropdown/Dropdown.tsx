@@ -38,7 +38,7 @@ export const Dropdown = ({
       >
         <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
         <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
-          {items.map((item) => {
+          {items.map((item, index) => {
             const content = ({ active }: { active: boolean }) => (
               <button
                 type="button"
@@ -53,7 +53,8 @@ export const Dropdown = ({
             if (item.href) {
               return (
                 <Menu.Item
-                  key={item.href}
+                  // ключи в виде индекса здесь можно исползовать, так как кнопки в dropdown статичны
+                  key={`dropdown-item-${index}`}
                   as={AppLink}
                   to={item.href}
                   disabled={item.disabled}
@@ -64,7 +65,11 @@ export const Dropdown = ({
             }
 
             return (
-              <Menu.Item key={item.href} as={Fragment} disabled={item.disabled}>
+              <Menu.Item
+                key={`dropdown-item-${index}`}
+                as={Fragment}
+                disabled={item.disabled}
+              >
                 {content}
               </Menu.Item>
             );

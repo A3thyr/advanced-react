@@ -18,5 +18,8 @@
   "app-name": "Aetherys app",
   "create-article": "Создать статью",
   "admin": "Админ панель",
-  "forbidden-page": "У вас нет доступа к этой странице"
+  "forbidden-page": "У вас нет доступа к этой странице",
+  "feedback-placeholder": "Ваш отзыв",
+  "cancel": "Закрыть",
+  "send-feedback": "Отправить"
 }

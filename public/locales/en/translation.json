@@ -18,5 +18,8 @@
   "app-name": "Aetherys app",
   "create-article": "Create an article",
   "admin": "Admin panel",
-  "forbidden-page": "You have no access for this page"
+  "forbidden-page": "You have no access for this page",
+  "feedback-placeholder": "Your feedback",
+  "cancel": "Cancel",
+  "send-feedback": "Send"
 }

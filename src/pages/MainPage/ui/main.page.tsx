@@ -21,6 +21,11 @@ const MainPage = () => {
         onChange={onChangeHandler}
         placeholder={`sadjsidfjasi`}
       />
+      {/* <RatingCard
+        title={`Как вам статья?`}
+        feedbackTitle={`Оставьте отзыв о статье`}
+        hasFeedback
+      /> */}
     </PageLayout>
   );
 };
