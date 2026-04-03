@@ -1,6 +1,6 @@
 import { FC, Suspense } from "react";
-import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
-import { Modal } from "shared/ui";
+import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
+import { Modal } from "@/shared/ui";
 import LoginForm from "../LoginForm/LoginForm";
 import cls from "./LoginModal.module.scss";
 

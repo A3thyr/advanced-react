@@ -1,13 +1,13 @@
 // import { a, useSpring } from "@react-spring/web";
 // import { useDrag } from "@use-gesture/react";
-import { useTheme } from "app/providers/theme-provider";
 import { FC, ReactNode, useCallback, useEffect } from "react";
-import { useAnimationModules } from "shared/lib/components/AnimationProvider";
+import { useTheme } from "@/app/providers/theme-provider";
+import { useAnimationModules } from "@/shared/lib/components/AnimationProvider";
 import {
   classNames,
   Mods,
-} from "shared/lib/helpers/classNames/classNames.helper";
-import { useModal } from "shared/lib/hooks/useModal/useModal";
+} from "@/shared/lib/helpers/classNames/classNames.helper";
+import { useModal } from "@/shared/lib/hooks/useModal/useModal";
 import { Overlay } from "../Overlay/Overlay";
 import { Portal } from "../Portal/Portal";
 import cls from "./Drawer.module.scss";

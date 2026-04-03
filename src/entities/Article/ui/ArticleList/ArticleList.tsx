@@ -1,10 +1,7 @@
-import { FC, HTMLAttributeAnchorTarget } from "react";
+import { HTMLAttributeAnchorTarget, memo } from "react";
 import { useTranslation } from "react-i18next";
-import { List, WindowScroller } from "react-virtualized";
-import { ListRowProps } from "react-virtualized/dist/es/List";
-import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
-import { Text } from "shared/ui";
-import { PAGE_ID } from "widgets/PageLayout/ui/PageLayout";
+import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
+import { Text, TextSize } from "@/shared/ui/Text/Text";
 import { ArticleView } from "../../model/const/articleConst";
 import { Article } from "../../model/types/article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
@@ -15,126 +12,47 @@ interface ArticleListProps {
   className?: string;
   articles: Article[];
   isLoading?: boolean;
-  view?: ArticleView;
   target?: HTMLAttributeAnchorTarget;
-  virtualized?: boolean;
+  view?: ArticleView;
 }
 
-const getSkeletons = (view: ArticleView) => {
-  return new Array(view === ArticleView.SMALL ? 9 : 3)
+const getSkeletons = (view: ArticleView) =>
+  new Array(view === ArticleView.SMALL ? 9 : 3)
     .fill(0)
-    .map((_, index) => (
-      <ArticleListItemSkeleton key={index} view={view} className={cls.card} />
+    .map((item, index) => (
+      <ArticleListItemSkeleton className={cls.card} key={index} view={view} />
     ));
-};
 
-/**
- * @todo all the issues with react-virtualized are currently ignored, got to migrate to react-window or the other solutions ASAP
- */
-
-export const ArticleList: FC<ArticleListProps> = ({
-  className,
-  articles,
-  isLoading,
-  target,
-  view = ArticleView.SMALL,
-  virtualized = true,
-}) => {
-  const { t } = useTranslation("articles");
-
-  const rowRender = ({
-    index,
-    key,
-    style,
-    itemsPerRow,
-  }: ListRowProps & { itemsPerRow: number }) => {
-    const items = [];
-    const fromIndex = index * itemsPerRow;
-    const toIndex = Math.min(fromIndex + itemsPerRow, articles.length);
-
-    for (let i = fromIndex; i < toIndex; i++) {
-      items.push(
-        <ArticleListItem
-          key={articles[i].id}
-          article={articles[i]}
-          view={view}
-          target={target}
-          className={cls.card}
-        />,
-      );
-    }
-
-    return (
-      <div key={key} style={style} className={cls.row}>
-        {items}
-      </div>
-    );
-  };
+export const ArticleList = memo((props: ArticleListProps) => {
+  const {
+    className,
+    articles,
+    view = ArticleView.SMALL,
+    isLoading,
+    target,
+  } = props;
+  const { t } = useTranslation();
 
   if (!isLoading && !articles.length) {
     return (
       <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-        <Text title={t("not-found")} />
+        <Text size={TextSize.L} title={t("Статьи не найдены")} />
       </div>
     );
   }
+
   return (
-    // @ts-expect-error
-    <WindowScroller scrollElement={document.getElementById(PAGE_ID) as Element}>
-      {({
-        width,
-        height,
-        registerChild,
-        scrollTop,
-        isScrolling,
-        onChildScroll,
-      }) => {
-        const CARD_WIDTH = 230;
-        const GAP = 30;
-
-        const isBig = view === ArticleView.BIG;
-        const itemsPerRow = isBig
-          ? 1
-          : Math.max(1, Math.floor((width ?? 700) / (CARD_WIDTH + GAP)));
-        const rowCount = isBig
-          ? articles.length
-          : Math.ceil(articles.length / itemsPerRow);
-
-        return (
-          <div
-            // @ts-expect-error
-            ref={registerChild}
-            className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-          >
-            {virtualized ? (
-              // @ts-expect-error
-              <List
-                autoHeight
-                onScroll={onChildScroll}
-                isScrolling={isScrolling}
-                scrollTop={scrollTop}
-                height={height ?? 700}
-                rowCount={rowCount}
-                rowHeight={isBig ? 700 : 330}
-                width={width ? width - 80 : 700}
-                rowRenderer={(props) => rowRender({ ...props, itemsPerRow })}
-              />
-            ) : (
-              articles.map((item) => (
-                <ArticleListItem
-                  key={item.id}
-                  view={view}
-                  article={item}
-                  target={target}
-                  className={cls.card}
-                />
-              ))
-            )}
-
-            {isLoading && getSkeletons(view)}
-          </div>
-        );
-      }}
-    </WindowScroller>
+    <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+      {articles.map((item) => (
+        <ArticleListItem
+          article={item}
+          view={view}
+          target={target}
+          key={item.id}
+          className={cls.card}
+        />
+      ))}
+      {isLoading && getSkeletons(view)}
+    </div>
   );
-};
+});

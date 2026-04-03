@@ -1,5 +1,5 @@
-import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
-import { Code } from "shared/ui";
+import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
+import { Code } from "@/shared/ui";
 import { ArticleCodeBlock } from "../../model/types/article";
 import cls from "./ArticleCodeBlockComponent.module.scss";
 

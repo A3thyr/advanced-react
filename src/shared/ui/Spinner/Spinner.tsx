@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
+import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import cls from "./Spinner.module.scss";
 
 interface SpinnerProps {

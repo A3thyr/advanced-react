@@ -1,5 +1,5 @@
-import { StateSchema } from "app/providers/StoreProvider";
-import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
+import { StateSchema } from "@/app/providers/StoreProvider";
+import { TestAsyncThunk } from "@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 import { fetchArticlesList } from "../fetchArticlesList/fetchArticlesList";
 import { fetchNextArticlesPage } from "./fetchNextArticlesPage";
 

@@ -1,9 +1,9 @@
 import { FC, HTMLAttributeAnchorTarget } from "react";
 import { useTranslation } from "react-i18next";
-import EyeIcon from "shared/assets/icons/eye-20-20.svg";
-import { RoutePath } from "shared/config/router/router.config";
-import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
-import { useHover } from "shared/lib/hooks/useHover/useHover";
+import EyeIcon from "@/shared/assets/icons/eye-20-20.svg";
+import { RoutePath } from "@/shared/config/router/router.config";
+import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
+import { useHover } from "@/shared/lib/hooks/useHover/useHover";
 import {
   AppLink,
   Avatar,
@@ -12,8 +12,8 @@ import {
   Icon,
   Text,
   ThemeButton,
-} from "shared/ui";
-import { TextSize } from "shared/ui/Text/Text";
+} from "@/shared/ui";
+import { TextSize } from "@/shared/ui/Text/Text";
 import { Article, ArticleTextBlock } from "../../model/types/article";
 import { ArticleBlockType, ArticleView } from "../../model/const/articleConst";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";

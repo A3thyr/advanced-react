@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
-import { Skeleton } from "shared/ui";
-import { VStack } from "shared/ui/Stack";
+import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
+import { Skeleton } from "@/shared/ui";
+import { VStack } from "@/shared/ui/Stack";
 import { useNotificationsList } from "../../api/notificationApi";
 import { NotificationItem } from "../NotificationItem/NotificationItem";
 import cls from "./NotificationList.module.scss";

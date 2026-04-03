@@ -1,4 +1,4 @@
-import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
+import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import cls from "./Text.module.scss";
 
 export enum TextTheme {

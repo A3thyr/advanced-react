@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
-import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
-import { PageLayout } from "widgets";
+import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
+import { PageLayout } from "@/widgets";
 import cls from "./ArticleEditPage.module.scss";
 
 interface ArticleEditPageProps {

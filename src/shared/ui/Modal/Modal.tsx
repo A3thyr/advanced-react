@@ -1,10 +1,10 @@
-import { useTheme } from "app/providers/theme-provider";
 import { FC, ReactNode } from "react";
+import { useTheme } from "@/app/providers/theme-provider";
 import {
   classNames,
   Mods,
-} from "shared/lib/helpers/classNames/classNames.helper";
-import { useModal } from "shared/lib/hooks/useModal/useModal";
+} from "@/shared/lib/helpers/classNames/classNames.helper";
+import { useModal } from "@/shared/lib/hooks/useModal/useModal";
 import { Overlay } from "../Overlay/Overlay";
 import { Portal } from "../Portal/Portal";
 import cls from "./Modal.module.scss";

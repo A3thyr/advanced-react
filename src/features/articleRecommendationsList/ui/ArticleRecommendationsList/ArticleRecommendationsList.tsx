@@ -1,9 +1,9 @@
-import { ArticleList } from "entities/Article";
 import { useTranslation } from "react-i18next";
-import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
-import { Skeleton, Text } from "shared/ui";
-import { HStack, VStack } from "shared/ui/Stack";
-import { TextSize } from "shared/ui/Text/Text";
+import { ArticleList } from "@/entities/Article";
+import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
+import { Skeleton, Text } from "@/shared/ui";
+import { HStack, VStack } from "@/shared/ui/Stack";
+import { TextSize } from "@/shared/ui/Text/Text";
 import { useArticleRecommendationsList } from "../../api/articleRecommendationsApi";
 
 interface ArticleRecommendationsListProps {
@@ -44,7 +44,6 @@ export const ArticleRecommendationsList = ({
         articles={recommendations}
         isLoading={isLoading}
         target="_blank"
-        virtualized={false}
       />
     </VStack>
   );

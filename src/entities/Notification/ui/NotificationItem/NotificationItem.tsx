@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
-import { AppLink, Card, Text } from "shared/ui";
-import { CardTheme } from "shared/ui/Card/Card";
+import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
+import { AppLink, Card, Text } from "@/shared/ui";
+import { CardTheme } from "@/shared/ui/Card/Card";
 import { Notification } from "../../model/types/NotificationSchema";
 import cls from "./NotificationItem.module.scss";
 

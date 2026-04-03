@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
     "outDir": "./dist/",
+    "strict": true,
+
     // Указываем директорию, для абсолютного импорта
     "baseUrl": ".",
-    "strict": true,
     "paths": {
-      "*": ["./src/*"]
+      "@/*": ["./src/*"]
     },
     "noImplicitAny": true,
     // Указываем, на какую версию JS будет компилироваться

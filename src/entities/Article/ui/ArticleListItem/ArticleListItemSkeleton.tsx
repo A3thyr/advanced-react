@@ -1,5 +1,5 @@
-import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
-import { Card, Skeleton } from "shared/ui";
+import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
+import { Card, Skeleton } from "@/shared/ui";
 import { ArticleView } from "../../model/const/articleConst";
 import cls from "./ArticleListItem.module.scss";
 

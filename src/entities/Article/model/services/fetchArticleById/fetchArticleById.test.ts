@@ -1,5 +1,5 @@
-import { ARTICLE_EXAMPLE } from "shared/const/articleExample";
-import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
+import { ARTICLE_EXAMPLE } from "@/shared/const/articleExample";
+import { TestAsyncThunk } from "@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 import { fetchArticleById } from "./fetchArticleById";
 
 // const data = {

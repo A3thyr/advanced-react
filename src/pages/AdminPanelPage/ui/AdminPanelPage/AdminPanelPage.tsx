@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { PageLayout } from "widgets";
+import { PageLayout } from "@/widgets";
 
 const AdminPanelPage = () => {
   const { t } = useTranslation("translation");

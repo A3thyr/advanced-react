@@ -4,11 +4,11 @@ import { useSelector } from "react-redux";
 import {
   DynamicModuleLoader,
   ReducersList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { Button, Input, ThemeButton } from "shared/ui";
-import { HStack } from "shared/ui/Stack";
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { Button, Input, ThemeButton } from "@/shared/ui";
+import { HStack } from "@/shared/ui/Stack";
 import {
   getAddCommentFormError,
   getAddCommentFormText,

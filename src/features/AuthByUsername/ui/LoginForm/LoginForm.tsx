@@ -4,11 +4,11 @@ import { useSelector } from "react-redux";
 import {
   DynamicModuleLoader,
   ReducersList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { Button, Input, ThemeButton } from "shared/ui";
-import { Text, TextTheme } from "shared/ui/Text/Text";
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { Button, Input, ThemeButton } from "@/shared/ui";
+import { Text, TextTheme } from "@/shared/ui/Text/Text";
 import { getLoginError } from "../../model/selectors/getLoginError/getLoginError";
 import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading/getLoginIsLoading";
 import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword";

@@ -1,17 +1,17 @@
 import { FC, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import CalendarIcon from "shared/assets/icons/calendar-20-20.svg";
-import EyeIcon from "shared/assets/icons/eye-20-20.svg";
+import CalendarIcon from "@/shared/assets/icons/calendar-20-20.svg";
+import EyeIcon from "@/shared/assets/icons/eye-20-20.svg";
 import {
   DynamicModuleLoader,
   ReducersList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { classNames } from "shared/lib/helpers/classNames/classNames.helper";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { Avatar, Icon, Skeleton, Text, TextAlign, TextTheme } from "shared/ui";
-import { HStack, VStack } from "shared/ui/Stack";
-import { TextSize } from "shared/ui/Text/Text";
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { Avatar, Icon, Skeleton, Text, TextAlign, TextTheme } from "@/shared/ui";
+import { HStack, VStack } from "@/shared/ui/Stack";
+import { TextSize } from "@/shared/ui/Text/Text";
 import {
   getArticleDetailsData,
   getArticleDetailsError,
