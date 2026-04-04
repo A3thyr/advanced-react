@@ -1,7 +1,6 @@
 import { FC, useCallback, useState } from "react";
 import { BrowserView, MobileView } from "react-device-detect";
 import { useTranslation } from "react-i18next";
-import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import {
   Button,
   Card,
@@ -12,9 +11,8 @@ import {
   Text,
   ThemeButton,
 } from "@/shared/ui";
-import { HStack, VStack } from "@/shared/ui/Stack";
-import cls from "./RatingCard.module.scss";
 import { ButtonSize } from "@/shared/ui/Button/Button";
+import { HStack, VStack } from "@/shared/ui/Stack";
 
 interface RatingCardProps {
   className?: string;
@@ -23,6 +21,7 @@ interface RatingCardProps {
   hasFeedback?: boolean;
   onCancel?: (starsCount: number) => void;
   onAccept?: (starsCount: number, feedback?: string) => void;
+  rate?: number;
 }
 
 export const RatingCard: FC<RatingCardProps> = ({
@@ -32,11 +31,12 @@ export const RatingCard: FC<RatingCardProps> = ({
   onAccept,
   onCancel,
   title,
+  rate = 0,
 }) => {
   const { t } = useTranslation("translation");
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [starsCount, setStarsCount] = useState<number>(0);
+  const [starsCount, setStarsCount] = useState(rate);
   const [feedback, setFeedback] = useState<string>("");
 
   const onSelectStars = useCallback(
@@ -73,10 +73,14 @@ export const RatingCard: FC<RatingCardProps> = ({
   );
 
   return (
-    <Card className={classNames(cls.RatingCard, {}, [className])}>
+    <Card max className={className}>
       <VStack align="center" max gap={8}>
-        <Text title={title} />
-        <StarRating size={40} onSelect={onSelectStars} />
+        <Text title={starsCount ? t("thx") : title} />
+        <StarRating
+          selectedStars={starsCount}
+          size={40}
+          onSelect={onSelectStars}
+        />
       </VStack>
       <BrowserView>
         <Modal isOpen={isModalOpen} lazy onClose={cancelHandle}>

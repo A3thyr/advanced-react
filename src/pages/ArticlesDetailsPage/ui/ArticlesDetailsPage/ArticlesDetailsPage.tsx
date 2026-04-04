@@ -14,6 +14,7 @@ import { articleDetailsPageReducer } from "../../model/slices";
 import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments";
 import { ArticlesDetailsPageHeader } from "../ArticlesDetailsPageHeader/ArticlesDetailsPageHeader";
 import cls from "./ArticlesDetailsPage.module.scss";
+import { ArticleRating } from "@/features/articleRating";
 
 interface ArticlesDetailsPageProps {
   className?: string;
@@ -26,6 +27,10 @@ const reducers: ReducersList = {
 const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
   // const { t } = useTranslation("article_details");
   const { id } = useParams<{ id: string }>();
+
+  if (!id) {
+    return null;
+  }
 
   // if (!id) {
   //   return (
@@ -45,6 +50,7 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
         <VStack max gap={16}>
           <ArticlesDetailsPageHeader />
           <ArticleDetails id={id} />
+          <ArticleRating articleId={id} />
           <ArticleRecommendationsList />
           <ArticleDetailsComments id={id} />
         </VStack>

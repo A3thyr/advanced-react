@@ -14,5 +14,9 @@
     "back": "Back",
     "edit": "Edit"
   },
-  "loading":"Loading..."
+  "loading": "Loading...",
+  "feedback": {
+    "title": "Rate the article",
+    "placeholder": "Leave your feedback for the article, it helps us to improve their quality"
+  }
 }
