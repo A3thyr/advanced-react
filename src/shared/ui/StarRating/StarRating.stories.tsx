@@ -4,7 +4,7 @@ import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { StarRating } from "./StarRating";
 
 export default {
-  title: "shared/Spinner",
+  title: "shared/StarRating",
   component: StarRating,
   argTypes: {
     backgroundColor: { control: "color" },

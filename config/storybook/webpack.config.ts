@@ -17,6 +17,10 @@ export default ({ config }: { config: WebpackConfiguration }) => {
 
   config!.resolve!.modules!.push(paths.src);
   config!.resolve!.extensions!.push(".ts", ".tsx");
+  config!.resolve!.alias = {
+    ...config!.resolve!.alias,
+    "@": paths.src,
+  };
 
   config!.plugins!.push(
     new DefinePlugin({
