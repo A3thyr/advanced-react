@@ -94,7 +94,7 @@ module.exports = {
     "no-console": "off",
     "no-plusplus": "off",
     // custom plugin
-    "aetherys-custom-plugin/path-checker": "error",
+    "aetherys-custom-plugin/path-checker": ["error", { alias: "@" }],
     // ?
     "function-paren-newline": "off",
     // правило для фулл лоускиллов, срёт при ключах = индексу в СКЕЛЕТОНАХ :pepeClown:
