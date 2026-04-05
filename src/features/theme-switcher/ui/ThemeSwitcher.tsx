@@ -1,9 +1,10 @@
 import { memo } from "react";
-import { Theme, useTheme } from "@/app/providers/theme-provider";
 import DarkIcon from "@/shared/assets/icons/theme-dark.svg";
 import LightIcon from "@/shared/assets/icons/theme-light.svg";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { Button, ThemeButton } from "@/shared/ui";
+import { Theme } from "@/shared/const/theme";
+import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
 
 interface ThemeSwitcherProps {
   className?: string;

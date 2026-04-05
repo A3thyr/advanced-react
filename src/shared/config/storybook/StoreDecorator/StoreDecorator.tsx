@@ -4,8 +4,8 @@ import { articleDetailsReducer } from "@/entities/Article/testing";
 import { addCommentFormReducer } from "@/features/addCommentForm/testing";
 import { loginReducer } from "@/features/AuthByUsername/testing";
 import { profileReducer } from "@/features/editableProfileCard/testing";
-import { articleDetailsPageReducer } from "@/pages/ArticlesDetailsPage";
 import { ReducersList } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { articleDetailsPageReducer } from "@/pages/ArticlesDetailsPage/testing";
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,

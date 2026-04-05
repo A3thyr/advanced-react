@@ -1,7 +1,6 @@
 // import { a, useSpring } from "@react-spring/web";
 // import { useDrag } from "@use-gesture/react";
 import { FC, ReactNode, useCallback, useEffect } from "react";
-import { useTheme } from "@/app/providers/theme-provider";
 import {
   AnimationProvider,
   useAnimationModules,
@@ -14,6 +13,7 @@ import { useModal } from "@/shared/lib/hooks/useModal/useModal";
 import { Overlay } from "../Overlay/Overlay";
 import { Portal } from "../Portal/Portal";
 import cls from "./Drawer.module.scss";
+import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
 
 interface DrawerProps {
   className?: string;

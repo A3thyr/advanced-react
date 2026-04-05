@@ -106,6 +106,13 @@ module.exports = {
         ],
       },
     ],
+    "aetherys-custom-plugin/layer-imports": [
+      "error",
+      {
+        alias: "@",
+        ignoreImportPatterns: ["**/StoreProvider", "**/testing"],
+      },
+    ],
     // ?
     "function-paren-newline": "off",
     // правило для фулл лоускиллов, срёт при ключах = индексу в СКЕЛЕТОНАХ :pepeClown:

@@ -1,15 +1,14 @@
-import { FC } from "react";
 import { useTranslation } from "react-i18next";
+import { FC } from "react";
 import { Country, CountrySelect } from "@/entities/Country";
 import { Currency, CurrencySelect } from "@/entities/Currency";
 import {
   classNames,
   Mods,
 } from "@/shared/lib/helpers/classNames/classNames.helper";
-import { Avatar, Input, Text, TextTheme } from "@/shared/ui";
+import { Avatar, Input, Spinner, Text, TextTheme } from "@/shared/ui";
 import { HStack, VStack } from "@/shared/ui/Stack";
 import { TextAlign } from "@/shared/ui/Text/Text";
-import { PageLoader } from "@/widgets/PageLoader";
 import { Profile } from "../../model/types/profile";
 import cls from "./ProfileCard.module.scss";
 
@@ -59,7 +58,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
           className,
         ])}
       >
-        <PageLoader />
+        <Spinner />
       </HStack>
     );
   }

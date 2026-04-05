@@ -629,6 +629,12 @@
       "userId": "1",
       "text": "123124",
       "id": "r-ljYP9"
+    },
+    {
+      "articleId": "11",
+      "userId": "1",
+      "text": "asdpskdpl",
+      "id": "1-6aDmb"
     }
   ],
   "users": [
@@ -712,6 +718,13 @@
       "userId": "1",
       "feedback": "TS WW",
       "id": "28VlAhs"
+    },
+    {
+      "articleId": "11",
+      "rate": 4,
+      "userId": "1",
+      "feedback": "lol",
+      "id": "KoZZZgC"
     }
   ],
   "profile-ratings": [

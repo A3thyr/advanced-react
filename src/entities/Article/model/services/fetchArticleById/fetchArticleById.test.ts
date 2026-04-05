@@ -1,16 +1,6 @@
-import { ARTICLE_EXAMPLE } from "@/shared/const/articleExample";
+import { ARTICLE_EXAMPLE } from "../../const/articleConst";
 import { TestAsyncThunk } from "@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 import { fetchArticleById } from "./fetchArticleById";
-
-// const data = {
-//   username: "Unknown",
-//   age: 19,
-//   country: Country.Kazakhstan,
-//   lastname: "Something",
-//   first: "Someone",
-//   city: "sddfa",
-//   currency: Currency.EUR,
-// };
 
 describe("fetchArticleById.test", () => {
   test("should be fulfilled", async () => {

@@ -1,8 +1,8 @@
 import { action } from "@storybook/addon-actions";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Theme } from "@/app/providers/theme-provider";
 import { ThemeDecorator } from "@/shared/config/storybook";
 import { Tabs } from "./Tabs";
+import { Theme } from "@/shared/const/theme";
 
 export default {
   title: "shared/Tabs",
