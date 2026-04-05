@@ -7,7 +7,7 @@ import {
   isUserManager,
   userActions,
 } from "@/entities/User";
-import { RoutePath } from "@/shared/config/router/router.config";
+import { RoutePath } from "@/shared/const/router";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { Avatar, Dropdown } from "@/shared/ui";

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { RoutePath } from "@/shared/config/router/router.config";
+import { RoutePath } from "@/shared/const/router";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { AppLink, Avatar, Skeleton, Text } from "@/shared/ui";
 import { VStack } from "@/shared/ui/Stack";
