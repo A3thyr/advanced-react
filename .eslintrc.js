@@ -95,6 +95,17 @@ module.exports = {
     "no-plusplus": "off",
     // custom plugin
     "aetherys-custom-plugin/path-checker": ["error", { alias: "@" }],
+    "aetherys-custom-plugin/public-api-imports": [
+      "error",
+      {
+        alias: "@",
+        testFilesPatterns: [
+          "**/*.test.*",
+          "**/*.stories.*",
+          "**/StoreDecorator.tsx",
+        ],
+      },
+    ],
     // ?
     "function-paren-newline": "off",
     // правило для фулл лоускиллов, срёт при ключах = индексу в СКЕЛЕТОНАХ :pepeClown:

@@ -1,9 +1,9 @@
 import { FC, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { ArticleSortSelector } from "@/entities/Article/ui/ArticleSortSelector/ArticleSortSelector";
 import {
   ArticleSortField,
+  ArticleSortSelector,
   ArticleType,
   ArticleTypeTabs,
   ArticleView,

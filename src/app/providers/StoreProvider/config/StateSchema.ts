@@ -12,10 +12,10 @@ import { UserSchema } from "@/entities/User";
 import { AddCommentFormSchema } from "@/features/addCommentForm";
 import { LoginSchema } from "@/features/AuthByUsername";
 import { ProfileSchema } from "@/features/editableProfileCard";
-import { ArticleDetailsPageSchema } from "@/pages/ArticlesDetailsPage/model/types";
 import { ArticlePageSchema } from "@/pages/ArticlesPage";
 import { rtkApi } from "@/shared/api/rtkApi";
-import { ScrollSaveSchema } from "@/widgets/PageLayout/ScrollSave";
+import { ScrollSaveSchema } from "@/widgets/PageLayout";
+import { ArticleDetailsPageSchema } from "@/pages/ArticlesDetailsPage";
 
 export interface StateSchema {
   counter: CounterSchema;

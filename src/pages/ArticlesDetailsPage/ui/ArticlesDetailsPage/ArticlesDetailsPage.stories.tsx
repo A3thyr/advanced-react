@@ -1,13 +1,9 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { Theme } from "@/app/providers/theme-provider";
-import { Article } from "@/entities/Article/model/types/article";
-import {
-  ArticleBlockType,
-  ArticleType,
-} from "@/entities/Article/model/const/articleConst";
 import { StoreDecorator } from "@/shared/config/storybook";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import ArticlesDetailsPage from "./ArticlesDetailsPage";
+import { Article, ArticleBlockType, ArticleType } from "@/entities/Article";
 
 export default {
   title: "pages/ArticlesDetailsPage",
