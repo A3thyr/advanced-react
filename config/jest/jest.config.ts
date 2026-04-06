@@ -53,6 +53,7 @@ export default {
     //   "<rootDir>/__mocks__/fileMock.js",
     "\\.s?css$": "identity-obj-proxy",
     "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"),
+    "^@/(.*)$": "<rootDir>/src/$1",
   },
 
   // Use this configuration option to add custom reporters to Jest
