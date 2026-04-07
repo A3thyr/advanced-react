@@ -1,14 +1,7 @@
 import { FC, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import {
-  ArticleSortField,
-  ArticleSortSelector,
-  ArticleType,
-  ArticleTypeTabs,
-  ArticleView,
-  ArticleViewSelector,
-} from "@/entities/Article";
+import { ArticleSortField, ArticleType, ArticleView } from "@/entities/Article";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useDebounce } from "@/shared/lib/hooks/useDebounce/useDebounce";
@@ -24,6 +17,9 @@ import {
 import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
 import { articlePageActions } from "../../model/slices/articlePageSlice";
 import cls from "./ArticlesPageFilters.module.scss";
+import { ArticleTypeTabs } from "@/features/ArticleTypeTabs";
+import { ArticleViewSelector } from "@/features/ArticleViewSelector";
+import { ArticleSortSelector } from "@/features/ArticleSortSelector";
 
 interface ArticlesPageFiltersProps {
   className?: string;
