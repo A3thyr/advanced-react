@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getArticleDetailsData } from "@/entities/Article";
-import { RoutePath } from "@/shared/const/router";
+import { getRouteArticles, getRouteArticlesEdit } from "@/shared/const/router";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { Button, ThemeButton } from "@/shared/ui";
 import { HStack } from "@/shared/ui/Stack";
@@ -22,12 +22,12 @@ export const ArticlesDetailsPageHeader: FC<ArticlesDetailsPageHeaderProps> = ({
   const article = useSelector(getArticleDetailsData);
 
   const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles_details);
+    navigate(getRouteArticles());
   }, [navigate]);
 
   const onEditArticle = useCallback(() => {
-    navigate(`${RoutePath.articles_details}${article?.id}/edit`);
-  }, [navigate, article?.id]);
+    if (article) navigate(getRouteArticlesEdit(article?.id));
+  }, [navigate, article]);
 
   return (
     <HStack max justfify="between" className={classNames("", {}, [className])}>

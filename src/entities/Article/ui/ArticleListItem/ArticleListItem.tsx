@@ -1,7 +1,7 @@
 import { FC, HTMLAttributeAnchorTarget } from "react";
 import { useTranslation } from "react-i18next";
 import EyeIcon from "@/shared/assets/icons/eye-20-20.svg";
-import { RoutePath } from "@/shared/const/router";
+import { getRouteArticlesDetails } from "@/shared/const/router";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { useHover } from "@/shared/lib/hooks/useHover/useHover";
 import {
@@ -14,8 +14,8 @@ import {
   ThemeButton,
 } from "@/shared/ui";
 import { TextSize } from "@/shared/ui/Text/Text";
-import { Article, ArticleTextBlock } from "../../model/types/article";
 import { ArticleBlockType, ArticleView } from "../../model/const/articleConst";
+import { Article, ArticleTextBlock } from "../../model/types/article";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import cls from "./ArticleListItem.module.scss";
 
@@ -75,10 +75,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
             />
           )}
           <div className={cls.footer}>
-            <AppLink
-              target={target}
-              to={RoutePath.articles_details + article.id}
-            >
+            <AppLink target={target} to={getRouteArticlesDetails(article.id)}>
               <Button
                 // onClick={onOpenArticle}
                 theme={ThemeButton.OUTLINE}
@@ -97,7 +94,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
   return (
     <AppLink
       target={target}
-      to={RoutePath.articles_details + article.id}
+      to={getRouteArticlesDetails(article.id)}
       // {...bindHover}
       className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
     >

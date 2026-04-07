@@ -5,7 +5,7 @@ import { I18nextProvider } from "react-i18next";
 import { MemoryRouter } from "react-router-dom";
 import { StateSchema, StoreProvider } from "@/app/providers/StoreProvider";
 import i18nForTests from "@/shared/config/i18n/i18nForTests";
-import { RoutePath } from "@/shared/const/router";
+import { getRouteMain } from "@/shared/const/router";
 
 export interface componentRenderOptions {
   route?: string;
@@ -17,7 +17,7 @@ export function componentRender(
   component: ReactNode,
   options: componentRenderOptions = {},
 ) {
-  const { route = RoutePath.main, initialState, asyncReducers } = options;
+  const { route = getRouteMain(), initialState, asyncReducers } = options;
   return render(
     <MemoryRouter initialEntries={[route]}>
       <StoreProvider asyncReducers={asyncReducers} initialState={initialState}>

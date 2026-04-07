@@ -5,7 +5,7 @@ import { getUserAuthData } from "@/entities/User";
 import { LoginModal } from "@/features/AuthByUsername";
 import { AvatarDropdown } from "@/features/avatarDropdown";
 import { NotificationButton } from "@/features/notificationButton";
-import { RoutePath } from "@/shared/const/router";
+import { getRouteArticlesCreate } from "@/shared/const/router";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import {
   AppLink,
@@ -46,7 +46,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
 
         <AppLink
           theme={AppLinkTheme.SECONDARY}
-          to={RoutePath.articles_create}
+          to={getRouteArticlesCreate()}
           className={cls.createLink}
         >
           {t("create-article")}

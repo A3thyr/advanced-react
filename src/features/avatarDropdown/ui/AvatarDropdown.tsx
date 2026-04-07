@@ -7,7 +7,7 @@ import {
   isUserManager,
   userActions,
 } from "@/entities/User";
-import { RoutePath } from "@/shared/const/router";
+import { getRouteAdminPanel, getRouteProfile } from "@/shared/const/router";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { Avatar, Dropdown } from "@/shared/ui";
@@ -44,13 +44,13 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = ({ className }) => {
           ? [
               {
                 content: t("admin"),
-                href: RoutePath.admin_panel,
+                href: getRouteAdminPanel(),
               },
             ]
           : []),
         {
           content: t("profile"),
-          href: RoutePath.profile + authData.id,
+          href: getRouteProfile(authData.id),
         },
         {
           content: t("logout"),
