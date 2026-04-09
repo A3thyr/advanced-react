@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Input } from "@/shared/ui";
 import { PageLayout } from "@/widgets";
+import { Counter } from "@/entities/Counter";
 
 const MainPage = () => {
   const { t } = useTranslation("main");
@@ -14,8 +15,7 @@ const MainPage = () => {
   return (
     <PageLayout>
       {t("title")}
-      {/* <BugButton />
-      <Counter /> */}
+      <Counter />
       <Input
         value={value}
         onChange={onChangeHandler}
