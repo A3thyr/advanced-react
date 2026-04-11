@@ -5,11 +5,13 @@ import { getRouteArticlesDetails } from "@/shared/const/router";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { useHover } from "@/shared/lib/hooks/useHover/useHover";
 import {
+  AppImage,
   AppLink,
   Avatar,
   Button,
   Card,
   Icon,
+  Skeleton,
   Text,
   ThemeButton,
 } from "@/shared/ui";
@@ -67,7 +69,12 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
           </div>
           <Text title={article.title} className={cls.title} />
           {types}
-          <img src={article.img} alt={article.title} className={cls.img} />
+          <AppImage
+            fallback={<Skeleton width={"100%"} height={225} />}
+            src={article.img}
+            alt={article.title}
+            className={cls.img}
+          />
           {textBlock && (
             <ArticleTextBlockComponent
               block={textBlock}
@@ -100,7 +107,12 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
     >
       <Card className={cls.card}>
         <div className={cls.imageWrapper}>
-          <img src={article.img} alt={article.title} className={cls.img} />
+          <AppImage
+            fallback={<Skeleton width={200} height={220} />}
+            src={article.img}
+            alt={article.title}
+            className={cls.img}
+          />
           <Text text={article.createdAt} className={cls.date} />
         </div>
         <div className={cls.infoWrapper}>
