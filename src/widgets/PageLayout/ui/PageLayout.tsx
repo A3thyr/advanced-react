@@ -9,8 +9,9 @@ import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitial
 import { useThrottle } from "@/shared/lib/hooks/useThrottle/useThrottle";
 import { getScrollSaveByPath, scrollSaveActions } from "../ScrollSave";
 import cls from "./PageLayout.module.scss";
+import { TestProps } from "@/shared/types/tests";
 
-interface PageLayoutProps {
+interface PageLayoutProps extends TestProps {
   className?: string;
   children: ReactNode;
   onScrollEnd?: () => void;
@@ -18,11 +19,9 @@ interface PageLayoutProps {
 
 export const PAGE_ID = "PAGE_ID";
 
-export const PageLayout: FC<PageLayoutProps> = ({
-  className,
-  children,
-  onScrollEnd,
-}) => {
+export const PageLayout: FC<PageLayoutProps> = (props) => {
+  const { className, children, onScrollEnd, "data-testid": dataTestId } = props;
+
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
   const dispatch = useAppDispatch();
@@ -53,6 +52,7 @@ export const PageLayout: FC<PageLayoutProps> = ({
 
   return (
     <main
+      data-testid={dataTestId ?? "Page"}
       ref={wrapperRef}
       className={classNames(cls.PageLayout, {}, [className])}
       onScroll={onScroll}

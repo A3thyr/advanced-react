@@ -18,7 +18,10 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
   // }
 
   return (
-    <PageLayout className={classNames("", {}, [className])}>
+    <PageLayout
+      data-testid="ProfilePage"
+      className={classNames("", {}, [className])}
+    >
       <VStack max gap={16}>
         {/* <ProfilePageHeader /> */}
         <EditableProfileCard id={id} />

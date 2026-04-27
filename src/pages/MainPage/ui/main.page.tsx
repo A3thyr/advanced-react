@@ -13,7 +13,7 @@ const MainPage = () => {
   };
 
   return (
-    <PageLayout>
+    <PageLayout data-testid="MainPage">
       {t("title")}
       <Counter />
       <Input

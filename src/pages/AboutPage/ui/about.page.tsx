@@ -4,7 +4,7 @@ import { PageLayout } from "@/widgets";
 
 const AboutPage = () => {
   const { t } = useTranslation("about");
-  return <PageLayout>{t("about")}</PageLayout>;
+  return <PageLayout data-testid={"AboutPage"}>{t("about")}</PageLayout>;
 };
 
 export default AboutPage;
