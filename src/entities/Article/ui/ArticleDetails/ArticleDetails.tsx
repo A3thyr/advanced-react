@@ -9,7 +9,14 @@ import {
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { Avatar, Icon, Skeleton, Text, TextAlign, TextTheme } from "@/shared/ui";
+import {
+  Avatar,
+  Icon,
+  Skeleton,
+  Text,
+  TextAlign,
+  TextTheme,
+} from "@/shared/ui";
 import { HStack, VStack } from "@/shared/ui/Stack";
 import { TextSize } from "@/shared/ui/Text/Text";
 import {
@@ -109,7 +116,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
         <HStack justfify="center" max className={cls.avatarWrapper}>
           <Avatar size={200} src={article?.img} className={cls.avatar} />
         </HStack>
-        <VStack gap={8} max>
+        <VStack data-testid="ArticleDetails.Info" gap={8} max>
           <Text
             className={cls.title}
             title={article?.title}

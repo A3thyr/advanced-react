@@ -65,6 +65,7 @@ export const RatingCard: FC<RatingCardProps> = ({
     <>
       <Text title={feedbackTitle} />
       <Input
+        data-testid="RatingCard.Input"
         value={feedback}
         onChange={setFeedback}
         placeholder={t("feedback-placeholder")}
@@ -73,7 +74,7 @@ export const RatingCard: FC<RatingCardProps> = ({
   );
 
   return (
-    <Card max className={className}>
+    <Card max className={className} data-testid="RatingCard">
       <VStack align="center" max gap={8}>
         <Text title={starsCount ? t("thx") : title} />
         <StarRating
@@ -88,10 +89,16 @@ export const RatingCard: FC<RatingCardProps> = ({
             {modalContent}
 
             <HStack max align="center" justfify="between">
-              <Button onClick={cancelHandle} theme={ThemeButton.OUTLINE_RED}>
+              <Button
+                data-testid="RatingCard.Close"
+                onClick={cancelHandle}
+                theme={ThemeButton.OUTLINE_RED}
+              >
                 {t("cancel")}
               </Button>
-              <Button onClick={acceptHandle}>{t("send-feedback")}</Button>
+              <Button data-testid="RatingCard.Send" onClick={acceptHandle}>
+                {t("send-feedback")}
+              </Button>
             </HStack>
           </VStack>
         </Modal>

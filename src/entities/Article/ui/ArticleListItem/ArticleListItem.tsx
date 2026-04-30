@@ -59,6 +59,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
     ) as ArticleTextBlock;
     return (
       <div
+        data-testid={"ArticleListItem"}
         className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
       >
         <Card className={cls.card}>
@@ -103,6 +104,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
       target={target}
       to={getRouteArticlesDetails(article.id)}
       // {...bindHover}
+      data-testid={"ArticleListItem"}
       className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
     >
       <Card className={cls.card}>
