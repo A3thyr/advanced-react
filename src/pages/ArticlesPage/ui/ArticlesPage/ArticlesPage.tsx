@@ -11,6 +11,7 @@ import { articlePageReducer } from "../../model/slices/articlePageSlice";
 import { ArticleInfiniteList } from "../ArticleInfiniteList/ArticleInfiniteList";
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
 import cls from "./ArticlesPage.module.scss";
+import { useArticleItemById } from "../../model/selectors/articlePageSelectors";
 
 interface ArticlesPageProps {
   className?: string;
@@ -22,6 +23,9 @@ const reducers: ReducersList = {
 
 const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   const dispatch = useAppDispatch();
+  const articleItem = useArticleItemById("2");
+
+  console.log(articleItem);
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());
