@@ -2,7 +2,7 @@ import { FC, memo } from "react";
 import { useParams } from "react-router-dom";
 import { ArticleDetails } from "@/entities/Article";
 import { ArticleRecommendationsList } from "@/features/articleRecommendationsList";
-// import { useTranslation } from "react-i18next";
+
 import {
   DynamicModuleLoader,
   ReducersList,
@@ -15,6 +15,7 @@ import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetails
 import { ArticlesDetailsPageHeader } from "../ArticlesDetailsPageHeader/ArticlesDetailsPageHeader";
 import cls from "./ArticlesDetailsPage.module.scss";
 import { ArticleRating } from "@/features/articleRating";
+import { getFeatureFlags } from "@/shared/lib/features";
 
 interface ArticlesDetailsPageProps {
   className?: string;
@@ -28,19 +29,11 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
   // const { t } = useTranslation("article_details");
   const { id } = useParams<{ id: string }>();
 
+  const isArticleRatingEnabled = getFeatureFlags("isArticleRatingEnabled");
+
   if (!id) {
     return null;
   }
-
-  // if (!id) {
-  //   return (
-  //     <PageLayout
-  //       className={classNames(cls.ArticlesDetailsPage, {}, [className])}
-  //     >
-  //       {t("not-found")}
-  //     </PageLayout>
-  //   );
-  // }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
@@ -50,7 +43,7 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
         <VStack max gap={16}>
           <ArticlesDetailsPageHeader />
           <ArticleDetails id={id} />
-          <ArticleRating articleId={id} />
+          {isArticleRatingEnabled && <ArticleRating articleId={id} />}
           <ArticleRecommendationsList />
           <ArticleDetailsComments id={id} />
         </VStack>

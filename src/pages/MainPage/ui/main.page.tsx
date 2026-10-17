@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Input } from "@/shared/ui";
 import { PageLayout } from "@/widgets";
 import { Counter } from "@/entities/Counter";
+import { getFeatureFlags } from "@/shared/lib/features";
 
 const MainPage = () => {
   const { t } = useTranslation("main");
@@ -12,10 +13,12 @@ const MainPage = () => {
     setValue(val);
   };
 
+  const isCounterEnabled = getFeatureFlags("isCounterEnabled");
+
   return (
     <PageLayout data-testid="MainPage">
       {t("title")}
-      <Counter />
+      {isCounterEnabled && <Counter />}
       <Input
         value={value}
         onChange={onChangeHandler}
