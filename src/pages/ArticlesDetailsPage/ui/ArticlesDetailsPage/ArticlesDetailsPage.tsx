@@ -26,7 +26,6 @@ const reducers: ReducersList = {
 };
 
 const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
-  // const { t } = useTranslation("article_details");
   const { id } = useParams<{ id: string }>();
 
   const isArticleRatingEnabled = getFeatureFlags("isArticleRatingEnabled");
