@@ -1,21 +1,24 @@
 import { FC, memo } from "react";
+import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
-import { ArticleDetails } from "@/entities/Article";
-import { ArticleRecommendationsList } from "@/features/articleRecommendationsList";
 
+import { ArticleDetails } from "@/entities/Article";
+import { ArticleRating } from "@/features/articleRating";
+import { ArticleRecommendationsList } from "@/features/articleRecommendationsList";
 import {
   DynamicModuleLoader,
   ReducersList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { toggleFeatures } from "@/shared/lib/features";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
+import { Card } from "@/shared/ui";
 import { VStack } from "@/shared/ui/Stack";
 import { PageLayout } from "@/widgets";
+
 import { articleDetailsPageReducer } from "../../model/slices";
 import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments";
 import { ArticlesDetailsPageHeader } from "../ArticlesDetailsPageHeader/ArticlesDetailsPageHeader";
 import cls from "./ArticlesDetailsPage.module.scss";
-import { ArticleRating } from "@/features/articleRating";
-import { getFeatureFlags } from "@/shared/lib/features";
 
 interface ArticlesDetailsPageProps {
   className?: string;
@@ -27,12 +30,19 @@ const reducers: ReducersList = {
 
 const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
   const { id } = useParams<{ id: string }>();
+  const { t } = useTranslation();
 
-  const isArticleRatingEnabled = getFeatureFlags("isArticleRatingEnabled");
+  // const isArticleRatingEnabled = getFeatureFlags("isArticleRatingEnabled");
 
   if (!id) {
     return null;
   }
+
+  const articleRatingCard = toggleFeatures({
+    name: "isArticleRatingEnabled",
+    on: () => <ArticleRating articleId={id} />,
+    off: () => <Card>{t("Рейтинг статьи coming soon...")}</Card>,
+  });
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
@@ -42,7 +52,7 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
         <VStack max gap={16}>
           <ArticlesDetailsPageHeader />
           <ArticleDetails id={id} />
-          {isArticleRatingEnabled && <ArticleRating articleId={id} />}
+          {articleRatingCard}
           <ArticleRecommendationsList />
           <ArticleDetailsComments id={id} />
         </VStack>

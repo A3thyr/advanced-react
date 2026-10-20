@@ -15,16 +15,17 @@ const MainPage = () => {
 
   const isCounterEnabled = getFeatureFlags("isCounterEnabled");
 
+  const counter = <Counter />;
+
   return (
     <PageLayout data-testid="MainPage">
       {t("title")}
-      {isCounterEnabled && <Counter />}
+      {isCounterEnabled && counter}
       <Input
         value={value}
         onChange={onChangeHandler}
         placeholder={`sadjsidfjasi`}
       />
-
     </PageLayout>
   );
 };

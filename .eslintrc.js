@@ -42,6 +42,7 @@ module.exports = {
     "react/jsx-props-no-spreading": "off",
     "react/function-component-definition": "off",
     "react/jsx-no-useless-fragment": ["warn"],
+    "react/no-unstable-nested-components": "warn",
     "no-shadow": "off",
 
     "import/extensions": "off",
