@@ -49,7 +49,7 @@ module.exports = {
     "import/no-extraneous-dependencies": "off",
     "no-underscore-dangle": "off",
     "react/button-has-type": "off",
-    "react/jsx-wrap-multilines": "warn",
+    "react/jsx-wrap-multilines": "off",
     "operator-linebreak": "off",
     "linebreak-style": "off",
     "arrow-body-style": "off",

@@ -9,6 +9,7 @@ import { PageLoader } from "@/widgets/PageLoader";
 import { Sidebar } from "@/widgets/Sidebar";
 
 import { AppRouter } from "./providers/router";
+import { ToggleFeatures } from "@/shared/lib/features";
 
 const App = () => {
   const { theme } = useTheme();
@@ -23,15 +24,26 @@ const App = () => {
   if (!userInited) return <PageLoader />;
 
   return (
-    <div className={classNames("app", {}, [theme])}>
-      <Suspense fallback="">
-        <Navbar />
-        <div className="content-page">
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      off={
+        <div className={classNames("app", {}, [theme])}>
+          <Suspense fallback="">
+            <Navbar />
+            <div className="content-page">
+              <Sidebar />
+              <AppRouter />
+            </div>
+          </Suspense>
+        </div>
+      }
+      on={
+        <div className={classNames("app_redesigned", {}, [theme])}>
           <Sidebar />
           <AppRouter />
         </div>
-      </Suspense>
-    </div>
+      }
+    />
   );
 };
 
