@@ -1,12 +1,13 @@
-import { useSelector } from "react-redux";
 import { Suspense, useEffect } from "react";
-import { getUserInited, userActions } from "@/entities/User";
+import { useSelector } from "react-redux";
+import { getUserInited, initAuthData } from "@/entities/User";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
 import { Navbar } from "@/widgets/navbar";
 import { PageLoader } from "@/widgets/PageLoader";
 import { Sidebar } from "@/widgets/Sidebar";
-import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
+
 import { AppRouter } from "./providers/router";
 
 const App = () => {
@@ -16,7 +17,7 @@ const App = () => {
   const userInited = useSelector(getUserInited);
 
   useEffect(() => {
-    dispatch(userActions.initAuthData());
+    dispatch(initAuthData());
   }, [dispatch]);
 
   if (!userInited) return <PageLoader />;
@@ -25,7 +26,6 @@ const App = () => {
     <div className={classNames("app", {}, [theme])}>
       <Suspense fallback="">
         <Navbar />
-
         <div className="content-page">
           <Sidebar />
           <AppRouter />
