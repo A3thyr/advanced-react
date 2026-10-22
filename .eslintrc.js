@@ -72,6 +72,7 @@ module.exports = {
           "border",
           "gap",
           "role",
+          "feature",
         ],
       },
     ],
