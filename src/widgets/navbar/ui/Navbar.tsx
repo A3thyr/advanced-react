@@ -17,6 +17,7 @@ import {
 } from "@/shared/ui";
 import { HStack } from "@/shared/ui/Stack";
 import cls from "./Navbar.module.scss";
+import { ToggleFeatures } from "@/shared/lib/features";
 
 interface NavbarProps {
   className?: string;
@@ -37,25 +38,38 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
 
   if (authData) {
     return (
-      <header className={classNames(cls.Navbar, {}, [className])}>
-        <Text
-          className={cls.appName}
-          title={t("app-name")}
-          theme={TextTheme.INVERTED}
-        />
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
+            <HStack align="center" gap={16} className={cls.actions}>
+              <NotificationButton />
+              <AvatarDropdown />
+            </HStack>
+          </header>
+        }
+        off={
+          <header className={classNames(cls.Navbar, {}, [className])}>
+            <Text
+              className={cls.appName}
+              title={t("app-name")}
+              theme={TextTheme.INVERTED}
+            />
 
-        <AppLink
-          theme={AppLinkTheme.SECONDARY}
-          to={getRouteArticlesCreate()}
-          className={cls.createLink}
-        >
-          {t("create-article")}
-        </AppLink>
-        <HStack align="center" gap={16} className={cls.actions}>
-          <NotificationButton />
-          <AvatarDropdown />
-        </HStack>
-      </header>
+            <AppLink
+              theme={AppLinkTheme.SECONDARY}
+              to={getRouteArticlesCreate()}
+              className={cls.createLink}
+            >
+              {t("create-article")}
+            </AppLink>
+            <HStack align="center" gap={16} className={cls.actions}>
+              <NotificationButton />
+              <AvatarDropdown />
+            </HStack>
+          </header>
+        }
+      />
     );
   }
 

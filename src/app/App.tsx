@@ -10,6 +10,7 @@ import { Sidebar } from "@/widgets/Sidebar";
 
 import { AppRouter } from "./providers/router";
 import { ToggleFeatures } from "@/shared/lib/features";
+import { MainLayout } from "@/shared/layouts/MainLayout";
 
 const App = () => {
   const { theme } = useTheme();
@@ -39,8 +40,14 @@ const App = () => {
       }
       on={
         <div className={classNames("app_redesigned", {}, [theme])}>
-          <Sidebar />
-          <AppRouter />
+          <Suspense fallback="">
+            <MainLayout
+              content={<AppRouter />}
+              header={<Navbar />}
+              sidebar={<Sidebar />}
+              toolbar={<div />}
+            />
+          </Suspense>
         </div>
       }
     />

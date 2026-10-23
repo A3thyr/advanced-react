@@ -1,17 +1,17 @@
 import { FC, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
-import { useTranslation } from "react-i18next";
 
-import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
-import { Button, ThemeButton } from "@/shared/ui";
-import { ButtonSize } from "@/shared/ui/Button/Button";
-import { VStack } from "@/shared/ui/Stack";
 import { LangSwitcher } from "@/features/LangSwitcher";
 import { ThemeSwitcher } from "@/features/theme-switcher";
+import { ToggleFeatures } from "@/shared/lib/features";
+import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
+import { Button, ThemeButton } from "@/shared/ui";
+import { AppLogo } from "@/shared/ui/AppLogo";
+import { ButtonSize } from "@/shared/ui/Button/Button";
+import { VStack } from "@/shared/ui/Stack";
 import { getSideBarItems } from "../model/selectors/getSidebarItems";
 import cls from "./Sidebar.module.scss";
 import { SidebarItem } from "./SidebarItem/SidebarItem";
-import { ToggleFeatures } from "@/shared/lib/features";
 
 interface SidebarProps {
   className?: string;
@@ -21,7 +21,6 @@ interface SidebarProps {
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
   const [collapsed, setCollapsed] = useState(false);
-  const { t } = useTranslation();
 
   const SidebarItemsList = useSelector(getSideBarItems);
 
@@ -49,7 +48,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
             [className],
           )}
         >
-          {t("redesign is in process")}
+          <AppLogo />
           {/* <Button
             data-testid="sidebar-toggle"
             theme={ThemeButton.BACKGROUND_INVERTED}
