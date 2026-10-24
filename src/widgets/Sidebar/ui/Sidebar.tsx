@@ -48,24 +48,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
             [className],
           )}
         >
-          <AppLogo />
-          {/* <Button
-            data-testid="sidebar-toggle"
-            theme={ThemeButton.BACKGROUND_INVERTED}
-            onClick={onToggle}
-            square
-            size={ButtonSize.L}
-            className={cls.collapsedBtn}
-          >
-            {collapsed ? ">" : "<"}
-          </Button>
-          <VStack role="navigation" gap={8} className={cls.items}>
-            {itemsList}
-          </VStack>
-          <div className={cls.switchers}>
-            <ThemeSwitcher />
-            <LangSwitcher short={collapsed} className={cls.lang} />
-          </div> */}
+          <AppLogo className={cls.appLogo} />
         </aside>
       }
       off={

@@ -9,7 +9,6 @@ interface AppLogoProps {
   className?: string;
 }
 
-// TODO
 export const AppLogo: FC<AppLogoProps> = ({ className }) => {
   return (
     <HStack
@@ -19,7 +18,7 @@ export const AppLogo: FC<AppLogoProps> = ({ className }) => {
     >
       <div className={cls.gradientBig} />
       <div className={cls.gradientSmall} />
-      <AppIcon />
+      <AppIcon className={cls.appIcon} />
     </HStack>
   );
 };
