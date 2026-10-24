@@ -3,9 +3,12 @@ import { FC, useCallback, useState } from "react";
 import { NotificationList } from "@/entities/Notification";
 import NotificationIcon from "@/shared/assets/icons/notification-20-20.svg";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
-import { Button, Drawer, Icon, ThemeButton } from "@/shared/ui";
+// import { Button, Drawer, Icon, ThemeButton } from "@/shared/ui";
 import { Popover } from "@/shared/ui/deprecated/Popups";
 import cls from "./NotificationButton.module.scss";
+import { Button, ThemeButton } from "@/shared/ui/deprecated/Button/Button";
+import { Icon } from "@/shared/ui/deprecated/Icon/Icon";
+import { Drawer } from "@/shared/ui/deprecated/Drawer/Drawer";
 
 interface NotificationButtonProps {
   className?: string;

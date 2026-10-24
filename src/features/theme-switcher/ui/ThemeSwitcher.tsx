@@ -1,13 +1,18 @@
 import { memo, useCallback } from "react";
 
 import { saveJsonSettings } from "@/entities/User";
-import DarkIcon from "@/shared/assets/icons/theme-dark.svg";
-import LightIcon from "@/shared/assets/icons/theme-light.svg";
-import { Theme } from "@/shared/const/theme";
+import DarkIconDeprecated from "@/shared/assets/icons/theme-dark.svg";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
-import { Button, Icon, ThemeButton } from "@/shared/ui";
+import {
+  Button as ButtonDeprecated,
+  ThemeButton,
+} from "@/shared/ui/deprecated/Button/Button";
+import { Icon as IconDeprecated } from "@/shared/ui/deprecated/Icon/Icon";
+import { ToggleFeatures } from "@/shared/lib/features";
+import { Icon } from "@/shared/ui";
+import ThemeIcon from "@/shared/assets/icons/theme.svg";
 
 interface ThemeSwitcherProps {
   className?: string;
@@ -24,12 +29,18 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
   }, [toggleTheme, dispatch]);
 
   return (
-    <Button
-      theme={ThemeButton.CLEAR}
-      className={classNames("", {}, [className])}
-      onClick={onToggleHandler}
-    >
-      <Icon Svg={DarkIcon} width={40} height={40} inverted />
-    </Button>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={<Icon Svg={ThemeIcon} onClick={onToggleHandler} clickable />}
+      off={
+        <ButtonDeprecated
+          theme={ThemeButton.CLEAR}
+          className={classNames("", {}, [className])}
+          onClick={onToggleHandler}
+        >
+          <IconDeprecated Svg={DarkIconDeprecated} width={40} height={40} />
+        </ButtonDeprecated>
+      }
+    />
   );
 });

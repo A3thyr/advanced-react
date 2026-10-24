@@ -7,17 +7,12 @@ import { AvatarDropdown } from "@/features/avatarDropdown";
 import { NotificationButton } from "@/features/notificationButton";
 import { getRouteArticlesCreate } from "@/shared/const/router";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
-import {
-  AppLink,
-  AppLinkTheme,
-  Button,
-  Text,
-  TextTheme,
-  ThemeButton,
-} from "@/shared/ui";
+import { AppLink, Text, TextTheme, ThemeButton } from "@/shared/ui";
+
 import { HStack } from "@/shared/ui/deprecated/Stack";
 import cls from "./Navbar.module.scss";
 import { ToggleFeatures } from "@/shared/lib/features";
+import { Button as ButtonDeprecated } from "@/shared/ui/deprecated/Button/Button";
 
 interface NavbarProps {
   className?: string;
@@ -57,7 +52,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
             />
 
             <AppLink
-              theme={AppLinkTheme.SECONDARY}
+              variant="primary"
               to={getRouteArticlesCreate()}
               className={cls.createLink}
             >
@@ -75,13 +70,13 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
 
   return (
     <header className={classNames(cls.Navbar, {}, [className])}>
-      <Button
+      <ButtonDeprecated
         theme={ThemeButton.CLEAR_INVERTED}
         className={cls.links}
         onClick={onShowModal}
       >
         {t("login")}
-      </Button>
+      </ButtonDeprecated>
       {isAuthModal && (
         <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
       )}

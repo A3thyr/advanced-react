@@ -3,6 +3,7 @@ import { Link, LinkProps } from "react-router-dom";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import cls from "./AppLink.module.scss";
 
+/** @deprecated */
 export enum AppLinkTheme {
   PRIMARY = "primary",
   SECONDARY = "secondary",

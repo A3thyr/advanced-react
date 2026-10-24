@@ -5,13 +5,17 @@ import { LangSwitcher } from "@/features/LangSwitcher";
 import { ThemeSwitcher } from "@/features/theme-switcher";
 import { ToggleFeatures } from "@/shared/lib/features";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
-import { Button, ThemeButton } from "@/shared/ui";
-import { AppLogo } from "@/shared/ui/deprecated/AppLogo";
-import { ButtonSize } from "@/shared/ui/deprecated/Button/Button";
+import { Button, Icon, ThemeButton } from "@/shared/ui";
+import {
+  Button as ButtonDeprecated,
+  ButtonSize,
+} from "@/shared/ui/deprecated/Button/Button";
+import { AppLogo } from "@/shared/ui/redesigned/AppLogo";
 import { VStack } from "@/shared/ui/deprecated/Stack";
 import { getSideBarItems } from "../model/selectors/getSidebarItems";
 import cls from "./Sidebar.module.scss";
 import { SidebarItem } from "./SidebarItem/SidebarItem";
+import ArrowIcon from "@/shared/assets/icons/arrow-bottom.svg";
 
 interface SidebarProps {
   className?: string;
@@ -44,11 +48,25 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
           data-testid="sidebar"
           className={classNames(
             cls.SidebarRedesigned,
-            { [cls.collapsed]: collapsed },
+            { [cls.collapsedRedesigned]: collapsed },
             [className],
           )}
         >
-          <AppLogo className={cls.appLogo} />
+          <AppLogo size={collapsed ? 30 : 55} className={cls.appLogo} />
+          <VStack role="navigation" gap={8} className={cls.items}>
+            {itemsList}
+          </VStack>
+          <Icon
+            data-testid="sidebar-toggle"
+            onClick={onToggle}
+            className={cls.collapsedBtn}
+            Svg={ArrowIcon}
+            clickable
+          />
+          <div className={cls.switchers}>
+            <ThemeSwitcher />
+            <LangSwitcher short={collapsed} className={cls.lang} />
+          </div>
         </aside>
       }
       off={
@@ -58,7 +76,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
             className,
           ])}
         >
-          <Button
+          <ButtonDeprecated
             data-testid="sidebar-toggle"
             theme={ThemeButton.BACKGROUND_INVERTED}
             onClick={onToggle}
@@ -67,10 +85,8 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
             className={cls.collapsedBtn}
           >
             {collapsed ? ">" : "<"}
-          </Button>
-          <VStack role="navigation" gap={8} className={cls.items}>
-            {itemsList}
-          </VStack>
+          </ButtonDeprecated>
+
           <div className={cls.switchers}>
             <ThemeSwitcher />
             <LangSwitcher short={collapsed} className={cls.lang} />

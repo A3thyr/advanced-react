@@ -1,10 +1,10 @@
-export { AppLink, AppLinkTheme } from "./deprecated/AppLink/AppLink";
+export { AppLink } from "./redesigned/AppLink/AppLink";
 export { Avatar } from "./deprecated/Avatar/Avatar";
-export { Button, ThemeButton } from "./deprecated/Button/Button";
+export { Button } from "./redesigned/Button/Button";
 export { Card } from "./deprecated/Card/Card";
 export { Code } from "./deprecated/Code/Code";
 export { Drawer } from "./deprecated/Drawer/Drawer";
-export { Icon } from "./deprecated/Icon/Icon";
+export { Icon } from "./redesigned/Icon/Icon";
 export { Input } from "./deprecated/Input/Input";
 export { Modal } from "./deprecated/Modal/Modal";
 export { Dropdown, type DropdownItem } from "./deprecated/Popups/ui/Dropdown/Dropdown";
@@ -18,3 +18,4 @@ export { Tabs } from "./deprecated/Tabs/Tabs";
 export type { TabItem } from "./deprecated/Tabs/Tabs";
 export { Text, TextAlign, TextTheme } from "./deprecated/Text/Text";
 export { AppImage } from "./deprecated/AppImage/AppImage";
+export { ThemeButton } from "../ui/deprecated/Button/Button";
