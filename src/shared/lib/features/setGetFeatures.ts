@@ -1,7 +1,7 @@
 import { FeatureFlags } from "@/shared/types/featureFlags";
 
 // features are currently non reactive(as const for each session)
-let featureFlags: FeatureFlags;
+let featureFlags: FeatureFlags = {};
 
 export function setFeatureFlags(newFeatureFlags?: FeatureFlags) {
   if (newFeatureFlags) {

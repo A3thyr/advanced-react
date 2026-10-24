@@ -6,7 +6,22 @@ export default defineConfig({
   plugins: [
     svgr({
       exportAsDefault: true,
+      svgrOptions: {
+        icon: true,
+        plugins: ["@svgr/plugin-svgo", "@svgr/plugin-jsx"],
+        svgoConfig: {
+          plugins: [
+            {
+              name: "convertColors",
+              params: {
+                currentColor: true,
+              },
+            },
+          ],
+        },
+      },
     }),
+
     react(),
   ],
   resolve: {
