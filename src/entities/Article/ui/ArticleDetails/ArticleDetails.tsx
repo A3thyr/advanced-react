@@ -17,8 +17,7 @@ import {
   TextAlign,
   TextTheme,
 } from "@/shared/ui";
-import { HStack, VStack } from "@/shared/ui/Stack";
-import { TextSize } from "@/shared/ui/Text/Text";
+import { HStack, VStack } from "@/shared/ui/deprecated/Stack";
 import {
   getArticleDetailsData,
   getArticleDetailsError,
@@ -32,6 +31,7 @@ import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleC
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import cls from "./ArticleDetails.module.scss";
+import { TextSize } from "@/shared/ui/deprecated/Text/Text";
 
 interface ArticleDetailsProps {
   className?: string;

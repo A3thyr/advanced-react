@@ -1,0 +1,20 @@
+{
+  "title": "Articles",
+  "dropdown-title": "Sort by:",
+  "search": "Search",
+  "asc": "ascending",
+  "desc": "descending",
+  "by": "Order by",
+  "sort-field": {
+    "createdAt": "creation date",
+    "title": "title",
+    "views": "views"
+  },
+  "article-type": {
+    "all": "All",
+    "IT": "IT",
+    "economics": "Economics",
+    "science": "Science"
+  },
+  "not-found": "Not found"
+}

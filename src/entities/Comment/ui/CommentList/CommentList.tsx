@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { Text } from "@/shared/ui";
-import { VStack } from "@/shared/ui/Stack";
+import { VStack } from "@/shared/ui/deprecated/Stack";
 import { ArticleComment } from "../../model/types/comment";
 import { CommentCard } from "../CommentCard/CommentCard";
 

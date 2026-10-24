@@ -1,0 +1,22 @@
+{
+  "title": "Articles",
+  "not-found": "Article was not found",
+  "no-data": "No articles available",
+  "error": "An error occured during article loading",
+  "comment-title": "Comments",
+  "no-comment": "No comments",
+  "form": {
+    "placeholder": "Write a comment...",
+    "btn": "Send"
+  },
+  "recommended": "Recommended articles:",
+  "header": {
+    "back": "Back",
+    "edit": "Edit"
+  },
+  "loading": "Loading...",
+  "feedback": {
+    "title": "Rate the article",
+    "placeholder": "Leave your feedback for the article, it helps us to improve their quality"
+  }
+}

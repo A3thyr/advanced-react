@@ -15,11 +15,11 @@ import {
   Text,
   ThemeButton,
 } from "@/shared/ui";
-import { TextSize } from "@/shared/ui/Text/Text";
 import { ArticleBlockType, ArticleView } from "../../model/const/articleConst";
 import { Article, ArticleTextBlock } from "../../model/types/article";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import cls from "./ArticleListItem.module.scss";
+import { TextSize } from "@/shared/ui/deprecated/Text/Text";
 
 interface ArticleListItemProps {
   className?: string;

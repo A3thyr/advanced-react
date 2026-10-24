@@ -1,0 +1,26 @@
+{
+  "title": "Profile",
+  "profilecard": {
+    "title": "Profile",
+    "edit": "Edit",
+    "firstName": "Your first name",
+    "secondName": "Your second name",
+    "reload-page": "Please, reload the page",
+    "loading-error": "An error occured during the profile loading",
+    "cancel": "Cancel",
+    "save": "Save",
+    "city": "City",
+    "age": "Age",
+    "username": "Username",
+    "avatar": "Avatar",
+    "currency": "Currency",
+    "country": "Country"
+  },
+  "error": {
+    "incorrect-user-data": "First and second names are required",
+    "incorrect-age": "Incorrect age",
+    "incorrect-country": "Incorrect country",
+    "no-data": "No data",
+    "server-error": "A server error occured"
+  }
+}

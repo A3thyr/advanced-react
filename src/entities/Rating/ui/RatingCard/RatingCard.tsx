@@ -11,8 +11,8 @@ import {
   Text,
   ThemeButton,
 } from "@/shared/ui";
-import { ButtonSize } from "@/shared/ui/Button/Button";
-import { HStack, VStack } from "@/shared/ui/Stack";
+import { ButtonSize } from "@/shared/ui/deprecated/Button/Button";
+import { HStack, VStack } from "@/shared/ui/deprecated/Stack";
 
 interface RatingCardProps {
   className?: string;

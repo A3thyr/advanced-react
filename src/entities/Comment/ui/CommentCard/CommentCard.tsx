@@ -2,7 +2,7 @@ import { FC } from "react";
 import { getRouteProfile } from "@/shared/const/router";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { AppLink, Avatar, Skeleton, Text } from "@/shared/ui";
-import { VStack } from "@/shared/ui/Stack";
+import { VStack } from "@/shared/ui/deprecated/Stack";
 import { ArticleComment } from "../../model/types/comment";
 import cls from "./CommentCard.module.scss";
 

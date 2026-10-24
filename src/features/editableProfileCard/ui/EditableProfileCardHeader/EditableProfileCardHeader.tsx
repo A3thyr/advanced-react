@@ -5,7 +5,7 @@ import { getUserAuthData } from "@/entities/User";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { Button, Text, ThemeButton } from "@/shared/ui";
-import { HStack } from "@/shared/ui/Stack";
+import { HStack } from "@/shared/ui/deprecated/Stack";
 import { getProfileData } from "../../model/selectors/getProfileData/getProfileData";
 import { getProfileReadOnly } from "../../model/selectors/getProfileReadOnly/getProfileReadOnly";
 import { updateProfileData } from "../../model/services/updateProfileData/updateProfileData";

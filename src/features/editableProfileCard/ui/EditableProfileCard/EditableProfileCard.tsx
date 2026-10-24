@@ -14,7 +14,7 @@ import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { Text, TextTheme } from "@/shared/ui";
-import { VStack } from "@/shared/ui/Stack";
+import { VStack } from "@/shared/ui/deprecated/Stack";
 import { ValidateProfileError } from "../../model/const/const";
 import { getProfileError } from "../../model/selectors/getProfileError/getProfileError";
 import { getProfileForm } from "../../model/selectors/getProfileForm/getProfileForm";

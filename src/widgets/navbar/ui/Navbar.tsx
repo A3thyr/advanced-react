@@ -15,7 +15,7 @@ import {
   TextTheme,
   ThemeButton,
 } from "@/shared/ui";
-import { HStack } from "@/shared/ui/Stack";
+import { HStack } from "@/shared/ui/deprecated/Stack";
 import cls from "./Navbar.module.scss";
 import { ToggleFeatures } from "@/shared/lib/features";
 
