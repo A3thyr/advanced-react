@@ -10,6 +10,7 @@ import { useThrottle } from "@/shared/lib/hooks/useThrottle/useThrottle";
 import { getScrollSaveByPath, scrollSaveActions } from "../ScrollSave";
 import cls from "./PageLayout.module.scss";
 import { TestProps } from "@/shared/types/tests";
+import { toggleFeatures } from "@/shared/lib/features";
 
 interface PageLayoutProps extends TestProps {
   className?: string;
@@ -33,7 +34,11 @@ export const PageLayout: FC<PageLayoutProps> = (props) => {
   useInfiniteScroll({
     callback: onScrollEnd,
     triggerRef,
-    wrapperRef,
+    wrapperRef: toggleFeatures({
+      name: "isAppRedesigned",
+      on: () => undefined,
+      off: () => wrapperRef,
+    }),
   });
 
   useInitialEffect(() => {
