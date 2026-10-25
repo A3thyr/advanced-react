@@ -6,7 +6,7 @@ interface OverlayProps {
   className?: string;
   onClick?: () => void;
 }
-/** @deprecated */
+
 export const Overlay: FC<OverlayProps> = ({ className, onClick }) => {
   return (
     <div

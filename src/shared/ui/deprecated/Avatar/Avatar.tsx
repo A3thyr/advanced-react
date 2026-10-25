@@ -1,10 +1,10 @@
 import { CSSProperties, FC, useMemo } from "react";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import cls from "./Avatar.module.scss";
-import { AppImage } from "../AppImage/AppImage";
+import { AppImage } from "../../redesigned/AppImage/AppImage";
 import UserIcon from "../../../assets/icons/user-filled.svg";
 import { Icon } from "../../redesigned/Icon/Icon";
-import { Skeleton } from "../Skeleton/Skeleton";
+import { Skeleton } from "../../redesigned/Skeleton/Skeleton";
 
 interface AvatarProps {
   className?: string;

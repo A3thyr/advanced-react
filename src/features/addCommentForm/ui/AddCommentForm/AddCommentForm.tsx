@@ -8,7 +8,7 @@ import {
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { Button, Input, ThemeButton } from "@/shared/ui";
-import { HStack } from "@/shared/ui/deprecated/Stack";
+import { HStack } from "@/shared/ui/redesigned/Stack";
 import {
   getAddCommentFormError,
   getAddCommentFormText,

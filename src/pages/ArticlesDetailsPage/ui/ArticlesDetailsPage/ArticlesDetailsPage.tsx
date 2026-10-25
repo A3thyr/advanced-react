@@ -12,7 +12,7 @@ import {
 import { ToggleFeatures } from "@/shared/lib/features";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { Card } from "@/shared/ui";
-import { VStack } from "@/shared/ui/deprecated/Stack";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 import { PageLayout } from "@/widgets";
 
 import { articleDetailsPageReducer } from "../../model/slices";

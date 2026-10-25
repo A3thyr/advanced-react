@@ -6,7 +6,7 @@ import { getArticleDetailsData } from "@/entities/Article";
 import { getRouteArticles, getRouteArticlesEdit } from "@/shared/const/router";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { Button, ThemeButton } from "@/shared/ui";
-import { HStack } from "@/shared/ui/deprecated/Stack";
+import { HStack } from "@/shared/ui/redesigned/Stack";
 import { getCanEditArticle } from "../../model/selectors/articles";
 
 interface ArticlesDetailsPageHeaderProps {

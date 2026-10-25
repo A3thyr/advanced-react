@@ -7,7 +7,7 @@ import {
   Mods,
 } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { Avatar, Input, Spinner, Text, TextTheme } from "@/shared/ui";
-import { HStack, VStack } from "@/shared/ui/deprecated/Stack";
+import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
 import { TextAlign } from "@/shared/ui/deprecated/Text/Text";
 import { Profile } from "../../model/types/profile";
 import cls from "./ProfileCard.module.scss";

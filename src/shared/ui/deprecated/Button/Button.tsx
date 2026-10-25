@@ -5,6 +5,7 @@ import {
 } from "@/shared/lib/helpers/classNames/classNames.helper";
 import cls from "./Button.module.scss";
 
+/** @deprecated */
 export enum ThemeButton {
   CLEAR = "clear",
   CLEAR_INVERTED = "clearInverted",

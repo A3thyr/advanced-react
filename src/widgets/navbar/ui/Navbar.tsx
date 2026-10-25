@@ -9,7 +9,7 @@ import { getRouteArticlesCreate } from "@/shared/const/router";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { AppLink, Text, TextTheme, ThemeButton } from "@/shared/ui";
 
-import { HStack } from "@/shared/ui/deprecated/Stack";
+import { HStack } from "@/shared/ui/redesigned/Stack";
 import cls from "./Navbar.module.scss";
 import { ToggleFeatures } from "@/shared/lib/features";
 import { Button as ButtonDeprecated } from "@/shared/ui/deprecated/Button/Button";

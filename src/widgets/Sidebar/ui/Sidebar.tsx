@@ -11,7 +11,7 @@ import {
   ButtonSize,
 } from "@/shared/ui/deprecated/Button/Button";
 import { AppLogo } from "@/shared/ui/redesigned/AppLogo";
-import { VStack } from "@/shared/ui/deprecated/Stack";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 import { getSideBarItems } from "../model/selectors/getSidebarItems";
 import cls from "./Sidebar.module.scss";
 import { SidebarItem } from "./SidebarItem/SidebarItem";
