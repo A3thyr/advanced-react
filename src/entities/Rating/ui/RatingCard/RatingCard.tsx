@@ -2,7 +2,7 @@ import { FC, useCallback, useState } from "react";
 import { BrowserView, MobileView } from "react-device-detect";
 import { useTranslation } from "react-i18next";
 import {
-  Button,
+  // Button,
   Card,
   Drawer,
   Input,
@@ -11,8 +11,11 @@ import {
   Text,
   ThemeButton,
 } from "@/shared/ui";
-import { ButtonSize } from "@/shared/ui/redesigned/Button/Button";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
+import {
+  Button as ButtonDeprecated,
+  ButtonSize,
+} from "@/shared/ui/deprecated/Button/Button";
 
 interface RatingCardProps {
   className?: string;
@@ -89,16 +92,19 @@ export const RatingCard: FC<RatingCardProps> = ({
             {modalContent}
 
             <HStack max align="center" justfify="between">
-              <Button
+              <ButtonDeprecated
                 data-testid="RatingCard.Close"
                 onClick={cancelHandle}
                 theme={ThemeButton.OUTLINE_RED}
               >
                 {t("cancel")}
-              </Button>
-              <Button data-testid="RatingCard.Send" onClick={acceptHandle}>
+              </ButtonDeprecated>
+              <ButtonDeprecated
+                data-testid="RatingCard.Send"
+                onClick={acceptHandle}
+              >
                 {t("send-feedback")}
-              </Button>
+              </ButtonDeprecated>
             </HStack>
           </VStack>
         </Modal>
@@ -108,9 +114,13 @@ export const RatingCard: FC<RatingCardProps> = ({
         <Drawer isOpen={isModalOpen} lazy onClose={cancelHandle}>
           <VStack gap={32}>
             {modalContent}
-            <Button fullWidth onClick={acceptHandle} size={ButtonSize.L}>
+            <ButtonDeprecated
+              fullWidth
+              onClick={acceptHandle}
+              size={ButtonSize.L}
+            >
               {t("send-feedback")}
-            </Button>
+            </ButtonDeprecated>
           </VStack>
         </Drawer>
       </MobileView>

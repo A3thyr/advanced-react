@@ -15,6 +15,7 @@ export enum ThemeButton {
   BACKGROUND_INVERTED = "backgroundInverted",
 }
 
+/** @deprecated */
 export enum ButtonSize {
   M = "size_m",
   L = "size_l",

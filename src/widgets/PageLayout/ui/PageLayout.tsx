@@ -10,7 +10,6 @@ import { useThrottle } from "@/shared/lib/hooks/useThrottle/useThrottle";
 import { getScrollSaveByPath, scrollSaveActions } from "../ScrollSave";
 import cls from "./PageLayout.module.scss";
 import { TestProps } from "@/shared/types/tests";
-import { toggleFeatures } from "@/shared/lib/features";
 
 interface PageLayoutProps extends TestProps {
   className?: string;
@@ -51,11 +50,7 @@ export const PageLayout: FC<PageLayoutProps> = (props) => {
     // console.log("scroll", e.currentTarget.scrollTop);
   }, 500);
 
-  const featureClass = toggleFeatures({
-    name: "isAppRedesigned",
-    on: () => cls.PageLayoutRedesigned,
-    off: () => cls.PageLayout,
-  });
+  const featureClass = cls.PageLayoutRedesigned;
 
   return (
     <main
