@@ -1,1 +1,0 @@
-import{u as o,r,d as i,P as d,j as l,X as u}from"./index.5c213bef.js";const g=()=>{const{t:a}=o("main"),[s,e]=r.exports.useState(""),t=n=>{e(n)};return i(d,{"data-testid":"MainPage",children:[a("title"),l(u,{value:s,onChange:t,placeholder:"sadjsidfjasi"})]})};export{g as default};

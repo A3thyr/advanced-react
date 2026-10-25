@@ -1,5 +1,5 @@
 import { Listbox as HListBox } from "@headlessui/react";
-import { Fragment, ReactNode } from "react";
+import { Fragment, ReactNode, useMemo } from "react";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { DropdownDirection } from "../../../../../types/ui";
 import { Button } from "../../../../redesigned/Button/Button";
@@ -8,24 +8,24 @@ import { mapDirectionClass } from "../../styles/consts";
 import cls from "./ListBox.module.scss";
 import popupCls from "../../styles/popup.module.scss";
 
-export interface ListBoxItem {
-  value: string;
+export interface ListBoxItem<T extends string> {
+  value: T;
   content: ReactNode;
   disabled?: boolean;
 }
 
-interface ListBoxProps {
-  items?: ListBoxItem[];
+interface ListBoxProps<T extends string> {
+  items?: ListBoxItem<T>[];
   className?: string;
-  value?: string;
+  value?: T;
   defaultValue?: string;
-  onChange: (value: string) => void;
+  onChange: (value: T) => void;
   readonly?: boolean;
   direction?: DropdownDirection;
   label?: string;
 }
 
-export function ListBox({
+export function ListBox<T extends string>({
   className,
   items,
   value,
@@ -34,8 +34,12 @@ export function ListBox({
   readonly,
   direction = "top right",
   label,
-}: ListBoxProps) {
+}: ListBoxProps<T>) {
   const optionsClasses = [mapDirectionClass[direction], popupCls.menu];
+
+  const selectedItem = useMemo(() => {
+    return items?.find((item) => item.value === value);
+  }, [items, value]);
 
   return (
     <HStack gap={4} align="center">
@@ -48,7 +52,9 @@ export function ListBox({
         onChange={onChange}
       >
         <HListBox.Button disabled={readonly} className={popupCls.trigger}>
-          <Button disabled={readonly}>{value ?? defaultValue}</Button>
+          <Button variant="filled" disabled={readonly}>
+            {selectedItem?.content ?? defaultValue}
+          </Button>
         </HListBox.Button>
         <HListBox.Options
           className={classNames(cls.options, {}, optionsClasses)}
@@ -65,9 +71,10 @@ export function ListBox({
                   className={classNames(cls.item, {
                     [popupCls.active]: active,
                     [popupCls.disabled]: item.disabled,
+                    [popupCls.selected]: selected,
                   })}
                 >
-                  {selected && "!!!"}
+                  {selected}
                   {item.content}
                 </li>
               )}

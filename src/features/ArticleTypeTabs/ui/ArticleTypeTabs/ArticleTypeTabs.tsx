@@ -1,7 +1,12 @@
 import { FC, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { TabItem, Tabs } from "@/shared/ui";
+import {
+  TabItem as TabItemDeprecated,
+  Tabs as TabsDeprecated,
+} from "@/shared/ui";
 import { ArticleType } from "@/entities/Article";
+import { ToggleFeatures } from "@/shared/lib/features";
+import { Tabs } from "@/shared/ui/redesigned/Tabs/Tabs";
 
 interface ArticleTypeTabsProps {
   className?: string;
@@ -17,13 +22,13 @@ export const ArticleTypeTabs: FC<ArticleTypeTabsProps> = ({
   const { t } = useTranslation("articles");
 
   const handleTabClick = useCallback(
-    (tab: TabItem<ArticleType>) => {
+    (tab: TabItemDeprecated<ArticleType>) => {
       onChangeType(tab.value);
     },
     [onChangeType],
   );
 
-  const typeTabs = useMemo<TabItem<ArticleType>[]>(
+  const typeTabs = useMemo<TabItemDeprecated<ArticleType>[]>(
     () => [
       {
         value: ArticleType.ALL,
@@ -47,11 +52,25 @@ export const ArticleTypeTabs: FC<ArticleTypeTabsProps> = ({
   );
 
   return (
-    <Tabs
-      className={className}
-      tabs={typeTabs}
-      onTabClick={handleTabClick}
-      value={value}
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <Tabs
+          className={className}
+          direction="column"
+          tabs={typeTabs}
+          onTabClick={handleTabClick}
+          value={value}
+        />
+      }
+      off={
+        <TabsDeprecated
+          className={className}
+          tabs={typeTabs}
+          onTabClick={handleTabClick}
+          value={value}
+        />
+      }
     />
   );
 };

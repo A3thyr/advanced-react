@@ -3,6 +3,7 @@ import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import cls from "./Tabs.module.scss";
 import { Card, CardTheme } from "../Card/Card";
 
+/** @deprecated */
 export interface TabItem<T extends string = string> {
   value: T;
   content: ReactNode;
@@ -45,6 +46,7 @@ const TabsComponent = <T extends string>({
   );
 };
 
+/** @deprecated */
 // memo съедает дженерик; двойное приведение сохраняет сигнатуру <T extends string>(props: TabsProps<T>) => …
 export const Tabs = memo(TabsComponent) as unknown as typeof TabsComponent;
 

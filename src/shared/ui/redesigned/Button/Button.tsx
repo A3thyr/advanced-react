@@ -5,7 +5,7 @@ import {
 } from "@/shared/lib/helpers/classNames/classNames.helper";
 import cls from "./Button.module.scss";
 
-export type ButtonVariant = "clear" | "outline";
+export type ButtonVariant = "clear" | "outline" | "filled";
 
 export type ButtonSize = "m" | "l" | "xl";
 
