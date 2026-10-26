@@ -3,8 +3,8 @@
   "profilecard": {
     "title": "Профиль",
     "edit": "Редактировать",
-    "firstName": "Ваше имя",
-    "secondName": "Ваша фамилия",
+    "firstName": "Имя",
+    "secondName": "Фамилия",
     "reload-page": "Пожалуйста, перезагрузите страницу",
     "loading-error": "Произошла ошибка при загрузке профиля",
     "cancel": "Отменить",

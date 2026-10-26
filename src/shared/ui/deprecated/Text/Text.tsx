@@ -1,18 +1,21 @@
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import cls from "./Text.module.scss";
 
+/** @deprecated */
 export enum TextTheme {
   PRIMARY = "primary",
   INVERTED = "inverted",
   ERROR = "error",
 }
 
+/** @deprecated */
 export enum TextAlign {
   RIGHT = "right",
   LEFT = "left",
   CENTER = "center",
 }
 
+/** @deprecated */
 export enum TextSize {
   S = "size_s",
   M = "size_m",

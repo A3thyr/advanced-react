@@ -1,0 +1,1 @@
+import{u as i,b as c,j as r,P as l,c as o}from"./index.e2582c4b.js";const d="_ArticleEditPage_8h0e7_1",n={ArticleEditPage:d},P=({className:t})=>{const{t:a}=i(),{id:e}=c(),s=Boolean(e);return r(l,{className:o(n.ArticleEditPage,{},[t]),children:s?`${a("article-edit-page")} id - ${e}`:a("article-create-page")})};export{P as default};
