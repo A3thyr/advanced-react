@@ -8,9 +8,11 @@ import { VStack } from "@/shared/ui/redesigned/Stack";
 import cls from "./ArticlesFilters.module.scss";
 import { ArticleSortField, ArticleType } from "@/entities/Article";
 import { SortOrder } from "@/shared/types";
-import { Input } from "@/shared/ui";
 import { ArticleSortSelector } from "@/features/ArticleSortSelector";
 import { ArticleTypeTabs } from "@/features/ArticleTypeTabs";
+import { Input } from "@/shared/ui/redesigned/Input/Input";
+import SearchIcon from "@/shared/assets/icons/search.svg";
+import { Icon } from "@/shared/ui";
 
 interface ArticlesFiltersProps {
   className?: string;
@@ -47,15 +49,15 @@ export const ArticlesFilters: FC<ArticlesFiltersProps> = ({
           onChange={onChangeSearch}
           value={search}
           placeholder={t("search")}
+          addonLeft={<Icon Svg={SearchIcon} />}
         />
+        <ArticleTypeTabs value={type} onChangeType={onChangeType} />
         <ArticleSortSelector
           onChangeOrder={onChangeOrder}
           onChangeSort={onChangeSort}
           order={order}
           sort={sort}
         />
-
-        <ArticleTypeTabs value={type} onChangeType={onChangeType} />
       </VStack>
     </Card>
   );

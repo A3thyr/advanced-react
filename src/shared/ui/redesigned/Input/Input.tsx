@@ -2,6 +2,7 @@ import {
   ChangeEvent,
   InputHTMLAttributes,
   memo,
+  ReactNode,
   useEffect,
   useRef,
   useState,
@@ -23,6 +24,8 @@ interface InputProps extends HTMLInputProps {
   onChange?: (value: string) => void;
   autoFocus?: boolean;
   readonly?: boolean;
+  addonLeft?: ReactNode;
+  addonRight?: ReactNode;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -34,6 +37,8 @@ export const Input = memo((props: InputProps) => {
     placeholder,
     autoFocus,
     readonly,
+    addonLeft,
+    addonRight,
     ...otherProps
   } = props;
 
@@ -62,37 +67,34 @@ export const Input = memo((props: InputProps) => {
     setIsFocused(true);
   };
 
-  const onSelect = (e: any) => {
-    setCaretPosition(e?.target?.selectionStart || 0);
-  };
+  // const onSelect = (e: any) => {
+  //   setCaretPosition(e?.target?.selectionStart || 0);
+  // };
 
   const mods: Mods = {
     [cls.readonly]: readonly,
+    [cls.focused]: isFocused,
+    [cls.withAddonLeft]: Boolean(addonLeft),
+    [cls.withAddonRight]: Boolean(addonRight),
   };
 
   return (
     <div className={classNames(cls.InputWrapper, mods, [className])}>
-      {placeholder && <div className="">{`${placeholder}>`}</div>}
-      <div className={cls.caretWrapper}>
-        <input
-          ref={ref}
-          type={type}
-          value={value}
-          onChange={onChangeHandler}
-          className={cls.Input}
-          onBlur={onBlur}
-          onFocus={onFocus}
-          onSelect={onSelect}
-          readOnly={readonly}
-          {...otherProps}
-        />
-        {isFocused && (
-          <span
-            className={cls.caret}
-            style={{ left: `${caretPosition * 9}px` }}
-          />
-        )}
-      </div>
+      <div className={cls.addonLeft}>{addonLeft}</div>
+      <input
+        ref={ref}
+        type={type}
+        value={value}
+        onChange={onChangeHandler}
+        className={cls.Input}
+        onBlur={onBlur}
+        onFocus={onFocus}
+        // onSelect={onSelect}
+        readOnly={readonly}
+        placeholder={placeholder}
+        {...otherProps}
+      />
+      <div className={cls.addonRight}>{addonRight}</div>
     </div>
   );
 });

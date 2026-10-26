@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC } from "react";
+import { ButtonHTMLAttributes, FC, ReactNode } from "react";
 import {
   classNames,
   Mods,
@@ -16,6 +16,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
   disabled?: boolean;
   fullWidth?: boolean;
+  addonLeft?: ReactNode;
+  addonRight?: ReactNode;
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -26,12 +28,15 @@ export const Button: FC<ButtonProps> = ({
   disabled,
   fullWidth,
   size = "m",
+  addonLeft,
+  addonRight,
   ...otherProps
 }) => {
   const mods: Mods = {
     [cls.square]: square,
     [cls.disabled]: disabled,
     [cls.fullWidth]: fullWidth,
+    [cls.withAddon]: Boolean(addonLeft) || Boolean(addonRight),
   };
   return (
     <button
@@ -42,7 +47,10 @@ export const Button: FC<ButtonProps> = ({
       ])}
       {...otherProps}
     >
+      <div className={cls.addonLeft}>{addonLeft}</div>
+
       {children}
+      <div className={cls.addonRight}>{addonRight}</div>
     </button>
   );
 };
