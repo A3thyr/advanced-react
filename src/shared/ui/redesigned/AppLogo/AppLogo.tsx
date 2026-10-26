@@ -17,14 +17,14 @@ export const AppLogo: FC<AppLogoProps> = ({ className, size = 55 }) => {
       justfify="center"
       className={classNames(cls.AppLogoWrapper, {}, [className])}
     >
-      <div className={cls.gradientBig} />
-      <div className={cls.gradientSmall} />
       <AppIcon
         className={cls.appIcon}
         width={size}
         height={size}
         color="black"
       />
+      <div className={cls.gradientBig} />
+      <div className={cls.gradientSmall} />
     </HStack>
   );
 };

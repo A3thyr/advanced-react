@@ -6,13 +6,8 @@ import { getUserAuthData } from "@/entities/User";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { AppLink, Icon } from "@/shared/ui";
 // import { Icon as IconDeprecated } from "@/shared/ui/deprecated/Icon/Icon";
-import {
-  AppLink as AppLinkDeprecated,
-  AppLinkTheme,
-} from "@/shared/ui/deprecated/AppLink/AppLink";
 import { SidebarItemType } from "../../model/types/sidebar";
 import cls from "./SidebarItem.module.scss";
-import { ToggleFeatures } from "@/shared/lib/features";
 
 interface SidebarItemProps {
   item: SidebarItemType;
