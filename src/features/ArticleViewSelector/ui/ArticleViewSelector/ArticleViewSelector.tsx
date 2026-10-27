@@ -1,23 +1,23 @@
 import { FC } from "react";
+
 import ListIconDeprecated from "@/shared/assets/icons/list-24-24.svg";
 import TiledIconDeprecated from "@/shared/assets/icons/tiled-24-24.svg";
 
 import ListIcon from "@/shared/assets/icons/burger.svg";
 import TiledIcon from "@/shared/assets/icons/tile.svg";
 
-import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
-// import { Button, Icon, ThemeButton } from "@/shared/ui";
-import cls from "./ArticleViewSelector.module.scss";
 import { ArticleView } from "@/entities/Article";
+import { ToggleFeatures, toggleFeatures } from "@/shared/lib/features";
+import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
+import { Icon } from "@/shared/ui";
 import {
   Button as ButtonDeprecated,
   ThemeButton,
 } from "@/shared/ui/deprecated/Button/Button";
 import { Icon as IconDeprecated } from "@/shared/ui/deprecated/Icon/Icon";
-import { ToggleFeatures, toggleFeatures } from "@/shared/lib/features";
-import { Button, Icon } from "@/shared/ui";
 import { Card } from "@/shared/ui/redesigned/Card/Card";
 import { HStack } from "@/shared/ui/redesigned/Stack";
+import cls from "./ArticleViewSelector.module.scss";
 
 interface ArticleViewSelectorProps {
   className?: string;

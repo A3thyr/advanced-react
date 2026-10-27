@@ -1,10 +1,6 @@
 import { buildSlice } from "@/shared/lib/store";
 import { CounterSchema } from "../types/counterSchema";
 
-// export interface CounterState {
-//   value: number;
-// }
-
 const initialState: CounterSchema = {
   value: 0,
 };

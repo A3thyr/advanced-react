@@ -1,25 +1,26 @@
 import { FC, HTMLAttributeAnchorTarget } from "react";
 import { useTranslation } from "react-i18next";
+
 import EyeIcon from "@/shared/assets/icons/eye-20-20.svg";
 import { getRouteArticlesDetails } from "@/shared/const/router";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
-import { useHover } from "@/shared/lib/hooks/useHover/useHover";
 import {
   AppImage,
   AppLink,
   Avatar,
-  Button,
   Card,
   Icon,
   Skeleton,
   Text,
   ThemeButton,
 } from "@/shared/ui";
+import { Button } from "@/shared/ui/deprecated/Button/Button";
+import { TextSize } from "@/shared/ui/deprecated/Text/Text";
+
 import { ArticleBlockType, ArticleView } from "../../model/const/articleConst";
 import { Article, ArticleTextBlock } from "../../model/types/article";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import cls from "./ArticleListItem.module.scss";
-import { TextSize } from "@/shared/ui/deprecated/Text/Text";
 
 interface ArticleListItemProps {
   className?: string;
@@ -34,13 +35,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
   target,
   view = ArticleView.SMALL,
 }) => {
-  const [isHover, bindHover] = useHover();
   const { t } = useTranslation();
-  // const navigate = useNavigate();
-
-  // const onOpenArticle = useCallback(() => {
-  //   navigate();
-  // }, [article.id, navigate]);
 
   const types = <Text text={article.type.join(", ")} className={cls.types} />;
   const views = (
@@ -49,9 +44,6 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
       <Icon Svg={EyeIcon} />
     </>
   );
-
-  // delete THAT
-  // console.log(isHover);
 
   if (view === ArticleView.BIG) {
     const textBlock = article.blocks.find(
@@ -84,12 +76,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
           )}
           <div className={cls.footer}>
             <AppLink target={target} to={getRouteArticlesDetails(article.id)}>
-              <Button
-                // onClick={onOpenArticle}
-                theme={ThemeButton.OUTLINE}
-              >
-                {t("more")}
-              </Button>
+              <Button theme={ThemeButton.OUTLINE}>{t("more")}</Button>
             </AppLink>
             {views}
           </div>

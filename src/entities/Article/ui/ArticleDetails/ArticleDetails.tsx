@@ -46,7 +46,6 @@ export const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
   const { t } = useTranslation("article_details");
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticleDetailsIsLoading);
-  // const isLoading = true;
   const article = useSelector(getArticleDetailsData);
   const error = useSelector(getArticleDetailsError);
 
