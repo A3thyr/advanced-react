@@ -7,7 +7,11 @@ import {
   isUserManager,
   userActions,
 } from "@/entities/User";
-import { getRouteAdminPanel, getRouteProfile } from "@/shared/const/router";
+import {
+  getRouteAdminPanel,
+  getRouteProfile,
+  getRouteSettings,
+} from "@/shared/const/router";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { Avatar } from "@/shared/ui/redesigned/Avatar/Avatar";
@@ -45,6 +49,10 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = ({ className }) => {
           },
         ]
       : []),
+    {
+      content: t("settings"),
+      href: getRouteSettings(),
+    },
     {
       content: t("profile"),
       href: getRouteProfile(authData.id),

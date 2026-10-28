@@ -4,14 +4,11 @@
   height: calc(100vh - var(--navbar-height));
   overflow-y: auto;
   flex-shrink: 100;
-
-  //   width: calc(100vw - var(--sidebar-width));
 }
 
 .PageLayoutRedesigned {
   overflow-y: auto;
-
-  //   width: calc(100vw - var(--sidebar-width));
+  height: 100%;
 }
 
 .trigger {

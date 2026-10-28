@@ -22,5 +22,9 @@
   "feedback-placeholder": "Your feedback",
   "cancel": "Cancel",
   "send-feedback": "Send",
-  "thx": "Thank you for your feedback!"
+  "thx": "Thank you for your feedback!",
+  "new-design": "New design",
+  "old-design": "Old design",
+  "ui-variant": "Interface version",
+  "settings": "Settings"
 }
