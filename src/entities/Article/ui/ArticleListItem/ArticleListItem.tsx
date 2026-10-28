@@ -1,116 +1,24 @@
 import { FC, HTMLAttributeAnchorTarget } from "react";
-import { useTranslation } from "react-i18next";
 
-import EyeIcon from "@/shared/assets/icons/eye-20-20.svg";
-import { getRouteArticlesDetails } from "@/shared/const/router";
-import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
-import {
-  AppImage,
-  AppLink,
-  Avatar,
-  Card,
-  Icon,
-  Skeleton,
-  Text,
-  ThemeButton,
-} from "@/shared/ui";
-import { Button } from "@/shared/ui/deprecated/Button/Button";
-import { TextSize } from "@/shared/ui/deprecated/Text/Text";
+import { ToggleFeatures } from "@/shared/lib/features";
+import { ArticleView } from "../../model/const/articleConst";
+import { Article } from "../../model/types/article";
+import { ArticleListItemDeprecated } from "./ArticleListItemDeprecated/ArticleListItemDeprecated";
+import { ArticleListItemRedesigned } from "./ArticleListItemRedesigned/ArticleListItemRedesigned";
 
-import { ArticleBlockType, ArticleView } from "../../model/const/articleConst";
-import { Article, ArticleTextBlock } from "../../model/types/article";
-import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
-import cls from "./ArticleListItem.module.scss";
-
-interface ArticleListItemProps {
+export interface ArticleListItemProps {
   className?: string;
   article: Article;
   view?: ArticleView;
   target?: HTMLAttributeAnchorTarget;
 }
 
-export const ArticleListItem: FC<ArticleListItemProps> = ({
-  className,
-  article,
-  target,
-  view = ArticleView.SMALL,
-}) => {
-  const { t } = useTranslation();
-
-  const types = <Text text={article.type.join(", ")} className={cls.types} />;
-  const views = (
-    <>
-      <Text text={String(article.views)} className={cls.views} />
-      <Icon Svg={EyeIcon} />
-    </>
-  );
-
-  if (view === ArticleView.BIG) {
-    const textBlock = article.blocks.find(
-      (block) => block.type === ArticleBlockType.TEXT,
-    ) as ArticleTextBlock;
-    return (
-      <div
-        data-testid={"ArticleListItem"}
-        className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
-      >
-        <Card className={cls.card}>
-          <div className={cls.header}>
-            <Avatar size={30} src={article.user.avatar} />
-            <Text text={article.user.username} className={cls.username} />
-            <Text text={article.createdAt} className={cls.date} />
-          </div>
-          <Text title={article.title} className={cls.title} />
-          {types}
-          <AppImage
-            fallback={<Skeleton width={"100%"} height={225} />}
-            src={article.img}
-            alt={article.title}
-            className={cls.img}
-          />
-          {textBlock && (
-            <ArticleTextBlockComponent
-              block={textBlock}
-              className={cls.textBlock}
-            />
-          )}
-          <div className={cls.footer}>
-            <AppLink target={target} to={getRouteArticlesDetails(article.id)}>
-              <Button theme={ThemeButton.OUTLINE}>{t("more")}</Button>
-            </AppLink>
-            {views}
-          </div>
-        </Card>
-        {/* {article.title} */}
-      </div>
-    );
-  }
-
+export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
   return (
-    <AppLink
-      target={target}
-      to={getRouteArticlesDetails(article.id)}
-      // {...bindHover}
-      data-testid={"ArticleListItem"}
-      className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
-    >
-      <Card className={cls.card}>
-        <div className={cls.imageWrapper}>
-          <AppImage
-            fallback={<Skeleton width={200} height={220} />}
-            src={article.img}
-            alt={article.title}
-            className={cls.img}
-          />
-          <Text text={article.createdAt} className={cls.date} />
-        </div>
-        <div className={cls.infoWrapper}>
-          {/* <Text text={article.type.join(", ")} className={cls.types} /> */}
-          {types}
-          {views}
-        </div>
-        <Text title={article.title} className={cls.title} size={TextSize.S} />
-      </Card>
-    </AppLink>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={<ArticleListItemRedesigned {...props} />}
+      off={<ArticleListItemDeprecated {...props} />}
+    />
   );
 };

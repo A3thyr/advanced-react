@@ -1,7 +1,9 @@
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
-import { Card, Skeleton } from "@/shared/ui";
+import { Card as CardDeprecated, Skeleton } from "@/shared/ui";
 import { ArticleView } from "../../model/const/articleConst";
 import cls from "./ArticleListItem.module.scss";
+import { Card as CardRedesigned } from "@/shared/ui/redesigned/Card/Card";
+import { toggleFeatures } from "@/shared/lib/features";
 
 interface ArticleListItemSkeletonProps {
   className?: string;
@@ -12,6 +14,13 @@ export const ArticleListItemSkeleton = (
   props: ArticleListItemSkeletonProps,
 ) => {
   const { view = ArticleView.SMALL, className } = props;
+
+  const Card = toggleFeatures({
+    name: "isAppRedesigned",
+    on: () => CardRedesigned,
+    off: () => CardDeprecated,
+  });
+
   if (view === ArticleView.BIG) {
     return (
       <div

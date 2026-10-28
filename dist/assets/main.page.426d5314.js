@@ -1,0 +1,1 @@
+import{u as o,r,d as i,P as d,j as l,a2 as u}from"./index.dae52164.js";const g=()=>{const{t:a}=o("main"),[s,e]=r.exports.useState(""),t=n=>{e(n)};return i(d,{"data-testid":"MainPage",children:[a("title"),l(u,{value:s,onChange:t,placeholder:"sadjsidfjasi"})]})};export{g as default};
