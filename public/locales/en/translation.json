@@ -26,5 +26,8 @@
   "new-design": "New design",
   "old-design": "Old design",
   "ui-variant": "Interface version",
-  "settings": "Settings"
+  "settings": "Settings",
+  "{{count}} views_zero": "{{count}} views",
+  "{{count}} views_one": "{{count}} view",
+  "{{count}} views_other": "{{count}} views"
 }

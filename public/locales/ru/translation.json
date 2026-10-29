@@ -26,5 +26,10 @@
   "new-design": "Новый дизайн",
   "old-design": "Старый дизайн",
   "ui-variant": "Вариант интерфейса",
-  "settings": "Настройки"
+  "settings": "Настройки",
+  "{{count}} views_zero": "{{count}} просмотров",
+  "{{count}} views_one": "{{count}} просмотр",
+  "{{count}} views_few": "{{count}} просмотрa",
+  "{{count}} views_many": "{{count}} просмотров",
+  "{{count}} views_other": "{{count}} просмотров"
 }
