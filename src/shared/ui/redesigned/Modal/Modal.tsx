@@ -19,7 +19,7 @@ interface ModalProps {
 }
 
 const ANIMATION_DELAY = 300;
-/** @deprecated */
+
 export const Modal: FC<ModalProps> = ({
   className,
   children,

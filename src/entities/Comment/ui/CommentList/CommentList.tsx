@@ -1,10 +1,12 @@
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
-import { Text } from "@/shared/ui";
+import { Text as TextDeprecated } from "@/shared/ui";
 import { VStack } from "@/shared/ui/redesigned/Stack";
 import { ArticleComment } from "../../model/types/comment";
 import { CommentCard } from "../CommentCard/CommentCard";
+import { ToggleFeatures } from "@/shared/lib/features";
+import { Text } from "@/shared/ui/redesigned/Text/Text";
 
 interface CommentListProps {
   className?: string;
@@ -40,7 +42,11 @@ export const CommentList: FC<CommentListProps> = ({
           />
         ))
       ) : (
-        <Text text={t("no-comment")} />
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={<Text text={t("no-comment")} />}
+          off={<TextDeprecated text={t("no-comment")} />}
+        />
       )}
     </VStack>
   );

@@ -1,10 +1,12 @@
 import { useTranslation } from "react-i18next";
 import { ArticleList } from "@/entities/Article";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
-import { Skeleton, Text } from "@/shared/ui";
+import { Skeleton, Text as TextDeprecated } from "@/shared/ui";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
 import { TextSize } from "@/shared/ui/deprecated/Text/Text";
 import { useArticleRecommendationsList } from "../../api/articleRecommendationsApi";
+import { ToggleFeatures } from "@/shared/lib/features";
+import { Text } from "@/shared/ui/redesigned/Text/Text";
 
 interface ArticleRecommendationsListProps {
   className?: string;
@@ -21,7 +23,7 @@ export const ArticleRecommendationsList = ({
   } = useArticleRecommendationsList(3);
 
   if (!recommendations) {
-    return <Text text={t("no-data")} />;
+    return <TextDeprecated text={t("no-data")} />;
   }
 
   if (isLoading || error) {
@@ -43,7 +45,12 @@ export const ArticleRecommendationsList = ({
       gap={8}
       className={classNames("", {}, [className])}
     >
-      <Text size={TextSize.L} title={t("recommended")} />
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={<Text size={"l"} title={t("recommended")} />}
+        off={<TextDeprecated size={TextSize.L} title={t("recommended")} />}
+      />
+
       <ArticleList
         articles={recommendations}
         isLoading={isLoading}

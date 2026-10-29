@@ -13,7 +13,7 @@ import {
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect";
-import { Text, TextTheme } from "@/shared/ui";
+import { Text as TextDeprecated, TextTheme } from "@/shared/ui";
 import { VStack } from "@/shared/ui/redesigned/Stack";
 import { ValidateProfileError } from "../../model/const/const";
 import { getProfileError } from "../../model/selectors/getProfileError/getProfileError";
@@ -24,6 +24,8 @@ import { getProfileValidateError } from "../../model/selectors/getProfileValidat
 import { fetchProfileData } from "../../model/services/fetchProfileData/fetchProfileData";
 import { profileActions, profileReducer } from "../../model/slice/profileSlice";
 import { EditableProfileCardHeader } from "../EditableProfileCardHeader/EditableProfileCardHeader";
+import { ToggleFeatures } from "@/shared/lib/features";
+import { Text } from "@/shared/ui/redesigned/Text/Text";
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -129,11 +131,23 @@ export const EditableProfileCard = ({
         <EditableProfileCardHeader />
         {validateErrors?.length &&
           validateErrors.map((err) => (
-            <Text
-              key={err}
-              data-testid="EditableProfileCard.Error"
-              theme={TextTheme.ERROR}
-              text={validateErrorTranslate[err]}
+            <ToggleFeatures
+              feature="isAppRedesigned"
+              on={
+                <Text
+                  key={err}
+                  data-testid="EditableProfileCard.Error"
+                  text={validateErrorTranslate[err]}
+                />
+              }
+              off={
+                <TextDeprecated
+                  key={err}
+                  data-testid="EditableProfileCard.Error"
+                  theme={TextTheme.ERROR}
+                  text={validateErrorTranslate[err]}
+                />
+              }
             />
           ))}
         <ProfileCard

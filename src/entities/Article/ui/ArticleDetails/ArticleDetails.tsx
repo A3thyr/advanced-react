@@ -21,7 +21,6 @@ import {
   TextTheme,
 } from "@/shared/ui";
 import { TextSize } from "@/shared/ui/deprecated/Text/Text";
-import { Avatar } from "@/shared/ui/redesigned/Avatar/Avatar";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
 import { Text } from "@/shared/ui/redesigned/Text/Text";
 import {
