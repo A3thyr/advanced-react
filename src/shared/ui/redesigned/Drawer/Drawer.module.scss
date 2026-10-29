@@ -17,7 +17,6 @@
   height: calc(100vh + 100px);
   width: 96vw;
   border-radius: 12px 12px 0;
-  background: var(--bg-color);
   touch-action: none;
   padding: 15px;
 }
@@ -28,7 +27,6 @@
   display: block;
   width: 100px;
   height: 10px;
-  background: var(--bg-color);
   margin: auto;
   bottom: 40px;
   border-radius: 12px;
@@ -47,5 +45,17 @@
 .isClosing {
   .content {
     transform: translateY(123%);
+  }
+}
+
+.drawerNew {
+  .sheet {
+    background: var(--light-bg-redesigned);
+  }
+}
+
+.drawerOld {
+  .sheet {
+    background: var(--bg-color);
   }
 }

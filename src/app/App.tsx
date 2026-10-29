@@ -25,7 +25,7 @@ const App = () => {
   if (!userInited) return <PageLoader />;
 
   return (
-    <div className={classNames("app_redesigned", {}, [theme])}>
+    <div id="app" className={classNames("app_redesigned", {}, [theme])}>
       <Suspense fallback="">
         <MainLayout
           content={<AppRouter />}
