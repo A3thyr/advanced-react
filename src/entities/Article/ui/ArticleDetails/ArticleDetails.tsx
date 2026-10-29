@@ -1,23 +1,29 @@
-import { FC, useCallback, useEffect } from "react";
+import { FC, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
+
 import CalendarIcon from "@/shared/assets/icons/calendar-20-20.svg";
 import EyeIcon from "@/shared/assets/icons/eye-20-20.svg";
 import {
   DynamicModuleLoader,
   ReducersList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { ToggleFeatures } from "@/shared/lib/features";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {
-  Avatar,
+  AppImage,
+  Avatar as AvatarDeprecated,
   Icon,
   Skeleton,
-  Text,
   TextAlign,
+  Text as TextDeprecated,
   TextTheme,
 } from "@/shared/ui";
+import { TextSize } from "@/shared/ui/deprecated/Text/Text";
+import { Avatar } from "@/shared/ui/redesigned/Avatar/Avatar";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
+import { Text } from "@/shared/ui/redesigned/Text/Text";
 import {
   getArticleDetailsData,
   getArticleDetailsError,
@@ -25,13 +31,8 @@ import {
 } from "../../model/selectors/articleDetails";
 import { fetchArticleById } from "../../model/services/fetchArticleById/fetchArticleById";
 import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice";
-import { ArticleBlock } from "../../model/types/article";
-import { ArticleBlockType } from "../../model/const/articleConst";
-import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
-import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
-import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import cls from "./ArticleDetails.module.scss";
-import { TextSize } from "@/shared/ui/deprecated/Text/Text";
+import { renderArticleBlock } from "./renderBlock";
 
 interface ArticleDetailsProps {
   className?: string;
@@ -42,43 +43,62 @@ const reducers: ReducersList = {
   articleDetails: articleDetailsReducer,
 };
 
+const Deprecated = () => {
+  const article = useSelector(getArticleDetailsData);
+
+  return (
+    <>
+      <HStack justfify="center" max className={cls.avatarWrapper}>
+        <AvatarDeprecated
+          size={200}
+          src={article?.img}
+          className={cls.avatar}
+        />
+      </HStack>
+      <VStack data-testid="ArticleDetails.Info" gap={8} max>
+        <TextDeprecated
+          className={cls.title}
+          title={article?.title}
+          text={article?.subtitle}
+          size={TextSize.L}
+        />
+        <HStack gap={8} className={cls.articleInfo}>
+          <Icon Svg={EyeIcon} />
+          <TextDeprecated text={String(article?.views)} />
+        </HStack>
+        <HStack gap={8} className={cls.articleInfo}>
+          <Icon Svg={CalendarIcon} />
+          <TextDeprecated text={article?.createdAt} />
+        </HStack>
+      </VStack>
+      {article?.blocks.map(renderArticleBlock)}
+    </>
+  );
+};
+
+const Redesigned = () => {
+  const article = useSelector(getArticleDetailsData);
+
+  return (
+    <>
+      <Text title={article?.title} size={"l"} bold />
+      <Text title={article?.subtitle} />
+      <AppImage
+        fallback={<Skeleton width={"100%"} height={"420"} border={"16px"} />}
+        src={article?.img}
+        className={cls.img}
+      />
+
+      {article?.blocks.map(renderArticleBlock)}
+    </>
+  );
+};
+
 export const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
   const { t } = useTranslation("article_details");
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticleDetailsIsLoading);
-  const article = useSelector(getArticleDetailsData);
   const error = useSelector(getArticleDetailsError);
-
-  const renderBlock = useCallback((block: ArticleBlock) => {
-    switch (block.type) {
-      case ArticleBlockType.CODE:
-        return (
-          <ArticleCodeBlockComponent
-            block={block}
-            key={block.id}
-            className={cls.block}
-          />
-        );
-      case ArticleBlockType.TEXT:
-        return (
-          <ArticleTextBlockComponent
-            key={block.id}
-            block={block}
-            className={cls.block}
-          />
-        );
-      case ArticleBlockType.IMAGE:
-        return (
-          <ArticleImageBlockComponent
-            block={block}
-            key={block.id}
-            className={cls.block}
-          />
-        );
-      default:
-        return null;
-    }
-  }, []);
 
   useEffect(() => {
     if (__PROJECT__ !== "storybook") dispatch(fetchArticleById(id));
@@ -103,7 +123,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
     );
   } else if (error) {
     content = (
-      <Text
+      <TextDeprecated
         align={TextAlign.CENTER}
         title={t("error")}
         theme={TextTheme.ERROR}
@@ -111,28 +131,11 @@ export const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
     );
   } else {
     content = (
-      <>
-        <HStack justfify="center" max className={cls.avatarWrapper}>
-          <Avatar size={200} src={article?.img} className={cls.avatar} />
-        </HStack>
-        <VStack data-testid="ArticleDetails.Info" gap={8} max>
-          <Text
-            className={cls.title}
-            title={article?.title}
-            text={article?.subtitle}
-            size={TextSize.L}
-          />
-          <HStack gap={8} className={cls.articleInfo}>
-            <Icon Svg={EyeIcon} />
-            <Text text={String(article?.views)} />
-          </HStack>
-          <HStack gap={8} className={cls.articleInfo}>
-            <Icon Svg={CalendarIcon} />
-            <Text text={article?.createdAt} />
-          </HStack>
-        </VStack>
-        {article?.blocks.map(renderBlock)}
-      </>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={<Redesigned />}
+        off={<Deprecated />}
+      />
     );
   }
 

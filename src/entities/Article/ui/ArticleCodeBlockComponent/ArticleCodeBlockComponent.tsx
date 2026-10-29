@@ -1,7 +1,9 @@
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
-import { Code } from "@/shared/ui";
+import { Code as CodeDeprecated } from "@/shared/ui";
 import { ArticleCodeBlock } from "../../model/types/article";
 import cls from "./ArticleCodeBlockComponent.module.scss";
+import { ToggleFeatures } from "@/shared/lib/features";
+import { Code } from "@/shared/ui/redesigned/Code/Code";
 
 interface ArticleCodeBlockComponentProps {
   className?: string;
@@ -14,7 +16,11 @@ export const ArticleCodeBlockComponent = ({
 }: ArticleCodeBlockComponentProps) => {
   return (
     <div className={classNames(cls.ArticleCodeBlockComponent, {}, [className])}>
-      <Code text={block.code} />
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={<Code text={block.code} />}
+        off={<CodeDeprecated text={block.code} />}
+      />
     </div>
   );
 };

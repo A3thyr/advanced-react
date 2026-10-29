@@ -27,7 +27,7 @@ export const ArticleListItemRedesigned: FC<ArticleListItemProps> = ({
 
   const userInfo = (
     <HStack align="center" gap={8}>
-      <Avatar size={32} src={article.user.avatar} />
+      <Avatar size={32} src={article.user.avatar} className={cls.avatar} />
       <Text bold text={article.user.username} />
     </HStack>
   );
@@ -88,9 +88,9 @@ export const ArticleListItemRedesigned: FC<ArticleListItemProps> = ({
       to={getRouteArticlesDetails(article.id)}
       className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
     >
-      <Card className={cls.card} border="round">
+      <Card className={cls.card} border="round" padding={0}>
         <AppImage
-          fallback={<Skeleton width={200} height={200} />}
+          fallback={<Skeleton width={"100%"} height={200} />}
           alt={article.title}
           src={article.img}
           className={cls.img}
