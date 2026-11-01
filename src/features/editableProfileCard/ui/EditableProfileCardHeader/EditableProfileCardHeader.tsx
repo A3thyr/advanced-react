@@ -13,6 +13,7 @@ import { profileActions } from "../../model/slice/profileSlice";
 import { Button as ButtonDeprecated } from "@/shared/ui/deprecated/Button/Button";
 import { ToggleFeatures } from "@/shared/lib/features";
 import { Text } from "@/shared/ui/redesigned/Text/Text";
+import { Card } from "@/shared/ui/redesigned/Card/Card";
 
 interface EditableProfileCardHeaderProps {
   className?: string;
@@ -46,43 +47,46 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
     <ToggleFeatures
       feature="isAppRedesigned"
       on={
-        <HStack
-          max
-          justfify="between"
-          className={classNames("", {}, [className])}
-        >
-          <Text title={t("profilecard.title")} />
-          {canEdit && (
-            <div>
-              {readonly ? (
-                <Button
-                  data-testid="EditableProfileCardHeader.EditBtn"
-                  variant="outline"
-                  onClick={onEdit}
-                >
-                  {t("profilecard.edit")}
-                </Button>
-              ) : (
-                <HStack gap={8}>
+        <Card border="round" padding={16} max>
+          <HStack
+            align="center"
+            max
+            justfify="between"
+            className={classNames("", {}, [className])}
+          >
+            <Text title={t("profilecard.title")} />
+            {canEdit && (
+              <div>
+                {readonly ? (
                   <Button
-                    data-testid="EditableProfileCardHeader.CancelBtn"
+                    data-testid="EditableProfileCardHeader.EditBtn"
                     variant="outline"
-                    onClick={onCancelEdit}
+                    onClick={onEdit}
                   >
-                    {t("profilecard.cancel")}
+                    {t("profilecard.edit")}
                   </Button>
-                  <Button
-                    data-testid="EditableProfileCardHeader.SaveBtn"
-                    variant="outline"
-                    onClick={onSave}
-                  >
-                    {t("profilecard.save")}
-                  </Button>
-                </HStack>
-              )}
-            </div>
-          )}
-        </HStack>
+                ) : (
+                  <HStack gap={8}>
+                    <Button
+                      data-testid="EditableProfileCardHeader.CancelBtn"
+                      variant="outline"
+                      onClick={onCancelEdit}
+                    >
+                      {t("profilecard.cancel")}
+                    </Button>
+                    <Button
+                      data-testid="EditableProfileCardHeader.SaveBtn"
+                      variant="outline"
+                      onClick={onSave}
+                    >
+                      {t("profilecard.save")}
+                    </Button>
+                  </HStack>
+                )}
+              </div>
+            )}
+          </HStack>
+        </Card>
       }
       off={
         <HStack
