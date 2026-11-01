@@ -10,12 +10,7 @@ interface ProfilePageProps {
 }
 
 const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
-  // const { t } = useTranslation("profile");
   const { id } = useParams<{ id: string }>();
-
-  // if (!id) {
-  //   return <Text text={t("no-data")} />;
-  // }
 
   return (
     <PageLayout
@@ -23,7 +18,6 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
       className={classNames("", {}, [className])}
     >
       <VStack max gap={16}>
-        {/* <ProfilePageHeader /> */}
         <EditableProfileCard id={id} />
       </VStack>
     </PageLayout>

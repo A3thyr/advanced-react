@@ -7,11 +7,12 @@ import { LoginModal } from "@/features/AuthByUsername";
 import { AvatarDropdown } from "@/features/avatarDropdown";
 import { NotificationButton } from "@/features/notificationButton";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
-import { ThemeButton } from "@/shared/ui";
+import { Button, ThemeButton } from "@/shared/ui";
 import { Button as ButtonDeprecated } from "@/shared/ui/deprecated/Button/Button";
 import { HStack } from "@/shared/ui/redesigned/Stack";
 
 import cls from "./Navbar.module.scss";
+import { toggleFeatures, ToggleFeatures } from "@/shared/lib/features";
 
 interface NavbarProps {
   className?: string;
@@ -30,9 +31,15 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
     setIsAuthModal(true);
   }, []);
 
+  const mainClass = toggleFeatures({
+    name: "isAppRedesigned",
+    on: () => cls.NavbarRedesigned,
+    off: () => cls.Navbar,
+  });
+
   if (authData) {
     return (
-      <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
+      <header className={classNames(mainClass, {}, [className])}>
         <HStack align="center" gap={16} className={cls.actions}>
           <NotificationButton />
           <AvatarDropdown />
@@ -42,14 +49,25 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
   }
 
   return (
-    <header className={classNames(cls.Navbar, {}, [className])}>
-      <ButtonDeprecated
-        theme={ThemeButton.CLEAR_INVERTED}
-        className={cls.links}
-        onClick={onShowModal}
-      >
-        {t("login")}
-      </ButtonDeprecated>
+    <header className={classNames(mainClass, {}, [className])}>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <Button variant="clear" className={cls.links} onClick={onShowModal}>
+            {t("login")}
+          </Button>
+        }
+        off={
+          <ButtonDeprecated
+            theme={ThemeButton.CLEAR_INVERTED}
+            className={cls.links}
+            onClick={onShowModal}
+          >
+            {t("login")}
+          </ButtonDeprecated>
+        }
+      />
+
       {isAuthModal && (
         <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
       )}
