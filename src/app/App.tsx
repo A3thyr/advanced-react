@@ -11,6 +11,8 @@ import { Sidebar } from "@/widgets/Sidebar";
 
 import { MainLayout } from "@/shared/layouts/MainLayout";
 import { AppRouter } from "./providers/router";
+import { ToggleFeatures } from "@/shared/lib/features";
+import { AppLoaderLayout } from "@/shared/layouts/AppLoaderLayout";
 
 const App = () => {
   const { theme } = useTheme();
@@ -19,10 +21,24 @@ const App = () => {
   const userInited = useSelector(getUserInited);
 
   useEffect(() => {
-    dispatch(initAuthData());
-  }, [dispatch]);
+    if (!userInited) {
+      dispatch(initAuthData());
+    }
+  }, [dispatch, userInited]);
 
-  if (!userInited) return <PageLoader />;
+  if (!userInited) {
+    return (
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <div id="app" className={classNames("app_redesigned", {}, [theme])}>
+            <AppLoaderLayout />
+          </div>
+        }
+        off={<PageLoader />}
+      />
+    );
+  }
 
   return (
     <div id="app" className={classNames("app_redesigned", {}, [theme])}>
