@@ -9,16 +9,18 @@ import { Navbar } from "@/widgets/navbar";
 import { PageLoader } from "@/widgets/PageLoader";
 import { Sidebar } from "@/widgets/Sidebar";
 
-import { MainLayout } from "@/shared/layouts/MainLayout";
-import { AppRouter } from "./providers/router";
-import { ToggleFeatures } from "@/shared/lib/features";
 import { AppLoaderLayout } from "@/shared/layouts/AppLoaderLayout";
+import { MainLayout } from "@/shared/layouts/MainLayout";
+import { ToggleFeatures } from "@/shared/lib/features";
+import { useAppToolbar } from "./lib/useAppToolbar";
+import { AppRouter } from "./providers/router";
 
 const App = () => {
   const { theme } = useTheme();
 
   const dispatch = useAppDispatch();
   const userInited = useSelector(getUserInited);
+  const toolbar = useAppToolbar();
 
   useEffect(() => {
     if (!userInited) {
@@ -47,7 +49,7 @@ const App = () => {
           content={<AppRouter />}
           header={<Navbar />}
           sidebar={<Sidebar />}
-          toolbar={<div />}
+          toolbar={toolbar}
         />
       </Suspense>
     </div>
