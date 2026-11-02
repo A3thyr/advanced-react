@@ -7,6 +7,7 @@ type SvgProps = Omit<SVGProps<SVGSVGElement>, "onClick">;
 
 interface IconBaseProps extends SvgProps {
   className?: string;
+  "data-testid"?: string;
   Svg: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
 }
 
@@ -29,6 +30,7 @@ export const Icon = ({
   height = 32,
   clickable,
   onClick,
+  "data-testid": dataTestId,
   ...props
 }: IconProps) => {
   const icon = (
@@ -46,6 +48,7 @@ export const Icon = ({
         type="button"
         onClick={onClick}
         className={cls.button}
+        data-testid={dataTestId}
         style={{ height, width }}
       >
         {icon}
