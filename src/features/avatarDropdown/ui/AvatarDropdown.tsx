@@ -32,6 +32,7 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = ({ className }) => {
 
   const onLogout = useCallback(() => {
     dispatch(userActions.logout());
+    window.location.reload();
   }, [dispatch]);
 
   const isAdminPanelAvailable = isAdmin || isManager;
