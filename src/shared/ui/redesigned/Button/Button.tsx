@@ -6,6 +6,7 @@ import {
 import cls from "./Button.module.scss";
 
 export type ButtonVariant = "clear" | "outline" | "filled";
+export type ButtonColor = "normal" | "success" | "error";
 
 export type ButtonSize = "m" | "l" | "xl";
 
@@ -18,6 +19,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean;
   addonLeft?: ReactNode;
   addonRight?: ReactNode;
+  color?: ButtonColor;
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -30,6 +32,7 @@ export const Button: FC<ButtonProps> = ({
   size = "m",
   addonLeft,
   addonRight,
+  color = "normal",
   ...otherProps
 }) => {
   const mods: Mods = {
@@ -44,6 +47,7 @@ export const Button: FC<ButtonProps> = ({
         className,
         cls[variant],
         cls[size],
+        cls[color],
       ])}
       {...otherProps}
     >

@@ -10,7 +10,7 @@ interface DetailsContainerProps {
 export const DetailsContainer: FC<DetailsContainerProps> = ({ className }) => {
   const { id } = useParams<{ id: string }>();
   return (
-    <Card max fullHeight border="round" className={className} padding={24}>
+    <Card max fullHeight border="partial" className={className} padding={24}>
       <ArticleDetails id={id} />
     </Card>
   );

@@ -47,7 +47,7 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
     <ToggleFeatures
       feature="isAppRedesigned"
       on={
-        <Card border="round" padding={16} max>
+        <Card border="partial" padding={24} max>
           <HStack
             align="center"
             max
@@ -70,6 +70,7 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
                     <Button
                       data-testid="EditableProfileCardHeader.CancelBtn"
                       variant="outline"
+                      color="error"
                       onClick={onCancelEdit}
                     >
                       {t("profilecard.cancel")}
@@ -78,6 +79,7 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
                       data-testid="EditableProfileCardHeader.SaveBtn"
                       variant="outline"
                       onClick={onSave}
+                      color="success"
                     >
                       {t("profilecard.save")}
                     </Button>
