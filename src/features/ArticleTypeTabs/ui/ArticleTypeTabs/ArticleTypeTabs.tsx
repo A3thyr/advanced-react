@@ -1,11 +1,7 @@
 import { FC, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import {
-  TabItem as TabItemDeprecated,
-  Tabs as TabsDeprecated,
-} from "@/shared/ui";
 import { ArticleType } from "@/entities/Article";
-import { ToggleFeatures } from "@/shared/lib/features";
+import { TabItem as TabItemDeprecated } from "@/shared/ui";
 import { Tabs } from "@/shared/ui/redesigned/Tabs/Tabs";
 
 interface ArticleTypeTabsProps {

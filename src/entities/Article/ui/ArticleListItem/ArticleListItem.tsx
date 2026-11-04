@@ -1,9 +1,7 @@
 import { FC, HTMLAttributeAnchorTarget } from "react";
 
-import { ToggleFeatures } from "@/shared/lib/features";
 import { ArticleView } from "../../model/const/articleConst";
 import { Article } from "../../model/types/article";
-import { ArticleListItemDeprecated } from "./ArticleListItemDeprecated/ArticleListItemDeprecated";
 import { ArticleListItemRedesigned } from "./ArticleListItemRedesigned/ArticleListItemRedesigned";
 
 export interface ArticleListItemProps {
@@ -14,7 +12,5 @@ export interface ArticleListItemProps {
 }
 
 export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
-  return (
-    <ArticleListItemRedesigned {...props} />
-  );
+  return <ArticleListItemRedesigned {...props} />;
 };

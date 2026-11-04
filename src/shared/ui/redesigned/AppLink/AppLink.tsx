@@ -1,5 +1,5 @@
-import { FC } from "react";
 import { LinkProps, NavLink } from "react-router-dom";
+
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import cls from "./AppLink.module.scss";
 
@@ -11,14 +11,14 @@ interface AppLinkProps extends LinkProps {
   activeClassName?: string;
 }
 
-export const AppLink: FC<AppLinkProps> = ({
+export const AppLink = ({
   to,
   children,
   className,
   variant = "primary",
   activeClassName = "",
   ...otherProps
-}) => (
+}: AppLinkProps) => (
   <NavLink
     to={to}
     className={({ isActive }) =>

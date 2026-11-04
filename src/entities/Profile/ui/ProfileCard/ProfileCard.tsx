@@ -1,12 +1,6 @@
 import { Country } from "@/entities/Country";
 import { Currency } from "@/entities/Currency";
-import { ToggleFeatures } from "@/shared/lib/features";
 import { Profile } from "../../model/types/profile";
-import {
-  ProfileCardDeprecated,
-  ProfileCardDeprecatedError,
-  ProfileCardDeprecatedSkeleton,
-} from "../ProfileCardDeprecated/ProfileCardDeprecated";
 import {
   ProfileCardRedesigned,
   ProfileCardRedesignedError,
@@ -33,18 +27,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
   const { error, isLoading } = props;
 
   if (isLoading) {
-    return (
-      <ProfileCardRedesignedSkeleton />
-    );
+    return <ProfileCardRedesignedSkeleton />;
   }
 
   if (error) {
-    return (
-      <ProfileCardRedesignedError />
-    );
+    return <ProfileCardRedesignedError />;
   }
 
-  return (
-    <ProfileCardRedesigned {...props} />
-  );
+  return <ProfileCardRedesigned {...props} />;
 };

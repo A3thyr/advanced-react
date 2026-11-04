@@ -1,10 +1,8 @@
 import { FC, useState } from "react";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import StarIcon from "../../../assets/icons/star.svg";
-import cls from "./StarRating.module.scss";
-import { toggleFeatures, ToggleFeatures } from "@/shared/lib/features";
-import { Icon as IconDeprecated } from "../Icon/Icon";
 import { Icon } from "../../redesigned/Icon/Icon";
+import cls from "./StarRating.module.scss";
 
 interface StarRatingProps {
   className?: string;
@@ -45,13 +43,7 @@ export const StarRating: FC<StarRatingProps> = ({
   };
 
   return (
-    <div
-      className={classNames(
-        cls.StarRatingRedesigned,
-        {},
-        [className],
-      )}
-    >
+    <div className={classNames(cls.StarRatingRedesigned, {}, [className])}>
       {stars.map((starNumber) => {
         const commonProps = {
           className: classNames(cls.starIcon, { [cls.selected]: isSelected }, [
@@ -68,9 +60,7 @@ export const StarRating: FC<StarRatingProps> = ({
           "data-selected": currentStarsCount >= starNumber,
         };
 
-        return (
-          <Icon clickable={!isSelected} {...commonProps} />
-        );
+        return <Icon clickable={!isSelected} {...commonProps} />;
       })}
     </div>
   );

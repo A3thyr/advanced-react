@@ -7,12 +7,10 @@ import { LoginModal } from "@/features/AuthByUsername";
 import { AvatarDropdown } from "@/features/avatarDropdown";
 import { NotificationButton } from "@/features/notificationButton";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
-import { Button, ThemeButton } from "@/shared/ui";
-import { Button as ButtonDeprecated } from "@/shared/ui/deprecated/Button/Button";
+import { Button } from "@/shared/ui";
 import { HStack } from "@/shared/ui/redesigned/Stack";
 
 import cls from "./Navbar.module.scss";
-import { toggleFeatures, ToggleFeatures } from "@/shared/lib/features";
 
 interface NavbarProps {
   className?: string;

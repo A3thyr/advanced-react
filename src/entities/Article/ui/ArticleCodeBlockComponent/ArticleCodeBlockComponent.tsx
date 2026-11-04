@@ -1,9 +1,7 @@
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
-import { Code as CodeDeprecated } from "@/shared/ui";
+import { Code } from "@/shared/ui/redesigned/Code/Code";
 import { ArticleCodeBlock } from "../../model/types/article";
 import cls from "./ArticleCodeBlockComponent.module.scss";
-import { ToggleFeatures } from "@/shared/lib/features";
-import { Code } from "@/shared/ui/redesigned/Code/Code";
 
 interface ArticleCodeBlockComponentProps {
   className?: string;

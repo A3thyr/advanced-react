@@ -1,27 +1,11 @@
 import { FC, useCallback, useState } from "react";
 import { BrowserView, MobileView } from "react-device-detect";
 import { useTranslation } from "react-i18next";
-import {
-  Button,
-  // Button,
-  Card as CardDeprecated,
-  Drawer,
-  Drawer as DrawerDeprecated,
-  Input as InputDeprecated,
-  Modal,
-  StarRating,
-  Text as TextDeprecated,
-  ThemeButton,
-} from "@/shared/ui";
-import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
-import {
-  Button as ButtonDeprecated,
-  ButtonSize,
-} from "@/shared/ui/deprecated/Button/Button";
-import { ToggleFeatures } from "@/shared/lib/features";
-import { Text } from "@/shared/ui/redesigned/Text/Text";
-import { Input } from "@/shared/ui/redesigned/Input/Input";
+import { Button, Drawer, Modal, StarRating } from "@/shared/ui";
 import { Card } from "@/shared/ui/redesigned/Card/Card";
+import { Input } from "@/shared/ui/redesigned/Input/Input";
+import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
+import { Text } from "@/shared/ui/redesigned/Text/Text";
 
 interface RatingCardProps {
   className?: string;
@@ -124,7 +108,13 @@ export const RatingCard: FC<RatingCardProps> = ({
   );
 
   return (
-    <Card border="partial" padding={24} max data-testid="RatingCard">
+    <Card
+      border="partial"
+      padding={24}
+      max
+      data-testid="RatingCard"
+      className={className}
+    >
       {content}
     </Card>
   );

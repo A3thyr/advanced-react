@@ -16,5 +16,8 @@
     "economics": "Economics",
     "science": "Science"
   },
-  "not-found": "Not found"
+  "not-found": "Not found",
+  "sort": {
+    "title": "Sort by:"
+  }
 }

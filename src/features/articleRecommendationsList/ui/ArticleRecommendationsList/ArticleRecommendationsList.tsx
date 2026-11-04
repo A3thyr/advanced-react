@@ -3,10 +3,8 @@ import { ArticleList } from "@/entities/Article";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { Skeleton, Text as TextDeprecated } from "@/shared/ui";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
-import { TextSize } from "@/shared/ui/deprecated/Text/Text";
-import { useArticleRecommendationsList } from "../../api/articleRecommendationsApi";
-import { ToggleFeatures } from "@/shared/lib/features";
 import { Text } from "@/shared/ui/redesigned/Text/Text";
+import { useArticleRecommendationsList } from "../../api/articleRecommendationsApi";
 
 interface ArticleRecommendationsListProps {
   className?: string;

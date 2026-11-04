@@ -31,7 +31,6 @@ export const Dropdown = ({
   const menuClasses = [mapDirectionClass[direction], popupCls.menu];
 
   return (
-    // <HStack gap={4} align="center" className={cls.dropdownStack}>
     <Menu
       as="div"
       className={classNames(cls.Dropdown, {}, [className, popupCls.popup])}
@@ -76,6 +75,5 @@ export const Dropdown = ({
         })}
       </Menu.Items>
     </Menu>
-    // </HStack>
   );
 };

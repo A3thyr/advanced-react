@@ -1,14 +1,13 @@
 import { FC, useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { ArticleSortField } from "@/entities/Article";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { SortOrder } from "@/shared/types";
-import { Select, SelectOption } from "@/shared/ui";
-import cls from "./ArticleSortSelector.module.scss";
-import { ArticleSortField } from "@/entities/Article";
-import { ToggleFeatures } from "@/shared/lib/features";
+import { SelectOption } from "@/shared/ui";
 import { ListBox } from "@/shared/ui/redesigned/Popups";
 import { VStack } from "@/shared/ui/redesigned/Stack";
 import { Text } from "@/shared/ui/redesigned/Text/Text";
+import cls from "./ArticleSortSelector.module.scss";
 
 interface ArticleSortSelectorProps {
   className?: string;
@@ -61,22 +60,16 @@ export const ArticleSortSelector: FC<ArticleSortSelectorProps> = ({
 
   return (
     <div
-      className={classNames(cls.ArticleSortSelectorRedesigned, {}, [
-                  className,
-                ])}
+      className={classNames(cls.ArticleSortSelectorRedesigned, {}, [className])}
     >
       <VStack gap={8}>
-        <Text text={t("Сортировать по:")} />
+        <Text text={t("sort.title")} />
         <ListBox
           value={sort}
           onChange={onChangeSort}
           items={sortFieldOptions}
         />
-        <ListBox
-          value={order}
-          onChange={onChangeOrder}
-          items={orderOptions}
-        />
+        <ListBox value={order} onChange={onChangeOrder} items={orderOptions} />
       </VStack>
     </div>
   );

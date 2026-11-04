@@ -1,27 +1,22 @@
 import { FC, memo } from "react";
-import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 
-import { ArticleDetails } from "@/entities/Article";
 import { ArticleRating } from "@/features/articleRating";
 import { ArticleRecommendationsList } from "@/features/articleRecommendationsList";
 import {
   DynamicModuleLoader,
   ReducersList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { ToggleFeatures } from "@/shared/lib/features";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
-import { Card } from "@/shared/ui";
 import { VStack } from "@/shared/ui/redesigned/Stack";
 import { PageLayout } from "@/widgets";
 
-import { articleDetailsPageReducer } from "../../model/slices";
-import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments";
-import { ArticlesDetailsPageHeader } from "../ArticlesDetailsPageHeader/ArticlesDetailsPageHeader";
-import cls from "./ArticlesDetailsPage.module.scss";
 import { StickyContentLayout } from "@/shared/layouts/StickyContentLayout";
-import { DetailsContainer } from "../DetailsContainer/DetailsContainer";
+import { articleDetailsPageReducer } from "../../model/slices";
 import { AdditionalInfoContainer } from "../AdditionalInfoContainer/AdditionalInfoContainer";
+import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments";
+import { DetailsContainer } from "../DetailsContainer/DetailsContainer";
+import cls from "./ArticlesDetailsPage.module.scss";
 
 interface ArticlesDetailsPageProps {
   className?: string;
@@ -33,7 +28,6 @@ const reducers: ReducersList = {
 
 const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
   const { id } = useParams<{ id: string }>();
-  const { t } = useTranslation();
 
   if (!id) {
     return null;
@@ -47,14 +41,13 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
             className={classNames(cls.ArticlesDetailsPage, {}, [className])}
           >
             <VStack max gap={16}>
-              {/* <ArticleDetails id={id} /> */}
               <DetailsContainer />
               <ArticleRating articleId={id} />
               <ArticleRecommendationsList />
               <ArticleDetailsComments id={id} />
             </VStack>
           </PageLayout>
-                      }
+        }
         right={<AdditionalInfoContainer />}
       />
     </DynamicModuleLoader>

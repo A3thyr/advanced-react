@@ -1,9 +1,7 @@
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { ListBox as ListBoxDeprecated } from "@/shared/ui";
-import { Country } from "../../model/types/country";
-import { ToggleFeatures } from "@/shared/lib/features";
 import { ListBox } from "@/shared/ui/redesigned/Popups";
+import { Country } from "../../model/types/country";
 
 interface CountrySelectProps {
   className?: string;
@@ -46,8 +44,6 @@ export const CountrySelect = memo(
       label: t("profilecard.country"),
     };
 
-    return (
-      <ListBox {...props} />
-    );
+    return <ListBox {...props} />;
   },
 );

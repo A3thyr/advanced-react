@@ -1,9 +1,7 @@
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { ListBox as ListBoxDeprecated } from "@/shared/ui";
-import { Currency } from "../../model/types/currency";
-import { ToggleFeatures } from "@/shared/lib/features";
 import { ListBox } from "@/shared/ui/redesigned/Popups";
+import { Currency } from "../../model/types/currency";
 
 interface CurrencySelectProps {
   className?: string;
@@ -38,8 +36,6 @@ export const CurrencySelect = memo(
       readonly,
     };
 
-    return (
-      <ListBox {...props} />
-    );
+    return <ListBox {...props} />;
   },
 );

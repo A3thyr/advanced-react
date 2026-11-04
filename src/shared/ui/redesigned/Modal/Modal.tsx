@@ -4,11 +4,10 @@ import {
   Mods,
 } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { useModal } from "@/shared/lib/hooks/useModal/useModal";
+import { useTheme } from "../../../lib/hooks/useTheme/useTheme";
 import { Overlay } from "../Overlay/Overlay";
 import { Portal } from "../Portal/Portal";
-import { useTheme } from "../../../lib/hooks/useTheme/useTheme";
 import cls from "./Modal.module.scss";
-import { toggleFeatures } from "@/shared/lib/features";
 
 interface ModalProps {
   className?: string;

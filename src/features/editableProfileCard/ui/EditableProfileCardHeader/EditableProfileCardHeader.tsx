@@ -4,16 +4,14 @@ import { useSelector } from "react-redux";
 import { getUserAuthData } from "@/entities/User";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { Button, Text as TextDeprecated, ThemeButton } from "@/shared/ui";
+import { Button } from "@/shared/ui";
+import { Card } from "@/shared/ui/redesigned/Card/Card";
 import { HStack } from "@/shared/ui/redesigned/Stack";
+import { Text } from "@/shared/ui/redesigned/Text/Text";
 import { getProfileData } from "../../model/selectors/getProfileData/getProfileData";
 import { getProfileReadOnly } from "../../model/selectors/getProfileReadOnly/getProfileReadOnly";
 import { updateProfileData } from "../../model/services/updateProfileData/updateProfileData";
 import { profileActions } from "../../model/slice/profileSlice";
-import { Button as ButtonDeprecated } from "@/shared/ui/deprecated/Button/Button";
-import { ToggleFeatures } from "@/shared/lib/features";
-import { Text } from "@/shared/ui/redesigned/Text/Text";
-import { Card } from "@/shared/ui/redesigned/Card/Card";
 
 interface EditableProfileCardHeaderProps {
   className?: string;
@@ -53,37 +51,37 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
       >
         <Text title={t("profilecard.title")} />
         {canEdit && (
-        <div>
-          {readonly ? (
-            <Button
-              data-testid="EditableProfileCardHeader.EditBtn"
-              variant="outline"
-              onClick={onEdit}
-            >
-              {t("profilecard.edit")}
-            </Button>
-                      ) : (
-                        <HStack gap={8}>
-                          <Button
-                            data-testid="EditableProfileCardHeader.CancelBtn"
-                            variant="outline"
-                            color="error"
-                            onClick={onCancelEdit}
-                          >
-                            {t("profilecard.cancel")}
-                          </Button>
-                          <Button
-                            data-testid="EditableProfileCardHeader.SaveBtn"
-                            variant="outline"
-                            onClick={onSave}
-                            color="success"
-                          >
-                            {t("profilecard.save")}
-                          </Button>
-                        </HStack>
-                      )}
-        </div>
-                  )}
+          <div>
+            {readonly ? (
+              <Button
+                data-testid="EditableProfileCardHeader.EditBtn"
+                variant="outline"
+                onClick={onEdit}
+              >
+                {t("profilecard.edit")}
+              </Button>
+            ) : (
+              <HStack gap={8}>
+                <Button
+                  data-testid="EditableProfileCardHeader.CancelBtn"
+                  variant="outline"
+                  color="error"
+                  onClick={onCancelEdit}
+                >
+                  {t("profilecard.cancel")}
+                </Button>
+                <Button
+                  data-testid="EditableProfileCardHeader.SaveBtn"
+                  variant="outline"
+                  onClick={onSave}
+                  color="success"
+                >
+                  {t("profilecard.save")}
+                </Button>
+              </HStack>
+            )}
+          </div>
+        )}
       </HStack>
     </Card>
   );

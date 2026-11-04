@@ -1,14 +1,15 @@
 import { HTMLAttributeAnchorTarget, memo } from "react";
 import { useTranslation } from "react-i18next";
+
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { Text, TextSize } from "@/shared/ui/deprecated/Text/Text";
+import { HStack } from "@/shared/ui/redesigned/Stack";
+
 import { ArticleView } from "../../model/const/articleConst";
 import { Article } from "../../model/types/article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
 import cls from "./ArticleList.module.scss";
-import { ToggleFeatures } from "@/shared/lib/features";
-import { HStack } from "@/shared/ui/redesigned/Stack";
 
 interface ArticleListProps {
   className?: string;
@@ -58,7 +59,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
           key={item.id}
           className={cls.card}
         />
-                ))}
+      ))}
       {isLoading && getSkeletons(view)}
     </HStack>
   );

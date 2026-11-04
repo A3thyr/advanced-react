@@ -1,4 +1,6 @@
 import { FC, memo, useCallback } from "react";
+import { ArticlePageGreeting } from "@/features/articlePageGreeting";
+import { StickyContentLayout } from "@/shared/layouts/StickyContentLayout";
 import {
   DynamicModuleLoader,
   ReducersList,
@@ -6,17 +8,13 @@ import {
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { PageLayout } from "@/widgets";
+import { useArticleItemById } from "../../model/selectors/articlePageSelectors";
 import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 import { articlePageReducer } from "../../model/slices/articlePageSlice";
 import { ArticleInfiniteList } from "../ArticleInfiniteList/ArticleInfiniteList";
-import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
-import cls from "./ArticlesPage.module.scss";
-import { useArticleItemById } from "../../model/selectors/articlePageSelectors";
-import { ArticlePageGreeting } from "@/features/articlePageGreeting";
-import { ToggleFeatures } from "@/shared/lib/features";
-import { StickyContentLayout } from "@/shared/layouts/StickyContentLayout";
-import { ViewSelectorContainer } from "../ViewSelectorContainer/ViewSelectorContainer";
 import { FiltersContainer } from "../FiltersContainer/FiltersContainer";
+import { ViewSelectorContainer } from "../ViewSelectorContainer/ViewSelectorContainer";
+import cls from "./ArticlesPage.module.scss";
 
 interface ArticlesPageProps {
   className?: string;
@@ -44,15 +42,13 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
         <PageLayout
           data-testid="ArticlesPage"
           onScrollEnd={onLoadNextPart}
-          className={classNames(cls.ArticlesPageRedesigned, {}, [
-                      className,
-                    ])}
+          className={classNames(cls.ArticlesPageRedesigned, {}, [className])}
         >
           {/* <ArticlesPageFilters /> */}
           <ArticleInfiniteList className={cls.list} />
           <ArticlePageGreeting />
         </PageLayout>
-                }
+      }
     />
   );
 

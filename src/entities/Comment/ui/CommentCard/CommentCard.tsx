@@ -1,19 +1,13 @@
 import { FC } from "react";
 import { getRouteProfile } from "@/shared/const/router";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
-import {
-  AppLink,
-  Avatar as AvatarDeprecated,
-  Skeleton,
-  Text as TextDeprecated,
-} from "@/shared/ui";
+import { AppLink, Skeleton } from "@/shared/ui";
+import { Avatar } from "@/shared/ui/redesigned/Avatar/Avatar";
+import { Card } from "@/shared/ui/redesigned/Card/Card";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
+import { Text } from "@/shared/ui/redesigned/Text/Text";
 import { ArticleComment } from "../../model/types/comment";
 import cls from "./CommentCard.module.scss";
-import { ToggleFeatures } from "@/shared/lib/features";
-import { Card } from "@/shared/ui/redesigned/Card/Card";
-import { Avatar } from "@/shared/ui/redesigned/Avatar/Avatar";
-import { Text } from "@/shared/ui/redesigned/Text/Text";
 
 interface CommentCardProps {
   className?: string;
@@ -52,18 +46,15 @@ export const CommentCard: FC<CommentCardProps> = ({
         gap={8}
         max
         className={classNames(cls.CommentCardRedesigned, {}, [
-                    className,
-                    cls.loading,
-                  ])}
+          className,
+          cls.loading,
+        ])}
       >
-        <AppLink
-          to={getRouteProfile(comment.user.id)}
-          className={cls.header}
-        >
+        <AppLink to={getRouteProfile(comment.user.id)} className={cls.header}>
           <HStack gap={8} align="center">
             {comment.user.avatar && (
-            <Avatar size={30} src={comment.user.avatar} />
-                      )}
+              <Avatar size={30} src={comment.user.avatar} />
+            )}
             <Text bold text={comment.user.username} />
           </HStack>
         </AppLink>

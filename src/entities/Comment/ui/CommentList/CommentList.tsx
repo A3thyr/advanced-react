@@ -1,12 +1,10 @@
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
-import { Text as TextDeprecated } from "@/shared/ui";
 import { VStack } from "@/shared/ui/redesigned/Stack";
+import { Text } from "@/shared/ui/redesigned/Text/Text";
 import { ArticleComment } from "../../model/types/comment";
 import { CommentCard } from "../CommentCard/CommentCard";
-import { ToggleFeatures } from "@/shared/lib/features";
-import { Text } from "@/shared/ui/redesigned/Text/Text";
 
 interface CommentListProps {
   className?: string;

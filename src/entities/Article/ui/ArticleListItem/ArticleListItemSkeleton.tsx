@@ -1,9 +1,8 @@
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
-import { Card as CardDeprecated, Skeleton } from "@/shared/ui";
+import { Skeleton } from "@/shared/ui";
+import { Card as CardRedesigned } from "@/shared/ui/redesigned/Card/Card";
 import { ArticleView } from "../../model/const/articleConst";
 import cls from "./ArticleListItem.module.scss";
-import { Card as CardRedesigned } from "@/shared/ui/redesigned/Card/Card";
-import { ToggleFeatures, toggleFeatures } from "@/shared/lib/features";
 
 interface ArticleListItemSkeletonProps {
   className?: string;
@@ -43,12 +42,7 @@ export const ArticleListItemSkeleton = (
 
   const cardContent = (
     <>
-      <Skeleton
-        width="100%"
-        height={150}
-        border="32px"
-        className={cls.img}
-      />
+      <Skeleton width="100%" height={150} border="32px" className={cls.img} />
       <div className={cls.infoWrapper}>
         <Skeleton width={130} height={16} />
       </div>

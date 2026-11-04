@@ -7,7 +7,9 @@ import {
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { Button, Input as InputDeprecated, ThemeButton } from "@/shared/ui";
+import { Button } from "@/shared/ui";
+import { Card } from "@/shared/ui/redesigned/Card/Card";
+import { Input } from "@/shared/ui/redesigned/Input/Input";
 import { HStack } from "@/shared/ui/redesigned/Stack";
 import {
   getAddCommentFormError,
@@ -18,10 +20,6 @@ import {
   addCommentFormReducer,
 } from "../../model/slice/addCommentFormSlice";
 import cls from "./AddCommentForm.module.scss";
-import { Button as ButtonDeprecated } from "@/shared/ui/deprecated/Button/Button";
-import { ToggleFeatures } from "@/shared/lib/features";
-import { Input } from "@/shared/ui/redesigned/Input/Input";
-import { Card } from "@/shared/ui/redesigned/Card/Card";
 
 export interface AddCommentFormProps {
   className?: string;
@@ -62,9 +60,7 @@ const AddCommentForm: FC<AddCommentFormProps> = ({
           gap={16}
           align="center"
           justfify="between"
-          className={classNames(cls.AddCommentFormRedesigned, {}, [
-                          className,
-                        ])}
+          className={classNames(cls.AddCommentFormRedesigned, {}, [className])}
         >
           <Input
             data-testid="AddCommentForm.Input"
@@ -73,10 +69,7 @@ const AddCommentForm: FC<AddCommentFormProps> = ({
             value={text}
             onChange={onCommentTextChange}
           />
-          <Button
-            data-testid="AddCommentForm.Button"
-            onClick={onSendHandler}
-          >
+          <Button data-testid="AddCommentForm.Button" onClick={onSendHandler}>
             {t("form.btn")}
           </Button>
         </HStack>

@@ -2,26 +2,20 @@ import { FC, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
-import CalendarIcon from "@/shared/assets/icons/calendar-20-20.svg";
-import EyeIcon from "@/shared/assets/icons/eye-20-20.svg";
 import {
   DynamicModuleLoader,
   ReducersList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { ToggleFeatures } from "@/shared/lib/features";
 import { classNames } from "@/shared/lib/helpers/classNames/classNames.helper";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {
   AppImage,
-  Avatar as AvatarDeprecated,
-  Icon,
   Skeleton,
   TextAlign,
   Text as TextDeprecated,
   TextTheme,
 } from "@/shared/ui";
-import { TextSize } from "@/shared/ui/deprecated/Text/Text";
-import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 import { Text } from "@/shared/ui/redesigned/Text/Text";
 import {
   getArticleDetailsData,
@@ -40,39 +34,6 @@ interface ArticleDetailsProps {
 
 const reducers: ReducersList = {
   articleDetails: articleDetailsReducer,
-};
-
-const Deprecated = () => {
-  const article = useSelector(getArticleDetailsData);
-
-  return (
-    <>
-      <HStack justfify="center" max className={cls.avatarWrapper}>
-        <AvatarDeprecated
-          size={200}
-          src={article?.img}
-          className={cls.avatar}
-        />
-      </HStack>
-      <VStack data-testid="ArticleDetails.Info" gap={8} max>
-        <TextDeprecated
-          className={cls.title}
-          title={article?.title}
-          text={article?.subtitle}
-          size={TextSize.L}
-        />
-        <HStack gap={8} className={cls.articleInfo}>
-          <Icon Svg={EyeIcon} />
-          <TextDeprecated text={String(article?.views)} />
-        </HStack>
-        <HStack gap={8} className={cls.articleInfo}>
-          <Icon Svg={CalendarIcon} />
-          <TextDeprecated text={article?.createdAt} />
-        </HStack>
-      </VStack>
-      {article?.blocks.map(renderArticleBlock)}
-    </>
-  );
 };
 
 const Redesigned = () => {
@@ -129,9 +90,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
       />
     );
   } else {
-    content = (
-      <Redesigned />
-    );
+    content = <Redesigned />;
   }
 
   return (
