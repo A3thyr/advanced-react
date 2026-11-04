@@ -37,38 +37,22 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   }, [dispatch]);
 
   const content = (
-    <ToggleFeatures
-      feature="isAppRedesigned"
-      on={
-        <StickyContentLayout
-          left={<ViewSelectorContainer />}
-          right={<FiltersContainer />}
-          content={
-            <PageLayout
-              data-testid="ArticlesPage"
-              onScrollEnd={onLoadNextPart}
-              className={classNames(cls.ArticlesPageRedesigned, {}, [
-                className,
-              ])}
-            >
-              {/* <ArticlesPageFilters /> */}
-              <ArticleInfiniteList className={cls.list} />
-              <ArticlePageGreeting />
-            </PageLayout>
-          }
-        />
-      }
-      off={
+    <StickyContentLayout
+      left={<ViewSelectorContainer />}
+      right={<FiltersContainer />}
+      content={
         <PageLayout
           data-testid="ArticlesPage"
           onScrollEnd={onLoadNextPart}
-          className={classNames(cls.ArticlesPage, {}, [className])}
+          className={classNames(cls.ArticlesPageRedesigned, {}, [
+                      className,
+                    ])}
         >
-          <ArticlesPageFilters />
+          {/* <ArticlesPageFilters /> */}
           <ArticleInfiniteList className={cls.list} />
           <ArticlePageGreeting />
         </PageLayout>
-      }
+                }
     />
   );
 

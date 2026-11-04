@@ -44,91 +44,47 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
   }, [dispatch]);
 
   return (
-    <ToggleFeatures
-      feature="isAppRedesigned"
-      on={
-        <Card border="partial" padding={24} max>
-          <HStack
-            align="center"
-            max
-            justfify="between"
-            className={classNames("", {}, [className])}
-          >
-            <Text title={t("profilecard.title")} />
-            {canEdit && (
-              <div>
-                {readonly ? (
-                  <Button
-                    data-testid="EditableProfileCardHeader.EditBtn"
-                    variant="outline"
-                    onClick={onEdit}
-                  >
-                    {t("profilecard.edit")}
-                  </Button>
-                ) : (
-                  <HStack gap={8}>
-                    <Button
-                      data-testid="EditableProfileCardHeader.CancelBtn"
-                      variant="outline"
-                      color="error"
-                      onClick={onCancelEdit}
-                    >
-                      {t("profilecard.cancel")}
-                    </Button>
-                    <Button
-                      data-testid="EditableProfileCardHeader.SaveBtn"
-                      variant="outline"
-                      onClick={onSave}
-                      color="success"
-                    >
-                      {t("profilecard.save")}
-                    </Button>
-                  </HStack>
-                )}
-              </div>
-            )}
-          </HStack>
-        </Card>
-      }
-      off={
-        <HStack
-          max
-          justfify="between"
-          className={classNames("", {}, [className])}
-        >
-          <TextDeprecated title={t("profilecard.title")} />
-          {canEdit && (
-            <div>
-              {readonly ? (
-                <ButtonDeprecated
-                  data-testid="EditableProfileCardHeader.EditBtn"
-                  theme={ThemeButton.OUTLINE}
-                  onClick={onEdit}
-                >
-                  {t("profilecard.edit")}
-                </ButtonDeprecated>
-              ) : (
-                <HStack gap={8}>
-                  <ButtonDeprecated
-                    data-testid="EditableProfileCardHeader.CancelBtn"
-                    theme={ThemeButton.OUTLINE_RED}
-                    onClick={onCancelEdit}
-                  >
-                    {t("profilecard.cancel")}
-                  </ButtonDeprecated>
-                  <ButtonDeprecated
-                    data-testid="EditableProfileCardHeader.SaveBtn"
-                    theme={ThemeButton.OUTLINE}
-                    onClick={onSave}
-                  >
-                    {t("profilecard.save")}
-                  </ButtonDeprecated>
-                </HStack>
-              )}
-            </div>
-          )}
-        </HStack>
-      }
-    />
+    <Card border="partial" padding={24} max>
+      <HStack
+        align="center"
+        max
+        justfify="between"
+        className={classNames("", {}, [className])}
+      >
+        <Text title={t("profilecard.title")} />
+        {canEdit && (
+        <div>
+          {readonly ? (
+            <Button
+              data-testid="EditableProfileCardHeader.EditBtn"
+              variant="outline"
+              onClick={onEdit}
+            >
+              {t("profilecard.edit")}
+            </Button>
+                      ) : (
+                        <HStack gap={8}>
+                          <Button
+                            data-testid="EditableProfileCardHeader.CancelBtn"
+                            variant="outline"
+                            color="error"
+                            onClick={onCancelEdit}
+                          >
+                            {t("profilecard.cancel")}
+                          </Button>
+                          <Button
+                            data-testid="EditableProfileCardHeader.SaveBtn"
+                            variant="outline"
+                            onClick={onSave}
+                            color="success"
+                          >
+                            {t("profilecard.save")}
+                          </Button>
+                        </HStack>
+                      )}
+        </div>
+                  )}
+      </HStack>
+    </Card>
   );
 };

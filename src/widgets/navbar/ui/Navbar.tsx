@@ -31,11 +31,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
     setIsAuthModal(true);
   }, []);
 
-  const mainClass = toggleFeatures({
-    name: "isAppRedesigned",
-    on: () => cls.NavbarRedesigned,
-    off: () => cls.Navbar,
-  });
+  const mainClass = cls.NavbarRedesigned;
 
   if (authData) {
     return (
@@ -50,23 +46,9 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
 
   return (
     <header className={classNames(mainClass, {}, [className])}>
-      <ToggleFeatures
-        feature="isAppRedesigned"
-        on={
-          <Button variant="clear" className={cls.links} onClick={onShowModal}>
-            {t("login")}
-          </Button>
-        }
-        off={
-          <ButtonDeprecated
-            theme={ThemeButton.CLEAR_INVERTED}
-            className={cls.links}
-            onClick={onShowModal}
-          >
-            {t("login")}
-          </ButtonDeprecated>
-        }
-      />
+      <Button variant="clear" className={cls.links} onClick={onShowModal}>
+        {t("login")}
+      </Button>
 
       {isAuthModal && (
         <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />

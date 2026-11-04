@@ -34,11 +34,7 @@ export const PageLayout: FC<PageLayoutProps> = (props) => {
   useInfiniteScroll({
     callback: onScrollEnd,
     triggerRef,
-    wrapperRef: toggleFeatures({
-      name: "isAppRedesigned",
-      on: () => undefined,
-      off: () => wrapperRef,
-    }),
+    wrapperRef: undefined,
   });
 
   useInitialEffect(() => {

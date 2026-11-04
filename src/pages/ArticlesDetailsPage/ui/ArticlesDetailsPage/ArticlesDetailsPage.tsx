@@ -41,43 +41,21 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <ToggleFeatures
-        feature="isAppRedesigned"
-        on={
-          <StickyContentLayout
-            content={
-              <PageLayout
-                className={classNames(cls.ArticlesDetailsPage, {}, [className])}
-              >
-                <VStack max gap={16}>
-                  {/* <ArticleDetails id={id} /> */}
-                  <DetailsContainer />
-                  <ArticleRating articleId={id} />
-                  <ArticleRecommendationsList />
-                  <ArticleDetailsComments id={id} />
-                </VStack>
-              </PageLayout>
-            }
-            right={<AdditionalInfoContainer />}
-          />
-        }
-        off={
+      <StickyContentLayout
+        content={
           <PageLayout
             className={classNames(cls.ArticlesDetailsPage, {}, [className])}
           >
             <VStack max gap={16}>
-              <ArticlesDetailsPageHeader />
-              <ArticleDetails id={id} />
-              <ToggleFeatures
-                feature={"isArticleRatingEnabled"}
-                on={<ArticleRating articleId={id} />}
-                off={<Card>{t("Рейтинг статьи coming soon...")}</Card>}
-              />
+              {/* <ArticleDetails id={id} /> */}
+              <DetailsContainer />
+              <ArticleRating articleId={id} />
               <ArticleRecommendationsList />
               <ArticleDetailsComments id={id} />
             </VStack>
           </PageLayout>
-        }
+                      }
+        right={<AdditionalInfoContainer />}
       />
     </DynamicModuleLoader>
   );

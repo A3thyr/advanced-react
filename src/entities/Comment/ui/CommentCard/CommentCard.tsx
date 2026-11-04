@@ -46,53 +46,29 @@ export const CommentCard: FC<CommentCardProps> = ({
   if (!comment) return null;
 
   return (
-    <ToggleFeatures
-      feature="isAppRedesigned"
-      on={
-        <Card padding={24} border="partial" max>
-          <VStack
-            data-testid="CommentCard.Content"
-            gap={8}
-            max
-            className={classNames(cls.CommentCardRedesigned, {}, [
-              className,
-              cls.loading,
-            ])}
-          >
-            <AppLink
-              to={getRouteProfile(comment.user.id)}
-              className={cls.header}
-            >
-              <HStack gap={8} align="center">
-                {comment.user.avatar && (
-                  <Avatar size={30} src={comment.user.avatar} />
-                )}
-                <Text bold text={comment.user.username} />
-              </HStack>
-            </AppLink>
-            <Text className={cls.text} text={comment.text} />
-          </VStack>
-        </Card>
-      }
-      off={
-        <VStack
-          data-testid="CommentCard.Content"
-          gap={8}
-          max
-          className={classNames(cls.CommentCard, {}, [className, cls.loading])}
+    <Card padding={24} border="partial" max>
+      <VStack
+        data-testid="CommentCard.Content"
+        gap={8}
+        max
+        className={classNames(cls.CommentCardRedesigned, {}, [
+                    className,
+                    cls.loading,
+                  ])}
+      >
+        <AppLink
+          to={getRouteProfile(comment.user.id)}
+          className={cls.header}
         >
-          <AppLink to={getRouteProfile(comment.user.id)} className={cls.header}>
+          <HStack gap={8} align="center">
             {comment.user.avatar && (
-              <AvatarDeprecated size={30} src={comment.user.avatar} />
-            )}
-            <TextDeprecated
-              className={cls.username}
-              title={comment.user.username}
-            />
-          </AppLink>
-          <TextDeprecated className={cls.text} text={comment.text} />
-        </VStack>
-      }
-    />
+            <Avatar size={30} src={comment.user.avatar} />
+                      )}
+            <Text bold text={comment.user.username} />
+          </HStack>
+        </AppLink>
+        <Text className={cls.text} text={comment.text} />
+      </VStack>
+    </Card>
   );
 };

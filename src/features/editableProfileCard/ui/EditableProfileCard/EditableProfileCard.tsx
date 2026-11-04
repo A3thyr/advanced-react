@@ -131,23 +131,10 @@ export const EditableProfileCard = ({
         <EditableProfileCardHeader />
         {validateErrors?.length &&
           validateErrors.map((err) => (
-            <ToggleFeatures
-              feature="isAppRedesigned"
-              on={
-                <Text
-                  key={err}
-                  data-testid="EditableProfileCard.Error"
-                  text={validateErrorTranslate[err]}
-                />
-              }
-              off={
-                <TextDeprecated
-                  key={err}
-                  data-testid="EditableProfileCard.Error"
-                  theme={TextTheme.ERROR}
-                  text={validateErrorTranslate[err]}
-                />
-              }
+            <Text
+              key={err}
+              data-testid="EditableProfileCard.Error"
+              text={validateErrorTranslate[err]}
             />
           ))}
         <ProfileCard

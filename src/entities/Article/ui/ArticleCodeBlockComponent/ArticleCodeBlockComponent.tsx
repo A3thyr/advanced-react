@@ -16,11 +16,7 @@ export const ArticleCodeBlockComponent = ({
 }: ArticleCodeBlockComponentProps) => {
   return (
     <div className={classNames(cls.ArticleCodeBlockComponent, {}, [className])}>
-      <ToggleFeatures
-        feature="isAppRedesigned"
-        on={<Code text={block.code} />}
-        off={<CodeDeprecated text={block.code} />}
-      />
+      <Code text={block.code} />
     </div>
   );
 };

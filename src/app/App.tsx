@@ -31,15 +31,9 @@ const App = () => {
 
   if (!userInited) {
     return (
-      <ToggleFeatures
-        feature="isAppRedesigned"
-        on={
-          <div id="app" className={classNames("app_redesigned", {}, [theme])}>
-            <AppLoaderLayout />
-          </div>
-        }
-        off={<PageLoader />}
-      />
+      <div id="app" className={classNames("app_redesigned", {}, [theme])}>
+        <AppLoaderLayout />
+      </div>
     );
   }
 

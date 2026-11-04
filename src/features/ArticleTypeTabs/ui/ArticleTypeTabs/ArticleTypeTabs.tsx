@@ -52,25 +52,12 @@ export const ArticleTypeTabs: FC<ArticleTypeTabsProps> = ({
   );
 
   return (
-    <ToggleFeatures
-      feature="isAppRedesigned"
-      on={
-        <Tabs
-          className={className}
-          direction="column"
-          tabs={typeTabs}
-          onTabClick={handleTabClick}
-          value={value}
-        />
-      }
-      off={
-        <TabsDeprecated
-          className={className}
-          tabs={typeTabs}
-          onTabClick={handleTabClick}
-          value={value}
-        />
-      }
+    <Tabs
+      className={className}
+      direction="column"
+      tabs={typeTabs}
+      onTabClick={handleTabClick}
+      value={value}
     />
   );
 };

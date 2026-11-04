@@ -45,11 +45,7 @@ export const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = ({
 
   return (
     <VStack gap={8} max className={classNames("", {}, [className])}>
-      <ToggleFeatures
-        feature="isAppRedesigned"
-        on={<Text size={"l"} title={t("comment-title")} />}
-        off={<TextDeprecated size={TextSize.L} title={t("comment-title")} />}
-      />
+      <Text size={"l"} title={t("comment-title")} />
 
       <Suspense fallback={t("loading")}>
         <AddCommentForm onSendComment={onSendComment} />

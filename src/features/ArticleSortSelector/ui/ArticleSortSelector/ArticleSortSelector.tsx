@@ -60,45 +60,24 @@ export const ArticleSortSelector: FC<ArticleSortSelectorProps> = ({
   );
 
   return (
-    <ToggleFeatures
-      feature="isAppRedesigned"
-      on={
-        <div
-          className={classNames(cls.ArticleSortSelectorRedesigned, {}, [
-            className,
-          ])}
-        >
-          <VStack gap={8}>
-            <Text text={t("Сортировать по:")} />
-            <ListBox
-              value={sort}
-              onChange={onChangeSort}
-              items={sortFieldOptions}
-            />
-            <ListBox
-              value={order}
-              onChange={onChangeOrder}
-              items={orderOptions}
-            />
-          </VStack>
-        </div>
-      }
-      off={
-        <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
-          <Select
-            value={sort}
-            onChange={onChangeSort}
-            options={sortFieldOptions}
-            label={t("dropdown-title")}
-          />
-          <Select
-            value={order}
-            onChange={onChangeOrder}
-            options={orderOptions}
-            label={t("by")}
-          />
-        </div>
-      }
-    />
+    <div
+      className={classNames(cls.ArticleSortSelectorRedesigned, {}, [
+                  className,
+                ])}
+    >
+      <VStack gap={8}>
+        <Text text={t("Сортировать по:")} />
+        <ListBox
+          value={sort}
+          onChange={onChangeSort}
+          items={sortFieldOptions}
+        />
+        <ListBox
+          value={order}
+          onChange={onChangeOrder}
+          items={orderOptions}
+        />
+      </VStack>
+    </div>
   );
 };

@@ -130,11 +130,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
     );
   } else {
     content = (
-      <ToggleFeatures
-        feature="isAppRedesigned"
-        on={<Redesigned />}
-        off={<Deprecated />}
-      />
+      <Redesigned />
     );
   }
 

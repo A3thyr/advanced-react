@@ -42,11 +42,7 @@ export const CommentList: FC<CommentListProps> = ({
           />
         ))
       ) : (
-        <ToggleFeatures
-          feature="isAppRedesigned"
-          on={<Text text={t("no-comment")} />}
-          off={<TextDeprecated text={t("no-comment")} />}
-        />
+        <Text text={t("no-comment")} />
       )}
     </VStack>
   );

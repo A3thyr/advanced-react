@@ -18,29 +18,13 @@ export const ArticleTextBlockComponent = memo(
         className={classNames(cls.ArticleTextBlockComponent, {}, [className])}
       >
         {block.title && (
-          <ToggleFeatures
-            feature="isAppRedesigned"
-            on={<Text title={block.title} className={cls.title} />}
-            off={<TextDeprecated title={block.title} className={cls.title} />}
-          />
+          <Text title={block.title} className={cls.title} />
         )}
         {block.paragraphs.map((paragraph) => (
-          <ToggleFeatures
-            feature="isAppRedesigned"
-            on={
-              <Text
-                key={paragraph}
-                text={paragraph}
-                className={cls.paragraph}
-              />
-            }
-            off={
-              <TextDeprecated
-                key={paragraph}
-                text={paragraph}
-                className={cls.paragraph}
-              />
-            }
+          <Text
+            key={paragraph}
+            text={paragraph}
+            className={cls.paragraph}
           />
         ))}
       </div>

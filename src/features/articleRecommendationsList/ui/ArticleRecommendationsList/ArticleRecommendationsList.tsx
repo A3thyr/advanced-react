@@ -45,11 +45,7 @@ export const ArticleRecommendationsList = ({
       gap={8}
       className={classNames("", {}, [className])}
     >
-      <ToggleFeatures
-        feature="isAppRedesigned"
-        on={<Text size={"l"} title={t("recommended")} />}
-        off={<TextDeprecated size={TextSize.L} title={t("recommended")} />}
-      />
+      <Text size={"l"} title={t("recommended")} />
 
       <ArticleList
         articles={recommendations}

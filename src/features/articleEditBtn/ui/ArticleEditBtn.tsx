@@ -22,14 +22,6 @@ export const ArticleEditBtn: FC = () => {
   }, [navigate, article]);
 
   return (
-    <ToggleFeatures
-      feature="isAppRedesigned"
-      on={<Button onClick={onEditArticle}>{t("edit")}</Button>}
-      off={
-        <ButtonDeprecated theme={ThemeButton.OUTLINE} onClick={onEditArticle}>
-          {t("header.edit")}
-        </ButtonDeprecated>
-      }
-    />
+    <Button onClick={onEditArticle}>{t("edit")}</Button>
   );
 };
