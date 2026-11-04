@@ -4,6 +4,8 @@ import {
   StyleDecorator,
   SuspenseDecorator,
   ThemeDecorator,
+  FeatureFlagsDecorator,
+  NewDesignDecorator,
 } from "../../src/shared/config/storybook";
 import { Theme } from "../../src/shared/const/theme";
 
@@ -31,3 +33,5 @@ addDecorator(ThemeDecorator(Theme.LIGHT));
 addDecorator(RouterDecorator);
 addDecorator(SuspenseDecorator);
 // addDecorator(StoreDecorator());
+addDecorator(FeatureFlagsDecorator({}));
+addDecorator(NewDesignDecorator);

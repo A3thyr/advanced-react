@@ -14,6 +14,7 @@ import { MainLayout } from "@/shared/layouts/MainLayout";
 import { ToggleFeatures } from "@/shared/lib/features";
 import { useAppToolbar } from "./lib/useAppToolbar";
 import { AppRouter } from "./providers/router";
+import { withTheme } from "./providers/theme-provider";
 
 const App = () => {
   const { theme } = useTheme();
@@ -56,4 +57,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default withTheme(App);

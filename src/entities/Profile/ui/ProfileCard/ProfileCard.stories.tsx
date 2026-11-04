@@ -1,7 +1,9 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
+
 import { Country } from "@/entities/Country";
 import { Currency } from "@/entities/Currency";
 import avatar from "@/shared/assets/tests/storybook.jpg";
+import { NewDesignDecorator } from "@/shared/config/storybook";
 import { ProfileCard } from "./ProfileCard";
 
 export default {
@@ -29,6 +31,21 @@ Primary.args = {
     avatar,
   },
 };
+
+export const PrimaryRedesigned = Template.bind({});
+PrimaryRedesigned.args = {
+  data: {
+    username: "Unknown",
+    age: 19,
+    country: Country.Kazakhstan,
+    lastname: "Something",
+    first: "Someone",
+    city: "sddfa",
+    currency: Currency.EUR,
+    avatar,
+  },
+};
+PrimaryRedesigned.decorators = [NewDesignDecorator];
 
 export const withError = Template.bind({});
 withError.args = {
